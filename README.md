@@ -4,11 +4,15 @@
 
 <img src="ASSETS/JS.gif" alt="JavaScript">
 
+-
+
 ### 정규교육과정 소개
 
 - JavaScript 작성 시, 피해야 할 코딩 습관, 좋은 코딩 습관 학습
 - 라이브러리 [jQuery](https://jquery.com/), [ScrollMagic](http://scrollmagic.io/), [GSAP](https://greensock.com/) 등을 통해 실무에 활용 가능한 예제 실습
 - 프레임워크 [Vue.js](https://vuejs.org/) 입문
+
+-
 
 1. JavaScript를 짜임새있게 짤 수 있는 방법을 다뤄보면서 피해야할 안좋은 코딩 습관을 살펴봅니다.
 1. [ECMAScript 6](http://www.ecma-international.org/ecma-262/6.0/)를 살펴보면서 [Node.js](http://nodejs.org/) 환경의 JavaScript도 가볍게 다뤄봅니다.
