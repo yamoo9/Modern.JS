@@ -270,11 +270,11 @@ while ( i < l ) {
 console.groupEnd('for 구문: music_list 순환 처리');
 
 // Step03. .music-list__container 요소를 찾아라.
-var music_listContainer = document.querySelector('.music-list__container');
+// var music_listContainer = document.querySelector('.music-list__container');
 // console.log('music_listContainer:', music_listContainer);
 
 // Step04. music_listContainer 요소에 cover_list_html 배열을 문자로 변환하여 붙임.
-music_listContainer.innerHTML = cover_list_html.join('');
+// music_listContainer.innerHTML = cover_list_html.join('');
 
 
 // for문은 어떤 경우에 사용하나?
@@ -352,10 +352,24 @@ console.log(xhr);
 
 
 // 비동기 통신을 설정
-xhr.open('GET', 'https://api.myjson.com/bins/iybg7', false);
-
+xhr.open('GET', 'https://api.myjson.com/bins/iybg7', false); // 동기 통신 요청
 // 서버에 요청
 xhr.send(null);
+
+if (xhr.status === 200) {
+  // console.log( isString(xhr.responseText) );
+  music_list = window.JSON.parse(xhr.responseText);
+  console.log(music_list);
+}
+
+
+// .call-music-list 버튼을 클릭하면
+// var call_musicList_btn = document.querySelector('.call-music-list');
+// call_musicList_btn.addEventListener('click', function() {
+//   // 서버에 요청
+//   xhr.send(null);
+// });
+
 
 console.groupEnd('Ajax 통신을 위한 객체 생성');
 
