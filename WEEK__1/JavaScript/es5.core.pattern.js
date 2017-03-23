@@ -35,9 +35,10 @@ var count = num; // 값 복사
 // count 변수 값에 변화를 주어도
 // num 값은 변화가 일어나지 않는다.
 count = count % 2;
-
+console.group('JavaScript 값 복사');
 console.log('count:', count);
 console.log('num:', num);
+console.groupEnd('JavaScript 값 복사');
 
 // 값 참조(pass by reference)
 
@@ -50,9 +51,10 @@ list.push(3);
 list.push(8);
 list.push(10);
 list.push(203);
-
+console.group('JavaScript 값 참조');
 console.log('list:', list);
 console.log('arr:', arr);
+console.groupEnd('JavaScript 값 참조');
 
 // 자바스크립트 메모리 관리는 어떻게 하는가?
 // https://developer.mozilla.org/ko/docs/Web/JavaScript/Memory_Management
@@ -72,6 +74,7 @@ console.log('%c------------------------------', 'color: #3d9a21');
 // 데이터 타입 검증 방법 1. typeof
 // http://bonsaiden.github.io/JavaScript-Garden/ko/#types.typeof
 // 왜? typeof 는 만든 이들도 잘못되었다고 인정하나?
+console.group('JavaScript: typeof 문제점');
 console.log('typeof num:', typeof num);
 console.log('typeof str:', typeof str);
 console.log('typeof boo:', typeof boo);
@@ -80,7 +83,7 @@ console.log('typeof obj:', typeof obj);
 console.log('typeof arr:', typeof arr);   // [X]
 console.log('typeof null:', typeof null); // [X]
 console.log('typeof undefined:', typeof undefined);
-
+console.groupEnd('JavaScript: typeof 문제점');
 
 // 데이터 타입 검증 방법 2. instanceof
 // http://bonsaiden.github.io/JavaScript-Garden/ko/#types.instanceof
@@ -88,6 +91,7 @@ console.log('typeof undefined:', typeof undefined);
 // Class: 객체를 생성하는 추상적 개념 e.g) 사람
 // instance: 실제 존재하는 객체 e.g) 지훈
 
+console.group('JavaScript: instanceof 문제점');
 console.log('num instanceof Number:', num instanceof Number);
 console.log('new Number(num) instanceof Number:', new Number(num) instanceof Number);
 console.log('str instanceof String:', str instanceof String);
@@ -97,7 +101,7 @@ console.log('new Boolean(boo) instanceof Boolean:', new Boolean(boo) instanceof 
 console.log('fnc instanceof Function:', fnc instanceof Function);
 console.log('obj instanceof Object:', obj instanceof Object);
 console.log('arr instanceof Array:', arr instanceof Array);
-
+console.groupEnd('JavaScript: instanceof 문제점');
 
 // 데이터 타입 검증 방법 3. .consturctor 속성
 
@@ -109,13 +113,14 @@ console.log('arr instanceof Array:', arr instanceof Array);
 // 단! 아래 방법은 객체만 감별할 수 있는 방법으로 객체가 아닌
 // undefined, null은 감지할 수없을 뿐더러 감지 시, 오류를 발생시킨다.
 
+console.group('JavaScript: constructor');
 console.log('num.constructor === Number:', num.constructor   === Number);
 console.log('str.constructor === String:', str.constructor   === String);
 console.log('boo.constructor === Boolean:', boo.constructor  === Boolean);
 console.log('fnc.constructor === Function:', fnc.constructor === Function);
 console.log('arr.constructor === Array:', arr.constructor    === Array);
 console.log('obj.constructor === Object:', obj.constructor   === Object);
-
+console.groupEnd('JavaScript: constructor');
 
 // 데이터 타입 검증 방법 4. 직접 만든 유틸리티 함수 detectType
 // 결론! 자바스크립트에서 제공해주는 typeof, instanceof, .constructor 모두
@@ -132,11 +137,13 @@ function detectType(data) {
   return Object.prototype.toString.call(data).slice(8,-1).toLowerCase();
 }
 
+console.group('JavaScript: detectType 함수 사용 예');
 console.log('detectType(num):', detectType(num));                      // 'number'
 console.log('detectType(arr):', detectType(arr));                      // 'array'
 console.log('detectType(null):', detectType(null));                    // 'null'
 console.log('detectType(undefined):', detectType(undefined));          // 'undefined'
 console.log('detectType(/(^https?:\/\/|\/$)/g):', detectType(/(\/)/)); // 'regexp'
+console.groupEnd('JavaScript: detectType 함수 사용 예');
 
 // detectType 함수를 래핑(wrapping)하는 유틸리티 함수
 function isNumber(data){
@@ -168,7 +175,7 @@ console.log('%c------------------------------', 'color: #3d9a21');
 // if ~ else  |  &&, ||
 // if (detectType(num) === 'number'){
 
-var data = [];
+var data = 'This is JavaScript Expression.';
 
 // if (isNumber(data))
 //   console.log('data is Number Type');
@@ -180,20 +187,99 @@ var data = [];
 // } else {
 //   console.log('data is not Number Type');
 // }
-
-// 구문
-if (isString(data)) {
-  data.split('').reverse().join('');
-}
-// 표현식
-isString(data) && data.split('').reverse().join('');
-
-
 // if (detectType(null) === 'null'){
 //   console.log('null is null Type');
 // }
 
+// 구문
+if (isString(data)) {
+  var reverse_data = data.split('').reverse().join('');
+}
+
+console.group('JavaScript 구문');
+console.log('data:', data);
+console.log('reverse_data:', reverse_data);
+console.groupEnd('JavaScript 구문');
+
+// 표현식
+var reverse_data_ex = isString(data) && data.split('').reverse().join('');
+
+console.group('JavaScript 표현식');
+console.log('data:', data);
+console.log('reverse_data_ex:', reverse_data_ex);
+console.groupEnd('JavaScript 표현식');
+
+// 자바스크립트 if문을 많이 사용하지만, 조건이 많아지면
+// switch ~ case 문을 사용하는 것이 권장된다.
+
+
 // for, for ~ in
+// 집합 데이터에 순환 처리
+// 배열 = '값의 집합'
+// 객체 = '속성:값이 쌍이 되는 덩어리 나열 집합'
+
+// Model: 데이터
+// 배열, 객체 사용해서 모델을 생성
+var music_list = [
+  {
+    "cover"  : "media/cover/001.EdSheeran-ShapeOfYou.jpg",
+    "source" : "media/source/001.EdSheeran-ShapeOfYou.mp3",
+    "alt"    : "EdSheeran - Shape Of You"
+  },
+  {
+    "cover"  : "media/cover/002.TheChainsmokers&Halsey-Closer.jpg",
+    "source" : "media/source/002.TheChainsmokers&Halsey-Closer.mp3",
+    "alt"    : "The Chainsmokers & Halsey - Closer"
+  },
+  {
+    "cover"  : "media/cover/003.Zayn&TaylorSwift-IDon'tWannaLiveForever(FiftyShadesDarker).jpg",
+    "source" : "media/source/003.Zayn&TaylorSwift-IDon'tWannaLiveForever(FiftyShadesDarker).mp3",
+    "alt"    : "Zayn & TaylorSwift - IDon't Wanna Live Forever (Fifty Shades Darker)"
+  },
+  {
+    "cover"  : "media/cover/004.KatyPerry&SkipMarley-ChainedToTheRhythm.jpg",
+    "source" : "media/source/004.KatyPerry&SkipMarley-ChainedToTheRhythm.mp3",
+    "alt"    : "Katy Perry & Skip Marley - ChainedToTheRhythm"
+  },
+  {
+    "cover"  : "media/cover/005.Migos&LilUziVert-BadAndBoujee.jpg",
+    "source" : "media/source/005.Migos&LilUziVert-BadAndBoujee.mp3",
+    "alt"    : "Migos & LilUziVert - Bad And Boujee"
+  },
+  {
+    "cover"  : "media/cover/006.TheChainsmokers-Paris.jpg",
+    "source" : "media/source/006.TheChainsmokers-Paris.mp3",
+    "alt"    : "The Chainsmokers - Paris"
+  },
+  {
+    "cover"  : "media/cover/007.Rihanna-LoveOnTheBrain.jpg",
+    "source" : "media/source/007.Rihanna-LoveOnTheBrain.mp3",
+    "alt"    : "Rihanna - Love On The Brain"
+  },
+  {
+    "cover"  : "media/cover/008.BrunoMars-That'sWhatILike.jpg",
+    "source" : "media/source/008.BrunoMars-That'sWhatILike.mp3",
+    "alt"    : "Bruno Mars - That's What I Like"
+  },
+  {
+    "cover"  : "media/cover/009.BigSean-BounceBack.jpg",
+    "source" : "media/source/009.BigSean-BounceBack.mp3",
+    "alt"    : "Big Sean - Bounce Back"
+  },
+  {
+    "cover"  : "media/cover/010.MachineGunKelly&CamilaCabello-BadThings.jpg",
+    "source" : "media/source/010.MachineGunKelly&CamilaCabello-BadThings.mp3",
+    "alt"    : "Machine Gun Kelly & Camila Cabello - Bad Things"
+  }
+]
+
+
+
+// for 구문
+for ( var i=0; i<10; ++i ) {
+  console.log('i:', i); // 0 ~ 9
+}
+
 
 
 
