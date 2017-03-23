@@ -247,7 +247,7 @@ console.groupEnd('JavaScript 표현식');
 var cover_list_html = [];
 
 console.group('for 구문: music_list 순환 처리');
-for ( var i=0; i<music_list.length; i = i+1 ) {
+for ( var i=0, l=music_list.length; i<l; i = i+1 ) {
   cover_list_html.push('\
     <li class="music-list__item">\
       <a href role="button" data-source="../'+ music_list[i].source +'">\

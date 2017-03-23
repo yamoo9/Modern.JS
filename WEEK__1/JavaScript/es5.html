@@ -17,8 +17,22 @@
       flex-flow: wrap;
       justify-content: center;
     }
+    .music-list__item {
+      flex: 0 0 20%;
+    }
+    .music-list__item a {
+      outline: 10px solid transparent;
+      transition: all 0.24s ease-out;
+    }
+    .music-list__item a:hover,
+    .music-list__item a:focus {
+      position: relative;
+      z-index: 1000;
+      outline: 10px solid #ad3b3a;
+    }
     .music-list__cover {
-      width: 500px;
+      /*width: 500px;*/
+      width: 100%;
       height: auto;
       vertical-align: top;
     }
