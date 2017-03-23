@@ -224,13 +224,14 @@ console.groupEnd('JavaScript 표현식');
 // 모듈 시스템 사용 시 현재 js에서 읽어오겠지만,
 // 현재 프론트엔드 환경에서는 그렇게 못한다.
 // 전역에 공개된 형태로 데이터를 로드 (script 요소 사용)
+// API: https://api.myjson.com/bins/iybg7
 
 // for 구문 + DOM API를 사용하여
 // 동적으로 콘텐츠를 구성하여 문서 객체의 하위 객체로 추가
 
 // Step01 문서 객체에 접근이 가능한가?
 // querySelector API => IE 8+ (단, CSS2 선택자만 가능)
-console.log('document.querySelector("body"):', document.querySelector("body"));
+// console.log('document.querySelector("body"):', document.querySelector("body"));
 
 // defer, async 속성 사용 방법, 차이점 설명
 // http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html
@@ -243,7 +244,7 @@ console.log('document.querySelector("body"):', document.querySelector("body"));
 
 console.group('for 구문: music_list 순환 처리');
 for ( var i=0; i<music_list.length; i = i+1 ) {
-  console.log( i + '번째 소스:', music_list[i].cover );
+  console.log( i + '번째 커버 이미지 경로:', music_list[i].cover );
 }
 console.groupEnd('for 구문: music_list 순환 처리');
 

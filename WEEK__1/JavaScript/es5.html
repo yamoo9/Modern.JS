@@ -4,8 +4,30 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta charset="UTF-8">
   <title>JavaScript &amp; ES5</title>
+  <style>
+    .music-list__cover {
+      width: 300px;
+      height: auto;
+    }
+  </style>
 </head>
 <body>
+
+  <!-- HTML Template -->
+  <div class="music-list" role="group">
+    <ul class="music-list__container" role="presentation">
+      <!-- loop: start -->
+      <li class="music-list__item">
+        <a href role="button">
+          <img
+            class="music-list__cover"
+            src="../media/cover/001.EdSheeran-ShapeOfYou.jpg"
+            alt="Ed Sheeran - Shape Of You">
+        </a>
+      </li>
+      <!-- loop: end -->
+    </ul>
+  </div>
 
 <script src="music_list.js"></script>
 <script src="es5.core.pattern.js"></script>
