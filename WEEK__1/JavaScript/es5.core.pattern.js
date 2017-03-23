@@ -301,6 +301,10 @@ for ( var i=music_list.length, music_item; --i > -1; ) {
   }
 }
 
+// 상속 받은 능력은 순환처리하면 성능에 악영향을 미치기 때문에
+// for ~ in 구문을 사용할 때는 항상 .hasOwnProperty()를
+// 사용하는 것이 권장된다.
+
 ////////////
 // ES5 상속
 ////////////
@@ -326,6 +330,35 @@ var artist = Object.create(human, {
     configurable: true
   },
 });
+
+console.log('%c------------------------------', 'color: #3d9a21');
+
+////////////////////////
+// 9. AJAX & REST API
+////////////////////////
+
+// Data API: GET, POST, PUT, DELETE
+// https://myjson.com
+// https://api.myjson.com/bins/iybg7
+
+// IE 6-, ActiveXObject() 사용....
+// IE 7+, XMLHttpRequest() 사용 가능
+
+// 비동기 통신을 위한 객체 생성 (생성자 함수로부터)
+var xhr = new XMLHttpRequest();
+
+console.group('Ajax 통신을 위한 객체 생성');
+console.log(xhr);
+
+
+// 비동기 통신을 설정
+xhr.open('GET', 'https://api.myjson.com/bins/iybg7', false);
+
+// 서버에 요청
+xhr.send(null);
+
+console.groupEnd('Ajax 통신을 위한 객체 생성');
+
 
 
 
@@ -365,11 +398,4 @@ console.log('%c------------------------------', 'color: #3d9a21');
 
 ////////////////////////
 // 8. ECMAScript 2015
-////////////////////////
-
-
-console.log('%c------------------------------', 'color: #3d9a21');
-
-////////////////////////
-// 9. AJAX & REST API
 ////////////////////////

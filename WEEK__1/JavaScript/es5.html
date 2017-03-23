@@ -35,6 +35,12 @@
       width: 100%;
       height: auto;
       vertical-align: top;
+      filter: saturate(0.15);
+      transition: all 0.24s ease-out;
+    }
+    .music-list__item a:hover .music-list__cover,
+    .music-list__item a:focus .music-list__cover {
+      filter: saturate(1);
     }
   </style>
 </head>
