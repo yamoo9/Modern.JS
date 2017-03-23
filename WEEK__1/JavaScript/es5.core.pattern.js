@@ -220,65 +220,32 @@ console.groupEnd('JavaScript 표현식');
 
 // Model: 데이터
 // 배열, 객체 사용해서 모델을 생성
-var music_list = [
-  {
-    "cover"  : "media/cover/001.EdSheeran-ShapeOfYou.jpg",
-    "source" : "media/source/001.EdSheeran-ShapeOfYou.mp3",
-    "alt"    : "EdSheeran - Shape Of You"
-  },
-  {
-    "cover"  : "media/cover/002.TheChainsmokers&Halsey-Closer.jpg",
-    "source" : "media/source/002.TheChainsmokers&Halsey-Closer.mp3",
-    "alt"    : "The Chainsmokers & Halsey - Closer"
-  },
-  {
-    "cover"  : "media/cover/003.Zayn&TaylorSwift-IDon'tWannaLiveForever(FiftyShadesDarker).jpg",
-    "source" : "media/source/003.Zayn&TaylorSwift-IDon'tWannaLiveForever(FiftyShadesDarker).mp3",
-    "alt"    : "Zayn & TaylorSwift - IDon't Wanna Live Forever (Fifty Shades Darker)"
-  },
-  {
-    "cover"  : "media/cover/004.KatyPerry&SkipMarley-ChainedToTheRhythm.jpg",
-    "source" : "media/source/004.KatyPerry&SkipMarley-ChainedToTheRhythm.mp3",
-    "alt"    : "Katy Perry & Skip Marley - ChainedToTheRhythm"
-  },
-  {
-    "cover"  : "media/cover/005.Migos&LilUziVert-BadAndBoujee.jpg",
-    "source" : "media/source/005.Migos&LilUziVert-BadAndBoujee.mp3",
-    "alt"    : "Migos & LilUziVert - Bad And Boujee"
-  },
-  {
-    "cover"  : "media/cover/006.TheChainsmokers-Paris.jpg",
-    "source" : "media/source/006.TheChainsmokers-Paris.mp3",
-    "alt"    : "The Chainsmokers - Paris"
-  },
-  {
-    "cover"  : "media/cover/007.Rihanna-LoveOnTheBrain.jpg",
-    "source" : "media/source/007.Rihanna-LoveOnTheBrain.mp3",
-    "alt"    : "Rihanna - Love On The Brain"
-  },
-  {
-    "cover"  : "media/cover/008.BrunoMars-That'sWhatILike.jpg",
-    "source" : "media/source/008.BrunoMars-That'sWhatILike.mp3",
-    "alt"    : "Bruno Mars - That's What I Like"
-  },
-  {
-    "cover"  : "media/cover/009.BigSean-BounceBack.jpg",
-    "source" : "media/source/009.BigSean-BounceBack.mp3",
-    "alt"    : "Big Sean - Bounce Back"
-  },
-  {
-    "cover"  : "media/cover/010.MachineGunKelly&CamilaCabello-BadThings.jpg",
-    "source" : "media/source/010.MachineGunKelly&CamilaCabello-BadThings.mp3",
-    "alt"    : "Machine Gun Kelly & Camila Cabello - Bad Things"
-  }
-]
+// 외부의 별도 music_list.js 파일에서 로드
+// 모듈 시스템 사용 시 현재 js에서 읽어오겠지만,
+// 현재 프론트엔드 환경에서는 그렇게 못한다.
+// 전역에 공개된 형태로 데이터를 로드 (script 요소 사용)
 
+// for 구문 + DOM API를 사용하여
+// 동적으로 콘텐츠를 구성하여 문서 객체의 하위 객체로 추가
 
+// Step01 문서 객체에 접근이 가능한가?
+// querySelector API => IE 8+ (단, CSS2 선택자만 가능)
+console.log('document.querySelector("body"):', document.querySelector("body"));
 
-// for 구문
-for ( var i=0; i<10; ++i ) {
-  console.log('i:', i); // 0 ~ 9
+// defer, async 속성 사용 방법, 차이점 설명
+// http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html
+
+// defer 속성은 HTML 해석이 끝난 후 차례대로 실행된다.
+// 하지만 모든 브라우저에서 지원하지는 않는다. (IE 10+)
+
+// async 속성은 비동기적으로 실행되기에 실행 순서가 보장되지 않는다.
+// 그러므로 의존 모듈이 있을 경우 사용에 주의가 요구된다.
+
+console.group('for 구문: music_list 순환 처리');
+for ( var i=0; i<music_list.length; i = i+1 ) {
+  console.log( i + '번째 소스:', music_list[i].cover );
 }
+console.groupEnd('for 구문: music_list 순환 처리');
 
 
 
