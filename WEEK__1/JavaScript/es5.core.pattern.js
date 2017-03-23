@@ -65,6 +65,7 @@ console.log('%c------------------------------', 'color: #3d9a21');
 
 // 2. JavaScript 데이터 유형 올바른 감지
 // 데이터 타입 검증 방법 1. typeof
+// http://bonsaiden.github.io/JavaScript-Garden/ko/#types.typeof
 // 왜? typeof 는 만든 이들도 잘못되었다고 인정하나?
 console.log('typeof num:', typeof num);
 console.log('typeof str:', typeof str);
@@ -75,7 +76,12 @@ console.log('typeof arr:', typeof arr);   // [X]
 console.log('typeof null:', typeof null); // [X]
 console.log('typeof undefined:', typeof undefined);
 
+
 // 데이터 타입 검증 방법 2. instanceof
+// http://bonsaiden.github.io/JavaScript-Garden/ko/#types.instanceof
+// instance instanceof Class
+// Class: 객체를 생성하는 추상적 개념 e.g) 사람
+// instance: 실제 존재하는 객체 e.g) 지훈
 
 console.log('num instanceof Number:', num instanceof Number);
 console.log('new Number(num) instanceof Number:', new Number(num) instanceof Number);
@@ -87,24 +93,44 @@ console.log('fnc instanceof Function:', fnc instanceof Function);
 console.log('obj instanceof Object:', obj instanceof Object);
 console.log('arr instanceof Array:', arr instanceof Array);
 
-// instance instanceof Class
-// Class: 객체를 생성하는 추상적 개념 e.g) 사람
-// instance: 실제 존재하는 객체 e.g) 지훈
 
 // 데이터 타입 검증 방법 3. .consturctor 속성
+
+
 // 데이터 타입 검증 방법 4. 직접 만든 유틸리티 함수 isType, type
 
 
+
+console.log('%c------------------------------', 'color: #3d9a21');
+
 // 3. JavaScript 구문과 표현식
+
+
+console.log('%c------------------------------', 'color: #3d9a21');
 
 // 4. JavaScript 함수에 관한 이야기
 
+
+console.log('%c------------------------------', 'color: #3d9a21');
+
 // 5. JavaScript 배열에 관한 이야기
+
+
+console.log('%c------------------------------', 'color: #3d9a21');
 
 // 6. JavaScript 객체에 관한 이야기
 
+
+console.log('%c------------------------------', 'color: #3d9a21');
+
 // 7. DOM API에 관한 이야기
 
+
+console.log('%c------------------------------', 'color: #3d9a21');
+
 // 8. ECMAScript 2015
+
+
+console.log('%c------------------------------', 'color: #3d9a21');
 
 // 9. AJAX & REST API
