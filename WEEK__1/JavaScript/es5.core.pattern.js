@@ -244,17 +244,24 @@ console.groupEnd('JavaScript 표현식');
 
 // Step02. 준비된 데이터를 순환하여 HTML String 데이터를 만들 템플릿을 추가
 
+// 변수는 함수 블록 내부에서만 영역으로 인정되어 지역변수화 되기 때문에
+// if, while, for 구문 내부에서는 밖으로 뛰쳐 나온다. 이를 호이스팅(Hoisting)이라고 부른다.
+// http://bonsaiden.github.io/JavaScript-Garden/ko/#function.general
 var cover_list_html = [];
 
 console.group('for 구문: music_list 순환 처리');
-for ( var i=0, l=music_list.length; i<l; i = i+1 ) {
+var i=0, l=music_list.length, item;
+
+// for ( ; i<l; ) {
+while ( i < l ) {
+  item = music_list[i++];
   cover_list_html.push('\
     <li class="music-list__item">\
-      <a href role="button" data-source="../'+ music_list[i].source +'">\
+      <a href role="button" data-source="../'+ item.source +'">\
         <img\
           class="music-list__cover"\
-          src="../'+ music_list[i].cover +'"\
-          alt="../'+ music_list[i].alt +'">\
+          src="../'+ item.cover +'"\
+          alt="../'+ item.alt +'">\
       </a>\
     </li>\
   ');
@@ -268,6 +275,62 @@ var music_listContainer = document.querySelector('.music-list__container');
 
 // Step04. music_listContainer 요소에 cover_list_html 배열을 문자로 변환하여 붙임.
 music_listContainer.innerHTML = cover_list_html.join('');
+
+
+// for문은 어떤 경우에 사용하나?
+// .length 속성을 가진 데이터를 순환할 때
+
+// for ~ in
+// .length 속성이 없는 데이터를 순환할 때
+// Object {} 를 순환할 때
+
+// JavaScript Object <-- 객체 지향 프로그래밍(Object Oriented Programming)
+// Class 프로그래밍 대신에 Prototype 프로그래밍 방식 사용
+// 객체를 생성하는 생성자(클래스)는 상위 생성자(클래스)를 가진다.
+// 상위 생성자의 능력을 자식 생성자는 물려 받는다. (상속)
+
+// 결론은 for~in 구문을 사용할 때 객체를 순환한다면
+// 반드시 .hasOwnProperty() 를 사용할 것!
+
+for ( var i=music_list.length, music_item; --i > -1; ) {
+  music_item = music_list[i];
+  for ( var key in music_item ) {
+    if ( music_item.hasOwnProperty(key) ) {
+      console.log('속성:', key);
+    }
+  }
+}
+
+////////////
+// ES5 상속
+////////////
+
+var human = {
+  sleeping: function() {},
+  running: function() {},
+  eating: function() {},
+  going: function() {},
+};
+
+var artist = Object.create(human, {
+  thinking: {
+    value: function(){},
+    writable: true,
+    enumerable: true,
+    configurable: true
+  },
+  drawing: {
+    value: function(){},
+    writable: true,
+    enumerable: true,
+    configurable: true
+  },
+});
+
+
+
+
+
 
 
 console.log('%c------------------------------', 'color: #3d9a21');
