@@ -61,7 +61,6 @@ console.log('arr:', arr);
 // 다만, IE 하위 버전의 경우는 알고리즘이 뛰어나지 못해 개발자의 나쁜 코드 습관에 따라
 // 메모리 누수가 발생, 애플리케이션에 문제를 발생시키기도 한다.
 
-// ---
 
 console.log('%c------------------------------', 'color: #3d9a21');
 
@@ -139,15 +138,63 @@ console.log('detectType(null):', detectType(null));                    // 'null'
 console.log('detectType(undefined):', detectType(undefined));          // 'undefined'
 console.log('detectType(/(^https?:\/\/|\/$)/g):', detectType(/(\/)/)); // 'regexp'
 
-
-
-
+// detectType 함수를 래핑(wrapping)하는 유틸리티 함수
+function isNumber(data){
+  return detectType(data) === 'number';
+}
+function isString(data){
+  return detectType(data) === 'string';
+}
+function isBoolean(data){
+  return detectType(data) === 'boolean';
+}
+function isFunction(data){
+  return detectType(data) === 'function';
+}
+function isArray(data){
+  return detectType(data) === 'array';
+}
+function isObject(data){
+  return detectType(data) === 'object';
+}
 
 console.log('%c------------------------------', 'color: #3d9a21');
+
 
 ///////////////////////////
 // 3. JavaScript 구문과 표현식
 ///////////////////////////
+
+// if ~ else  |  &&, ||
+// if (detectType(num) === 'number'){
+
+var data = [];
+
+// if (isNumber(data))
+//   console.log('data is Number Type');
+// else
+//   console.log('data is not Number Type');
+
+// if ( isNumber(data) ) {
+//   console.log('data is Number Type');
+// } else {
+//   console.log('data is not Number Type');
+// }
+
+// 구문
+if (isString(data)) {
+  data.split('').reverse().join('');
+}
+// 표현식
+isString(data) && data.split('').reverse().join('');
+
+
+// if (detectType(null) === 'null'){
+//   console.log('null is null Type');
+// }
+
+// for, for ~ in
+
 
 
 console.log('%c------------------------------', 'color: #3d9a21');
