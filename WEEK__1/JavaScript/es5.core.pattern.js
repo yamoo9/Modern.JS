@@ -133,11 +133,11 @@ function detectType(data) {
   return Object.prototype.toString.call(data).slice(8,-1).toLowerCase();
 }
 
-detectType(num);                   // 'number'
-detectType(arr);                   // 'array'
-detectType(null);                  // 'null'
-detectType(undefined);             // 'undefined'
-detectType(/(^https?:\/\/|\/$)/g); // 'regexp'
+console.log('detectType(num):', detectType(num));                      // 'number'
+console.log('detectType(arr):', detectType(arr));                      // 'array'
+console.log('detectType(null):', detectType(null));                    // 'null'
+console.log('detectType(undefined):', detectType(undefined));          // 'undefined'
+console.log('detectType(/(^https?:\/\/|\/$)/g):', detectType(/(\/)/)); // 'regexp'
 
 
 
