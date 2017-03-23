@@ -5,9 +5,22 @@
   <meta charset="UTF-8">
   <title>JavaScript &amp; ES5</title>
   <style>
+    body {
+      margin: 4rem;
+    }
+    .music-list__container {
+      list-style: none;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-left: 0;
+      display: flex;
+      flex-flow: wrap;
+      justify-content: center;
+    }
     .music-list__cover {
-      width: 300px;
+      width: 500px;
       height: auto;
+      vertical-align: top;
     }
   </style>
 </head>
@@ -17,14 +30,7 @@
   <div class="music-list" role="group">
     <ul class="music-list__container" role="presentation">
       <!-- loop: start -->
-      <li class="music-list__item">
-        <a href role="button">
-          <img
-            class="music-list__cover"
-            src="../media/cover/001.EdSheeran-ShapeOfYou.jpg"
-            alt="Ed Sheeran - Shape Of You">
-        </a>
-      </li>
+
       <!-- loop: end -->
     </ul>
   </div>

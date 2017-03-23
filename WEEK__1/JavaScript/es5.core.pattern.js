@@ -242,13 +242,32 @@ console.groupEnd('JavaScript 표현식');
 // async 속성은 비동기적으로 실행되기에 실행 순서가 보장되지 않는다.
 // 그러므로 의존 모듈이 있을 경우 사용에 주의가 요구된다.
 
+// Step02. 준비된 데이터를 순환하여 HTML String 데이터를 만들 템플릿을 추가
+
+var cover_list_html = [];
+
 console.group('for 구문: music_list 순환 처리');
 for ( var i=0; i<music_list.length; i = i+1 ) {
-  console.log( i + '번째 커버 이미지 경로:', music_list[i].cover );
+  cover_list_html.push('\
+    <li class="music-list__item">\
+      <a href role="button" data-source="../'+ music_list[i].source +'">\
+        <img\
+          class="music-list__cover"\
+          src="../'+ music_list[i].cover +'"\
+          alt="../'+ music_list[i].alt +'">\
+      </a>\
+    </li>\
+  ');
 }
+// console.log( cover_list_html.join('') );
 console.groupEnd('for 구문: music_list 순환 처리');
 
+// Step03. .music-list__container 요소를 찾아라.
+var music_listContainer = document.querySelector('.music-list__container');
+// console.log('music_listContainer:', music_listContainer);
 
+// Step04. music_listContainer 요소에 cover_list_html 배열을 문자로 변환하여 붙임.
+music_listContainer.innerHTML = cover_list_html.join('');
 
 
 console.log('%c------------------------------', 'color: #3d9a21');
