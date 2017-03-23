@@ -23,7 +23,32 @@ var fnc = function() {};
 
 // 원시 데이터 타입, 참조형 데이터 타입을 구분하는 중요한 포인트!
 // 값 복사(pass by value)
+// 원시 데이터 유형은 변수에 값이 복사된다.
+var count = num; // 값 복사
+// count 와 num 은 동일한 값을 가진 것처럼 보이나,
+// 실제 둘은 다른 값을 가진 것이다. (복사가 되었기에)
+
+// count 변수 값에 변화를 주어도
+// num 값은 변화가 일어나지 않는다.
+count = count % 2;
+
+console.log('count:', count);
+console.log('num:', num);
+
 // 값 참조(pass by reference)
+
+var list = arr; // 참조 (복사가 아닌 참조)
+
+// 동일한 객체를 참조하는 변수 중 하나에 변화를 가하게 되면
+// 그 객체를 참조한 다른 변수 또한 변화된 객체를 읽게 된다.
+
+list.push(3);
+list.push(8);
+list.push(10);
+list.push(203);
+
+console.log('list:', list);
+console.log('arr:', arr);
 
 // 자바스크립트 메모리 관리는 어떻게 하는가?
 
