@@ -95,6 +95,21 @@ console.log('arr instanceof Array:', arr instanceof Array);
 
 
 // 데이터 타입 검증 방법 3. .consturctor 속성
+// 속성을 가진 것은 모두 객체이다.
+// [의문?] 숫자 값, 문자 값, 논리 값은 객체가 아닌데 그럼 속성을 안 가지나?
+// [답변] 아니오. 가집니다. (?????) <- 자바스크립트 엔진이 우회(proxy)하여 객체인 것처럼 처리
+// JavaScript 환경의 모든 객체는 .constructor 속성을 반드시 가진다.
+
+console.log('num.constructor === Number:', num.constructor   === Number);
+console.log('str.constructor === String:', str.constructor   === String);
+console.log('boo.constructor === Boolean:', boo.constructor  === Boolean);
+console.log('fnc.constructor === Function:', fnc.constructor === Function);
+console.log('arr.constructor === Array:', arr.constructor    === Array);
+console.log('obj.constructor === Object:', obj.constructor   === Object);
+
+// 단! 위 방법은 객체만 감별할 수 있는 방법으로 객체가 아닌
+// undefined, null은 감지할 수없을 뿐더러 감지 시, 오류를 발생시킨다.
+
 
 
 // 데이터 타입 검증 방법 4. 직접 만든 유틸리티 함수 isType, type
