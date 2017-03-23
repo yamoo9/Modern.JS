@@ -1,6 +1,7 @@
 /*! es5.core.pattern.js © yamoo9.net, 2017 */
 
 // 1. JavaScript 데이터 유형
+// https://developer.mozilla.org/ko/docs/Web/JavaScript/Data_structures
 
 // 1-1. 원시(Primitive) 데이터 유형
 // 객체가 아닌 것(속성을 포함하지 않는다): undefined
@@ -51,6 +52,11 @@ console.log('list:', list);
 console.log('arr:', arr);
 
 // 자바스크립트 메모리 관리는 어떻게 하는가?
+// https://developer.mozilla.org/ko/docs/Web/JavaScript/Memory_Management
+
+// 데이터의 필요 유무를 감지하는 자체 알고리즘에 의해 가비지 콜렉터가 이를 처리한다.
+// 다만, IE 하위 버전의 경우는 알고리즘이 뛰어나지 못해 개발자의 나쁜 코드 습관에 따라
+// 메모리 누수가 발생, 애플리케이션에 문제를 발생시키기도 한다.
 
 // ---
 
