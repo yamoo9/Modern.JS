@@ -60,7 +60,40 @@ console.log('arr:', arr);
 
 // ---
 
+console.log('%c------------------------------', 'color: #3d9a21');
+
+
 // 2. JavaScript 데이터 유형 올바른 감지
+// 데이터 타입 검증 방법 1. typeof
+// 왜? typeof 는 만든 이들도 잘못되었다고 인정하나?
+console.log('typeof num:', typeof num);
+console.log('typeof str:', typeof str);
+console.log('typeof boo:', typeof boo);
+console.log('typeof fnc:', typeof fnc);
+console.log('typeof obj:', typeof obj);
+console.log('typeof arr:', typeof arr);   // [X]
+console.log('typeof null:', typeof null); // [X]
+console.log('typeof undefined:', typeof undefined);
+
+// 데이터 타입 검증 방법 2. instanceof
+
+console.log('num instanceof Number:', num instanceof Number);
+console.log('new Number(num) instanceof Number:', new Number(num) instanceof Number);
+console.log('str instanceof String:', str instanceof String);
+console.log('new String(str) instanceof String:', new String(str) instanceof String);
+console.log('boo instanceof Boolean:', boo instanceof Boolean);
+console.log('new Boolean(boo) instanceof Boolean:', new Boolean(boo) instanceof Boolean);
+console.log('fnc instanceof Function:', fnc instanceof Function);
+console.log('obj instanceof Object:', obj instanceof Object);
+console.log('arr instanceof Array:', arr instanceof Array);
+
+// instance instanceof Class
+// Class: 객체를 생성하는 추상적 개념 e.g) 사람
+// instance: 실제 존재하는 객체 e.g) 지훈
+
+// 데이터 타입 검증 방법 3. .consturctor 속성
+// 데이터 타입 검증 방법 4. 직접 만든 유틸리티 함수 isType, type
+
 
 // 3. JavaScript 구문과 표현식
 
