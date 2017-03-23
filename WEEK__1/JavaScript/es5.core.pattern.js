@@ -1,6 +1,9 @@
 /*! es5.core.pattern.js © yamoo9.net, 2017 */
 
+//////////////////////////
 // 1. JavaScript 데이터 유형
+//////////////////////////
+
 // https://developer.mozilla.org/ko/docs/Web/JavaScript/Data_structures
 
 // 1-1. 원시(Primitive) 데이터 유형
@@ -63,7 +66,10 @@ console.log('arr:', arr);
 console.log('%c------------------------------', 'color: #3d9a21');
 
 
+////////////////////////////////////
 // 2. JavaScript 데이터 유형 올바른 감지
+////////////////////////////////////
+
 // 데이터 타입 검증 방법 1. typeof
 // http://bonsaiden.github.io/JavaScript-Garden/ko/#types.typeof
 // 왜? typeof 는 만든 이들도 잘못되었다고 인정하나?
@@ -95,10 +101,14 @@ console.log('arr instanceof Array:', arr instanceof Array);
 
 
 // 데이터 타입 검증 방법 3. .consturctor 속성
+
 // 속성을 가진 것은 모두 객체이다.
 // [의문?] 숫자 값, 문자 값, 논리 값은 객체가 아닌데 그럼 속성을 안 가지나?
 // [답변] 아니오. 가집니다. (?????) <- 자바스크립트 엔진이 우회(proxy)하여 객체인 것처럼 처리
 // JavaScript 환경의 모든 객체는 .constructor 속성을 반드시 가진다.
+
+// 단! 아래 방법은 객체만 감별할 수 있는 방법으로 객체가 아닌
+// undefined, null은 감지할 수없을 뿐더러 감지 시, 오류를 발생시킨다.
 
 console.log('num.constructor === Number:', num.constructor   === Number);
 console.log('str.constructor === String:', str.constructor   === String);
@@ -107,45 +117,76 @@ console.log('fnc.constructor === Function:', fnc.constructor === Function);
 console.log('arr.constructor === Array:', arr.constructor    === Array);
 console.log('obj.constructor === Object:', obj.constructor   === Object);
 
-// 단! 위 방법은 객체만 감별할 수 있는 방법으로 객체가 아닌
-// undefined, null은 감지할 수없을 뿐더러 감지 시, 오류를 발생시킨다.
+
+// 데이터 타입 검증 방법 4. 직접 만든 유틸리티 함수 detectType
+// 결론! 자바스크립트에서 제공해주는 typeof, instanceof, .constructor 모두
+// 완벽하지는 않다. ㅠㅡㅠ 그럼 완벽한 검증은 어떻게?
+// 직접 만들자!
+
+// JSDoc, ESDoc
+/**
+ *  JavaScript의 모든 데이터 유형을 올바르게 감지하는 유틸리티 함수
+ *  @param  {any}     data  모든 데이터 유형
+ *  @return {string}        감지된 데이터 유형을 문자열(소문자)로 반환
+ */
+function detectType(data) {
+  return Object.prototype.toString.call(data).slice(8,-1).toLowerCase();
+}
+
+detectType(num);                   // 'number'
+detectType(arr);                   // 'array'
+detectType(null);                  // 'null'
+detectType(undefined);             // 'undefined'
+detectType(/(^https?:\/\/|\/$)/g); // 'regexp'
 
 
-
-// 데이터 타입 검증 방법 4. 직접 만든 유틸리티 함수 isType, type
 
 
 
 console.log('%c------------------------------', 'color: #3d9a21');
 
+///////////////////////////
 // 3. JavaScript 구문과 표현식
+///////////////////////////
 
 
 console.log('%c------------------------------', 'color: #3d9a21');
 
+//////////////////////////////
 // 4. JavaScript 함수에 관한 이야기
+//////////////////////////////
 
 
 console.log('%c------------------------------', 'color: #3d9a21');
 
+//////////////////////////////
 // 5. JavaScript 배열에 관한 이야기
+//////////////////////////////
 
 
 console.log('%c------------------------------', 'color: #3d9a21');
 
+//////////////////////////////
 // 6. JavaScript 객체에 관한 이야기
+//////////////////////////////
 
 
 console.log('%c------------------------------', 'color: #3d9a21');
 
+////////////////////////
 // 7. DOM API에 관한 이야기
+////////////////////////
 
 
 console.log('%c------------------------------', 'color: #3d9a21');
 
+////////////////////////
 // 8. ECMAScript 2015
+////////////////////////
 
 
 console.log('%c------------------------------', 'color: #3d9a21');
 
+////////////////////////
 // 9. AJAX & REST API
+////////////////////////
