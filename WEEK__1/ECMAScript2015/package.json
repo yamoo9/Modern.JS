@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "babel": "./node_modules/.bin/babel",
+    "es6"  : "npm run babel -- ./es6.js -o .es5.converted.js"
+  },
+
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-preset-env": "^1.2.1"
+  },
+
+  "babel": {
+    "presets": ["env"]
+  }
+
+}
