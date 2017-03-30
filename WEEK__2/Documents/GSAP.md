@@ -22,7 +22,8 @@ TweenLite는 작은 파일 크기로 애니메이션 작업을 수행하는 데 
 
 [GSAP × CDN](https://cdnjs.com/libraries/gsap)
 
-<details>
+
+
 ```html
 <!-- 필수: TweenLite Core -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenLite.min.js"></script>
@@ -36,7 +37,8 @@ TweenLite는 작은 파일 크기로 애니메이션 작업을 수행하는 데 
 <!-- TweenMax: 모두 포함 버전 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
 ```
-</details>
+
+
 
 ---
 
@@ -54,7 +56,7 @@ TweenLite는 작은 파일 크기로 애니메이션 작업을 수행하는 데 
 
 ##### Code
 
-<details>
+
 ```js
 // TweenLite 인스턴스 메서드
 //    .to(), .from(), .fromTo(), .set()
@@ -82,11 +84,11 @@ TweenLite.set( brand , {y: -20} );
 // 1초 뒤에 1초 동안 alpha 값을 자동 설정(0에서 시작)
 TweenLite.from( brand, 1, { autoAlpha: 0, delay: 1 });
 ```
-</details>
+
 
 ###### authoAlpha 속성
 
-<details>
+
 GSAP에서 제공하는 특별한 속성으로 `opacity` + `visibility`를 하나로 합친 속성이다.
 autoAlpha 속성 값 0 설정이란? 다음 설정과 같다.
 
@@ -101,7 +103,7 @@ autoAlpha 속성 값 0 설정이란? 다음 설정과 같다.
 
 
 <img src="../../ASSETS/greensock-tweenlite-autoalpha.png" alt="">
-</details>
+
 
 ---
 
@@ -111,7 +113,7 @@ autoAlpha 속성 값 0 설정이란? 다음 설정과 같다.
 
 ##### 이징 유형
 
-<details>
+
 ease | type
 --- | ---
 `Power0` | `easeNone`
@@ -128,7 +130,7 @@ ease | type
 `Expo` |
 `Sine` |
 `customElse.create()` |
-</details>
+
 
 ##### Code
 
@@ -146,7 +148,7 @@ TweenLite.from( brand, 1.45, { x: 100, ease: Back.easeOut } );
 
 ##### Code
 
-<details>
+
 ```js
 var update_count = 0;
 TweenLite.from(
@@ -162,7 +164,7 @@ function startAction()    { console.log( '애니메이션 시작!' ); }
 function updateAction()   { console.log( '애니메이션 업데이트!', ++update_count ); }
 function completeAction() { console.log( '애니메이션 완료!' ); }
 ```
-</details>
+
 
 ---
 
@@ -174,7 +176,7 @@ function completeAction() { console.log( '애니메이션 완료!' ); }
 
 ##### CDN
 
-<details>
+
 ```html
 <!-- TimelineLite CDN -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TimelineLite.min.js"></script>
@@ -182,11 +184,11 @@ function completeAction() { console.log( '애니메이션 완료!' ); }
 <!-- TimelineMax CDN -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TimelineMax.min.js"></script>
 ```
-</details>
+
 
 ##### 멅티 엘리먼트 애니메이션 설정
 
-<details>
+
 ```js
 var $soundtrac      = $('.soundtrac');
 var $disney_pixar   = $('.disney-pixar');
@@ -205,11 +207,11 @@ TweenMax.from( $m_o,            0.3, { autoAlpha: 0, y: -100, ease: Power1.easeO
 TweenMax.from( $wall_e,         0.3, { autoAlpha: 0, y: -100, ease: Power1.easeOut, delay: 1.0 } );
 TweenMax.from( $music_composed, 0.3, { autoAlpha: 0, y: -100, ease: Power1.easeOut, delay: 1.2 } );
 ```
-</details>
+
 
 ##### 멅티 엘리먼트 ➡︎ 타임라인 기반 애니메이션 설정
 
-<details>
+
 ```js
 // 타임라인 애니메이션 설정 —————————————————————————————————————————————————————————————————————————
 var tl = new TimelineLite();
@@ -225,7 +227,7 @@ tl
   .from( $wall_e,         0.3, { autoAlpha: 0, y: -100, ease: Power1.easeOut }, '-=0.15' )
   .from( $music_composed, 0.3, { autoAlpha: 0, y: -100, ease: Power1.easeOut }, '-=0.15' );
 ```
-</details>
+
 
 ---
 
@@ -233,7 +235,7 @@ tl
 
 포지션(절대/상대) 및 레이블 설정
 
-<details>
+
 ```js
 var tl = new TimelineLite();
 
@@ -250,7 +252,7 @@ tl
   .from( $wall_e,         0.3, { autoAlpha: 0, y: -100, ease: Power1.easeOut }, 2.5 )
   .from( $music_composed, 0.3, { autoAlpha: 0, y: -100, ease: Power1.easeOut }, 3 );
 ```
-</details>
+
 
 ---
 
@@ -267,7 +269,7 @@ tl
 
 ##### 컨트롤 버튼
 
-<details>
+
 ```html
 <button type="button" class="button is-play">play</button>
 <button type="button" class="button is-pause">pause</button>
@@ -279,11 +281,11 @@ tl
 <button type="button" class="button is-goto-50p">go to 50%</button>
 <button type="button" class="button is-restart">restart</button>
 ```
-</details>
+
 
 ##### 타임라인 컨트롤 이벤트 리스너 + 핸들러 설정
 
-<details>
+
 ```js
 $('.button.is-play').on('click', $.proxy(tl.play, tl));
 $('.button.is-pause').on('click', $.proxy(tl.pause, tl));
@@ -295,7 +297,7 @@ $('.button.is-seek-1s').on('click', $.proxy(tl.seek, tl, 1));
 $('.button.is-goto-50p').on('click', $.proxy(tl.progress, tl, 0.5));
 $('.button.is-restart').on('click', $.proxy(tl.restart, tl));
 ```
-</details>
+
 
 ---
 
@@ -307,7 +309,7 @@ $('.button.is-restart').on('click', $.proxy(tl.restart, tl));
 - `.staggerFrom()`
 - `.staggerFromTo()`
 
-<details>
+
 ```js
 // .staggerFrom()
 tl.staggerFrom($buttons, 0.3, {x: 100, ease: Power3.easeOut}, 0.1);
@@ -334,7 +336,7 @@ tl.staggerFrom($buttons, 0.3, {
   ease: Back.easeOut
 }, 0.1);
 ```
-</details>
+
 
 ---
 
@@ -342,7 +344,7 @@ tl.staggerFrom($buttons, 0.3, {
 
 ##### Loader 마크업
 
-<details>
+
 ```html
 <div class="loader" role="group" aria-label="로딩 중....">
   <div class="dot"></div>
@@ -351,11 +353,11 @@ tl.staggerFrom($buttons, 0.3, {
   <div class="dot"></div>
 </div>
 ```
-</details>
+
 
 ##### Loader, Dot 스타일링
 
-<details>
+
 ```scss
 .loader {
   position: absolute;
@@ -372,11 +374,11 @@ tl.staggerFrom($buttons, 0.3, {
   }
 }
 ```
-</details>
+
 
 ##### Loader, Dot 애니메이션 설정
 
-<details>
+
 ```js
 // { paused: true } 옵션 전달 : 일시정지
 var tl = new TimelineLite({ paused: true });
@@ -404,7 +406,7 @@ tlLoader
     0.9
   );
 ```
-</details>
+
 
 #### TimelineLite ➡︎ TimelineMax로 변경
 
@@ -414,7 +416,7 @@ tlLoader
 
 ##### 반복 설정 및 완료 이벤트 리스닝 & 콜백
 
-<details>
+
 ```js
 var tl = new TimelineLite({ paused: true });
 
@@ -428,11 +430,11 @@ funtion loadContent() {
   console.log('Loader 애니메이션 완료');
 }
 ```
-</details>
+
 
 ##### 콜백 함수 내부에 Loader Out 애니메이션 설정
 
-<details>
+
 ```js
 var tlLoader = new TimelineMax({ repeat: 2, onComplete: loadContent });
 
@@ -451,11 +453,11 @@ funtion loadContent() {
     .to($loader, 0.3, { y: -150, autoAlpha: 0, ease: Back.easeIn }, '+=0.3');
 }
 ```
-</details>
+
 
 ##### 로더 완료 시, 색상 변경 및 contentIn 콜백
 
-<details>
+
 ```js
 funtion loadContent() {
   // #2. { onComplete: contentIn } 설정
@@ -471,7 +473,7 @@ function contentIn() {
   tl.play();
 }
 ```
-</details>
+
 
 
 ---
@@ -480,7 +482,7 @@ function contentIn() {
 
 `addPause()` 메서드를 추가한 후, `play()`, `reverse()`로 컨트롤
 
-<details>
+
 ```js
 var tl = new TimelineLite({ paused: true });
 var $box = $('.box');
@@ -503,4 +505,4 @@ tl
 $button_prev.on('click', $.proxy(tl.play, tl));
 $button_next.on('click', $.proxy(tl.reverse, tl));
 ```
-</details>
+

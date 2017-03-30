@@ -44,7 +44,22 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
   <script>
-  TweenLite.to(element, 1, {vars, ease: Power3.easeInOut});
+    (function(global, TweenLite){
+      'use strict';
+
+      // DOM Script
+      var document = global.document;
+      // var soundtrac = document.querySelector('.soundtrac');
+      // TweenLite.set('.soundtrac', {y: -200});
+      TweenLite.from('.soundtrac', 2, {
+        y: -100,
+        autoAlpha: 0, // opacity, visibility
+        ease: Elastic.easeInOut,
+        delay: 0.2
+      }, 1);
+
+
+    })(window, window.TweenLite);
   </script>
 </body>
 
