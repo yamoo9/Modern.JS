@@ -8,4 +8,4 @@
 
   global.lectureList = new Model([]);
   global.readingBookList = new Model([]);
-})(window, window._Model);
+})(window, window.Model);
