@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "./node_modules/.bin/lite-server",
+    "babel": "babel es6 -d js",
+    "babel:w": "npm run babel -- -w"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.2.2",
+    "lite-server": "^2.3.0"
+  },
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}
