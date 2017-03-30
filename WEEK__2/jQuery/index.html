@@ -36,24 +36,25 @@
             <h3 class="card-header-title title is-5">
               Bulma.io - <span class="subtitle">Modern CSS Framework</span>
             </h3>
-            <a class="card-header-icon">
+            <!-- card collapse <-> card expand -->
+            <a href class="card-header-icon card-button is-toggle" role="button" aria-label="card collapse">
               <span class="icon">
-                <i class="fa fa-angle-down"></i>
+                <i class="fa fa-angle-down" aria-hidden="true"></i>
               </span>
             </a>
           </header>
-          <div class="card-content">
+          <div class="card-content" role="group">
             <div class="content">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-              <a>@bulmaio</a>. <a>#css</a> <a>#responsive</a>
+              <a class="card-tag">@bulmaio</a>. <a class="card-tag">#css</a> <a class="card-tag">#responsive</a>
               <br>
-              <small>11:09 PM - 1 Jan 2016</small>
+              <time>11:09 PM - 1 Jan 2016</time>
             </div>
           </div>
           <footer class="card-footer">
-            <a class="card-footer-item">Save</a>
-            <a class="card-footer-item">Edit</a>
-            <a class="card-footer-item">Delete</a>
+            <a href role="button" class="card-button is-save card-footer-item">Save</a>
+            <a href role="button" class="card-button is-edit card-footer-item">Edit</a>
+            <a href role="button" class="card-button is-delete card-footer-item">Delete</a>
           </footer>
         </div>
       </div>
