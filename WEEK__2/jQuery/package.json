@@ -1,7 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "start": "./node_modules/.bin/lite-server",
+    "start": "npm run babel:w | npm run serve",
+    "serve": "./node_modules/.bin/lite-server",
     "babel": "babel es6 -d js",
     "babel:w": "npm run babel -- -w"
   },
