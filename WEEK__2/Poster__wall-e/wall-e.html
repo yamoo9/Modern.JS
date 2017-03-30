@@ -9,6 +9,22 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="icon" href="images/favicon.png" type="image/x-icon">
+  <style>
+    .buttons {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+    }
+    .buttons button {
+      display: block;
+      width: 100%;
+      border-radius: 4px;
+      background: #fff;
+      border: none;
+      padding: 0.7em 1.2em;
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
 
 <body>
@@ -42,22 +58,124 @@
     </footer>
   </section>
 
+  <div class="buttons">
+    <button type="button" class="button is-play">play</button>
+    <button type="button" class="button is-pause">pause</button>
+    <button type="button" class="button is-resume">resume</button>
+    <button type="button" class="button is-reverse">reverse</button>
+    <button type="button" class="button is-speed-up">speed up</button>
+    <button type="button" class="button is-speed-down">speed down</button>
+    <button type="button" class="button is-seek-1s">seek 1sec</button>
+    <button type="button" class="button is-goto-50p">go to 50%</button>
+    <button type="button" class="button is-restart">restart</button>
+  </div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TimelineLite.min.js"></script>
   <script>
     (function(global, TweenLite){
       'use strict';
 
       // DOM Script
       var document = global.document;
+
+      // TimelineLite {} 인스턴스 생성
+      var tl = new TimelineLite({paused: true});
+
+      tl
+        .from('.soundtrac', 0.45,      { y: -100, autoAlpha: 0, ease:Bounce.easeOut         })
+        .from('.disney-pixar', 0.45,   { x: -1000, autoAlpha: 0, ease:Bounce.easeOut        })
+        // label: 'fire' 추가
+        .add('fire')
+        .from('.logo', 0.45,           { y: -100, autoAlpha: 0, ease:Bounce.easeOut         })
+        .from('.eve', 0.45,            { y: 300, x: -300, autoAlpha: 0, ease:Bounce.easeOut }, '-=0.2')
+        .from('.wall-e', 0.45,         { y: -100, autoAlpha: 0, ease:Bounce.easeOut         }, 0.4)
+        .from('.m-o', 0.45,            { x: -1000, autoAlpha: 0, ease:Bounce.easeOut        }, 'fire')
+        .from('.music-composed', 0.45, { y: -100, autoAlpha: 0, ease:Bounce.easeOut         });
+
+
+      tl.seek(0.45);
+
+      // document.onclick = tl.play.bind(tl);
+
+      // document.onmouseover = function() {
+      //   tl.play();
+      // };
+      // document.onmouseout = function() {
+      //   tl.reverse();
+      // };
+
+      document.querySelector('.button.is-play').onclick = function() {
+        tl.play();
+      };
+      document.querySelector('.button.is-pause').onclick = function() {
+        tl.pause();
+      };
+      document.querySelector('.button.is-resume').onclick = function() {
+        tl.resume();
+      };
+      document.querySelector('.button.is-reverse').onclick = function() {
+        tl.reverse();
+      };
+      document.querySelector('.button.is-speed-up').onclick = function() {
+        tl.timeScale(8);
+      };
+      document.querySelector('.button.is-speed-down').onclick = function() {
+        tl.timeScale(0.5);
+      };
+      document.querySelector('.button.is-seek-1s').onclick = function() {
+        tl.seek(1);
+      };
+      document.querySelector('.button.is-goto-50p').onclick = function() {
+        tl.progress(0.5);
+      };
+      document.querySelector('.button.is-restart').onclick = function() {
+        tl.restart();
+      };
+
       // var soundtrac = document.querySelector('.soundtrac');
       // TweenLite.set('.soundtrac', {y: -200});
-      TweenLite.from('.soundtrac', 2, {
-        y: -100,
-        autoAlpha: 0, // opacity, visibility
-        ease: Elastic.easeInOut,
-        delay: 0.2
-      }, 1);
+      // TweenLite.fromTo('.soundtrac', 2.4, {
+      //   y: -100,
+      //   autoAlpha: 0
+      // }, {
+      //   y: 10,
+      //   autoAlpha: 1,
+      //   ease: Elastic.easeInOut,
+      // });
 
+      // TweenLite.from('.soundtrac', 0.56,      { y: -100, autoAlpha: 0, ease:Power3.easeOut             });
+      // TweenLite.from('.disney-pixar', 0.56,   { x: -1000, autoAlpha: 0, ease:Power3.easeOut, delay: 0.2 });
+      // TweenLite.from('.logo', 0.56,           { y: -100, autoAlpha: 0, ease:Power3.easeOut, delay: 0.4 });
+      // TweenLite.from('.eve', 0.56,            { y: 300, x: -300, autoAlpha: 0, ease:Power3.easeOut, delay: 0.6 });
+      // TweenLite.from('.wall-e', 0.56,         { y: -100, autoAlpha: 0, ease:Power3.easeOut, delay: 0.8 });
+      // TweenLite.from('.m-o', 0.56,            { x: -1000, autoAlpha: 0, ease:Power3.easeOut, delay: 1.0 });
+      // TweenLite.from('.music-composed', 0.56, {
+      //   y: -100,
+      //   autoAlpha: 0,
+      //   ease:Power3.easeOut,
+      //   delay: 1.2,
+      //   onStart: function() {
+      //     console.log('animation start');
+      //     // document.body.style.background = 'red';
+      //   },
+      //   onUpdate: function() {console.log('onUpdate');},
+      //   onComplete: function() {console.log('onComplete');},
+      // });
+
+
+      var tlButtons = new TimelineLite();
+      var buttons = document.querySelectorAll('.buttons button');
+
+      tlButtons.staggerFrom(buttons, 0.3, {
+        cycle:{
+          x: [-100, 100],
+          scale: [2, 0.5],
+          rotation: [30, -30],
+        },
+        autoAlpha: 0,
+        ease: Power3.easeOut
+      }, 0.1);
 
     })(window, window.TweenLite);
   </script>
