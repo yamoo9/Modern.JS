@@ -11,8 +11,13 @@
       font-weight: 900;
       background: hsla(60, 100%, 50%, 0.23);
     }
-    .container {
-      margin-top: 40px;
+    .card-header-title.title {
+      margin-bottom: 0;
+    }
+    @media screen and (max-width: 50em) {
+      .container {
+        margin: 2rem;
+      }
     }
   </style>
 </head>
@@ -22,15 +27,15 @@
     <div class="content columns" lang="en">
       <div class="column is-4">
         <h1>jQuery Advanced</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-        <p>Quis voluptatem reiciendis obcaecati quaerat minus cumque?</p>
+        <p>Dolor sit amet, consectetur adipisicing. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, omnis.</p>
+        <p>Quis voluptatem reiciendis obcaecati quaerat minus cumque? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam aliquam neque repellendus.</p>
       </div>
       <div class="column is-4">
         <div class="card">
           <header class="card-header">
-            <p class="card-header-title">
-              Component
-            </p>
+            <h3 class="card-header-title title is-5">
+              Bulma.io - <span class="subtitle">Modern CSS Framework</span>
+            </h3>
             <a class="card-header-icon">
               <span class="icon">
                 <i class="fa fa-angle-down"></i>
@@ -53,10 +58,13 @@
         </div>
       </div>
       <div class="column is-4">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-        <p>Quis voluptatem reiciendis obcaecati quaerat minus cumque?</p>
-        <p class="is-on">Sed enim eum suscipit, necessitatibus tempore laboriosam.</p>
-        <p>Cupiditate adipisci nobis ullam fuga aperiam numquam.</p>
+      <figure class="image is-2by1">
+          <img src="http://bulma.io/images/placeholders/640x320.png">
+        </figure>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos!</p>
+        <p>Quis voluptatem reiciendis obcaecati quaerat minus cumque? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis!</p>
+        <p>Sed enim eum suscipit, necessitatibus tempore laboriosam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex?</p>
+        <p>Cupiditate adipisci nobis ullam fuga aperiam numquam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis.</p>
       </div>
     </div>
   </div>
