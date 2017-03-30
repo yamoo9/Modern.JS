@@ -11,6 +11,7 @@
     "lite-server": "^2.3.0"
   },
   "dependencies": {
+    "bulma": "^0.4.0",
     "jquery": "^3.2.1"
   }
 }

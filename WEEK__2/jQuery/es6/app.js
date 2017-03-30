@@ -32,7 +32,7 @@
     $.isBoolean(count)
   );
 
-  var $wrapper_paras = $('.wrapper').find('p');
+  var $wrapper_paras = $('.container').find('p');
 
   $.each($wrapper_paras, function(index) {
     var $p = $wrapper_paras.eq(index);
@@ -42,7 +42,7 @@
     // });
 
     // jQuery
-    $p.on( 'click', $.proxy($.fn.radioClass, $p, 'is-active') );
+    $p.on( 'click', $.proxy($.fn.radioClass, $p, 'is-on') );
     // ES 5
     // $p.on( 'click', $.fn.radioClass.bind($p) );
   });

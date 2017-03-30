@@ -4,22 +4,61 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge"></meta>
   <meta charset="UTF-8">
   <title>jQuery 중급 파트 학습</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="node_modules/bulma/css/bulma.css">
   <style>
-    .is-active {
+    .is-on {
       font-weight: 900;
       background: hsla(60, 100%, 50%, 0.23);
+    }
+    .container {
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
 
-  <h1 lang="en">jQuery Advanced</h1>
-
-  <div class="wrapper">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-    <p>Quis voluptatem reiciendis obcaecati quaerat minus cumque?</p>
-    <p class="is-active">Sed enim eum suscipit, necessitatibus tempore laboriosam.</p>
-    <p>Cupiditate adipisci nobis ullam fuga aperiam numquam.</p>
+  <div class="container">
+    <div class="content columns" lang="en">
+      <div class="column is-4">
+        <h1>jQuery Advanced</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+        <p>Quis voluptatem reiciendis obcaecati quaerat minus cumque?</p>
+      </div>
+      <div class="column is-4">
+        <div class="card">
+          <header class="card-header">
+            <p class="card-header-title">
+              Component
+            </p>
+            <a class="card-header-icon">
+              <span class="icon">
+                <i class="fa fa-angle-down"></i>
+              </span>
+            </a>
+          </header>
+          <div class="card-content">
+            <div class="content">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+              <a>@bulmaio</a>. <a>#css</a> <a>#responsive</a>
+              <br>
+              <small>11:09 PM - 1 Jan 2016</small>
+            </div>
+          </div>
+          <footer class="card-footer">
+            <a class="card-footer-item">Save</a>
+            <a class="card-footer-item">Edit</a>
+            <a class="card-footer-item">Delete</a>
+          </footer>
+        </div>
+      </div>
+      <div class="column is-4">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+        <p>Quis voluptatem reiciendis obcaecati quaerat minus cumque?</p>
+        <p class="is-on">Sed enim eum suscipit, necessitatibus tempore laboriosam.</p>
+        <p>Cupiditate adipisci nobis ullam fuga aperiam numquam.</p>
+      </div>
+    </div>
   </div>
 
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
