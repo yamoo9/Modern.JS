@@ -1,6 +1,6 @@
 ###### WEEK 02
 
-## WEEK 02. jQuery DAY
+## jQuery DAY
 
 둘째 주, jQuery 외 몇몇 라이브러리 활용 방법에 대해 이야기 나눠 봅니다.
 
