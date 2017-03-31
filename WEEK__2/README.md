@@ -44,6 +44,15 @@ GreenSock 애니메이션 플랫폼(GSAP) 라이브러리.
 - [ScrollMagic](http://scrollmagic.io)
 - [ScrollMagic Documentation](http://scrollmagic.io/docs/)[°](Documents/ScrollMagic.md)
 
+#### Scroll Magic 영상 강의 링크 (1주일만 공개)
+
+- [ScrollMagic 01](https://youtu.be/ZCBw6cW9Pmc)
+- [ScrollMagic 02](https://youtu.be/eY4yolrt_RI)
+- [ScrollMagic 03](https://youtu.be/p5pzIG0DOLY)
+- [ScrollMagic 04](https://youtu.be/mMg64hyApcw)
+- [ScrollMagic 05](https://youtu.be/68uf7MRzea0)
+- [ScrollMagic 06](https://youtu.be/5MjCXEz55CU)
+
 ---
 
 ### 4. Front-End Load Map

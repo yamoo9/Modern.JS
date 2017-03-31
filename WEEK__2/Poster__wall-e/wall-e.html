@@ -94,7 +94,7 @@
         .from('.music-composed', 0.45, { y: -100, autoAlpha: 0, ease:Bounce.easeOut         });
 
 
-      tl.seek(0.45);
+      // tl.seek(0.45);
 
       // document.onclick = tl.play.bind(tl);
 
@@ -167,7 +167,7 @@
       var tlButtons = new TimelineLite();
       var buttons = document.querySelectorAll('.buttons button');
 
-      tlButtons.staggerFrom(buttons, 0.3, {
+      tlButtons.staggerFrom(buttons, 0.5, {
         cycle:{
           x: [-100, 100],
           scale: [2, 0.5],
