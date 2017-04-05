@@ -83,15 +83,15 @@
       var tl = new TimelineLite({paused: true});
 
       tl
-        .from('.soundtrac', 0.45,      { y: -100, autoAlpha: 0, ease:Bounce.easeOut         })
-        .from('.disney-pixar', 0.45,   { x: -1000, autoAlpha: 0, ease:Bounce.easeOut        })
+        .from('.soundtrac', 0.75,      { y: -100, autoAlpha: 0, ease:Power4.easeOut         })
+        .from('.disney-pixar', 0.75,   { x: -1000, autoAlpha: 0, ease:Power4.easeOut        })
         // label: 'fire' 추가
         .add('fire')
-        .from('.logo', 0.45,           { y: -100, autoAlpha: 0, ease:Bounce.easeOut         })
-        .from('.eve', 0.45,            { y: 300, x: -300, autoAlpha: 0, ease:Bounce.easeOut }, '-=0.2')
-        .from('.wall-e', 0.45,         { y: -100, autoAlpha: 0, ease:Bounce.easeOut         }, 0.4)
-        .from('.m-o', 0.45,            { x: -1000, autoAlpha: 0, ease:Bounce.easeOut        }, 'fire')
-        .from('.music-composed', 0.45, { y: -100, autoAlpha: 0, ease:Bounce.easeOut         });
+        .from('.logo', 0.75,           { y: -100, autoAlpha: 0, ease:Power4.easeOut         })
+        .from('.eve', 0.75,            { y: 300, x: -300, autoAlpha: 0, ease:Power4.easeOut }, '-=0.2')
+        .from('.wall-e', 0.75,         { y: -100, autoAlpha: 0, ease:Power4.easeOut         }, 0.4)
+        .from('.m-o', 0.75,            { x: -1000, autoAlpha: 0, ease:Power4.easeOut        }, 'fire')
+        .from('.music-composed', 0.75, { y: -100, autoAlpha: 0, ease:Power4.easeOut         });
 
 
       // tl.seek(0.45);
@@ -169,9 +169,10 @@
 
       tlButtons.staggerFrom(buttons, 0.5, {
         cycle:{
-          x: [-100, 100],
-          scale: [2, 0.5],
-          rotation: [30, -30],
+          x: [100],
+          // autoAlpha: 0,
+          scale: [2],
+          // rotation: [30, -30],
         },
         autoAlpha: 0,
         ease: Power3.easeOut
