@@ -77,6 +77,23 @@
       </li>
     </ul>
 
+    <hr>
+
+    <input
+      class="user-input is-currency"
+      type="text"
+      v-model="currency">
+
+    <button
+      v-on:click="changeCurrency"
+      type="button"
+      class="button is-info">
+      change currency value</button>
+
+    <p class="result-currency">
+      {{ changed_currency_value }}
+    </p>
+
   </div>
 
 <!-- <script src="https://unpkg.com/jquery"></script> -->

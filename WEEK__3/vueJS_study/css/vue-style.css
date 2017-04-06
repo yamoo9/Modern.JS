@@ -59,3 +59,21 @@ caption.a11y-hidden { position: static; }
   top: -6px;
   float: right;
 }
+
+.is-currency {
+  border-color: #3273dc;
+  padding-top: 0.7em;
+  padding-bottom: 0.7em;
+  font-weight: 700;
+}
+
+.result-currency {
+  margin-top: 1rem;
+  padding-bottom: 0.2em;
+  border-bottom: 3px solid currentColor;
+}
+
+.control {
+  font-weight: 900;
+  color: #474cc5;
+}

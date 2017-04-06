@@ -86,7 +86,9 @@ window.user = {
           done: true,
           todo: 'jQuery 스타일 차차 잊기'
         }
-      ]
+      ],
+      currency: 10900,
+      changed_currency_value: '변경된 통화 값이 여기에 출력됩니다.'
     },
     methods: {
       addTodoItem: function(direction) {
@@ -118,6 +120,17 @@ window.user = {
         // remove todo item
         // console.log(index);
         this.todoList.splice(index, 1);
+      },
+      changeCurrency: function() {
+        var input = (this.currency + '').trim();
+        input = input.split('').reverse();
+        input.forEach(function(c,i) {
+          if ( i % 3 === 2 ) {
+            input.splice(i,1,','+c);
+          }
+        });
+        input = input.reverse().join('').replace(/^,/,'');
+        this.changed_currency_value = input + '원';
       }
     }
   };

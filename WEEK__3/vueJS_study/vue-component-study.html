@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge"></meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Study Vue JS Component</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.0/css/bulma.min.css">
+  <link rel="stylesheet" href="css/vue-style.css">
+</head>
+<body>
+
+  <div id="app" v-cloak>
+
+    <!-- <ul class="tabs" role="tablist">
+      <li role="presentation">
+        <a
+          role="tab"
+          class="tab"
+          href>tab item</a>
+      </li>
+    </ul> -->
+
+    <div class="container">
+      <div class="columns">
+        <div class="column is-4">
+          <tabs>
+            <tab v-on:click="tabActive">Computer</tab>
+            <tab v-on:click="tabActive">IA</tab>
+            <tab v-on:click="tabActive">AI</tab>
+            <tab v-on:click="tabActive">IOT</tab>
+            <tab v-on:click="tabActive">IT</tab>
+          </tabs>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+<script src="https://unpkg.com/vue"></script>
+<script src="js/vue-component.js">
+</script>
+</body>
+</html>
