@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge"></meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Study Vue JS Framework</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.0/css/bulma.min.css">
+  <link rel="stylesheet" href="css/vue-style.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="form-control">
+      <label
+        class="a11y-hidden"
+        for="user-input">사용자 입력</label>
+      <input
+        id="user-input"
+        class="user-input"
+        type="text"
+        v-model="input">
+    </div>
+
+    <p
+      class="input-result"
+      v-text="input">...</p>
+  </div>
+
+
+<script src="https://unpkg.com/jquery"></script>
+<script src="https://unpkg.com/vue"></script>
+<script src="js/vue-study.js"></script>
+</body>
+</html>
