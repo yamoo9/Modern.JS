@@ -1,6 +1,5 @@
 .container {
-  margin-top: 3rem;
-  margin-left: 3rem !important;
+  margin: 3rem;
 }
 
 .a11y-hidden {
@@ -28,4 +27,17 @@ caption.a11y-hidden { position: static; }
   border: 5px solid #474cc5;
   color: #474cc5;
   padding: 0.3em 0.5em;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+.input-result,
+.print-people {
+  margin-top: 2rem;
+}
+
+.pointer {
+  cursor: pointer;
 }

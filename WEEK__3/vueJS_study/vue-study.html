@@ -12,11 +12,12 @@
 </head>
 <body>
 
-  <div class="container">
+  <div class="container" v-cloak>
     <div class="form-control">
       <label
         class="a11y-hidden"
         for="user-input">사용자 입력</label>
+      <!-- v-* : Vue 디렉티브(Directive) -->
       <input
         id="user-input"
         class="user-input"
@@ -24,13 +25,41 @@
         v-model="input">
     </div>
 
+    <!-- v-if  VS  v-show 차이점 -->
+    <!-- v-if의 경우, 조건부 렌더링이 가능 -->
+    <!-- v-show의 경우, 수시로 토글할 경우 유용 -->
+
     <p
-      class="input-result"
+      class="box input-result"
+      v-if="using_v_text"
       v-text="input">...</p>
+
+    <p class="box input-result">{{ input }}</p>
+
+    <hr>
+
+    <ul class="print-people">
+      <li class="box" v-for="user of people">
+        <h4 class="title is-4 user-name">{{ user.name }}</h4>
+        <p class="user-age">{{ user.age }}</p>
+      </li>
+    </ul>
+
+    <hr>
+
+    <ul class="todo-list">
+      <li class="todo-item" v-for="item in todoList">
+        <label class="pointer">
+          <input
+            v-bind:checked="item.done"
+            type="checkbox"> {{ item.todo }}
+        </label>
+      </li>
+    </ul>
+
   </div>
 
-
-<script src="https://unpkg.com/jquery"></script>
+<!-- <script src="https://unpkg.com/jquery"></script> -->
 <script src="https://unpkg.com/vue"></script>
 <script src="js/vue-study.js"></script>
 </body>
