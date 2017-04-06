@@ -41,3 +41,21 @@ caption.a11y-hidden { position: static; }
 .pointer {
   cursor: pointer;
 }
+
+.is-todo-input {
+  width: 30em;
+  border-color: #00d1b2;
+  color: #00d1b2;
+  padding-top: 0.7em;
+  padding-bottom: 0.7em;
+}
+
+.form-control {
+  margin-bottom: 2rem;
+}
+
+.button.is-fr {
+  position: relative;
+  top: -6px;
+  float: right;
+}

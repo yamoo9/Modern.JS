@@ -71,6 +71,7 @@ window.user = {
           age: 45
         }
       ],
+      todo_item: '',
       todoList: [
         // 데이터 모델링
         {
@@ -86,6 +87,38 @@ window.user = {
           todo: 'jQuery 스타일 차차 잊기'
         }
       ]
+    },
+    methods: {
+      addTodoItem: function(direction) {
+        // console.log('add todo item');
+        // this === Vue {}     (X)
+        // this === Vue{}.data (O)
+        // console.log(this.todoList);
+        // console.log(direction);
+
+        var new_item = {
+          done: false,
+          todo: this.todo_item
+        };
+
+        // Method 1
+        // if ( direction === 'append' ) {
+        //   this.todoList.push(new_item);
+        // } else {
+        //   this.todoList.unshift(new_item);
+        // }
+
+        // Method 2
+        this.todoList[
+          direction === 'append' ?
+          'push' : 'unshift'
+        ](new_item);
+      },
+      removeTodoItem: function(index) {
+        // remove todo item
+        // console.log(index);
+        this.todoList.splice(index, 1);
+      }
     }
   };
 
