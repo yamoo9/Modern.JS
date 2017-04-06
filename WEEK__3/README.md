@@ -12,7 +12,8 @@ Keynote를 보면서 이야기 나눠 보겠습니다.
 
 <img src="https://github.com/pablohpsilva/Goal/raw/master/src/assets/giphy.gif" alt="Magic" width="275" height="252">
 
-[Vue JS 코어 레퍼런스](https://kr.vuejs.org/)
+- [Vue JS 코어 레퍼런스](https://kr.vuejs.org/)
+- [Vue JS 코어 레퍼런스 치트시트](https://yamoo9.github.io/vue/)
 
 ---
 
