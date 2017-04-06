@@ -27,11 +27,13 @@
       <div class="columns">
         <div class="column is-4">
           <tabs>
-            <tab v-on:click="tabActive">Computer</tab>
-            <tab v-on:click="tabActive">IA</tab>
-            <tab v-on:click="tabActive">AI</tab>
-            <tab v-on:click="tabActive">IOT</tab>
-            <tab v-on:click="tabActive">IT</tab>
+            <tab
+              v-for="(tab, index) in tabs"
+              key="'tab-'+index"
+              v-bind:item="tab"
+              v-bind:index="index">
+              <!-- {{tab}} -->
+            </tab>
           </tabs>
         </div>
       </div>
