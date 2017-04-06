@@ -108,6 +108,7 @@ Angular나 React 와 비교했을 때 어떤 점이 좋은 건지 이야기를 �
 - [[BOOK] The Majesty of Vue JS](https://leanpub.com/vuejs2/c/bfcm)
 - [[BOOK, Sample] The Majesty of Vue JS](https://leanpub.com/vuejs2/read_sample)
 - [[BOOK, GitHub] The Majesty of Vue JS](https://github.com/hootlex/the-majesty-of-vuejs)
+- [[BOOK] The Majesty of Vue JS 한국어판](https://leanpub.com/vuejs2-korean)
 
 <img src="https://camo.githubusercontent.com/6830e24a2dc6f5880780c5a2d6808b4003583e89/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f7469746c6570616765732e6c65616e7075622e636f6d2f7675656a732f6c617267653f31343538363133363335" alt="" width="150" height="195">
 

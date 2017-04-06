@@ -52,6 +52,5 @@ window.user = {
     el: '.container',
     data: global.user
   });
-  // .$mount('.container');
 
 })(window, window.Vue);
