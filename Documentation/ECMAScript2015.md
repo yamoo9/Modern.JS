@@ -73,7 +73,7 @@ getFood(false); // '허니버터칩'
 
 이런 변경점으로 인해 `var`를 사용했던 레거시 코드를 리팩토링할 때 더욱 조심해야 합니다. 무턱대고 `var` 대신 `let`을 사용하면 예상치 못한 동작을 할 수도 있습니다.
 
-> **Note**: `let`과 `const`는 블록 스코프 식별자입니다. 따라서, 블록 스코프 식별자로 정의하기 전에 참조하게 되면 `ReferenceError`를 발생시킵니다.
+> **Note** : `let`과 `const`는 블록 스코프 식별자입니다. 따라서, 블록 스코프 식별자로 정의하기 전에 참조하게 되면 `ReferenceError`를 발생시킵니다.
 
 ```js
 console.log(x);
@@ -81,7 +81,7 @@ console.log(x);
 let x = 'hi'; // ReferenceError: x is not defined
 ```
 
-> **Best Practice**: 더 조심스럽게 리팩토링하기 위해서 레거시 코드 내에 `var`선언을 남겨두세요. 새로운 코드베이스에서 작업하게 될 때, 변수 사용을 위해서 `let`을 사용하고, 상수 사용을 위해서 `const`를 사용하세요.
+> **Best Practice** : 더 조심스럽게 리팩토링하기 위해서 레거시 코드 내에 `var`선언을 남겨두세요. 새로운 코드베이스에서 작업하게 될 때, 변수 사용을 위해서 `let`을 사용하고, 상수 사용을 위해서 `const`를 사용하세요.
 
 <sup>[(목차로 돌아가기)](#목차)</sup>
 
@@ -168,7 +168,7 @@ Person.prototype.prefixName = function (arr) {
 };
 ```
 
-**화살표 함수**을 사용하면, `this`의 문맥 값이 사라지지 않기 때문에 위의 코드는 다음과 같이 다시 쓸 수 있습니다.
+**화살표 함수** 을 사용하면, `this`의 문맥 값이 사라지지 않기 때문에 위의 코드는 다음과 같이 다시 쓸 수 있습니다.
 
 ```js
 function Person(name) {
@@ -180,7 +180,7 @@ Person.prototype.prefixName = function (arr) {
 };
 ```
 
-> **Best Practice**: `this`의 문맥 값을 보존해야할 때마다 **화살표 함수**을 사용하세요.
+> **Best Practice** : `this`의 문맥 값을 보존해야할 때마다 **화살표 함수** 를 사용하세요.
 
 또한 화살표 함수은 간단한 값을 리턴하는 함수(함수 표현식)가 필요할 때 사용하면 더욱 간결합니다.
 
@@ -193,7 +193,7 @@ const arr = [1, 2, 3, 4, 5];
 const squares = arr.map(x => x * x); // 간결한 구현을 위한 화살표 함수
 ```
 
-> **Best Practice**: 가능하다면 함수 표현식 대신 **화살표 함수**을 활용하세요.
+> **Best Practice** : 가능하다면 함수 표현식 대신 **화살표 함수** 를 활용하세요.
 
 <sup>[(목차로 돌아가기)](#목차)</sup>
 
@@ -240,7 +240,7 @@ ES6에서는 이제 간결하게 구현할 수 있습니다.
 
 ### 템플릿 리터럴
 
-**템플릿 리터럴**을 사용하면 명시적인 문자열 이스케이프를 사용하지 않아도 특수문자를 포함한 문자열을 구축할 수 있습니다.
+**템플릿 리터럴** 을 사용하면 명시적인 문자열 이스케이프를 사용하지 않아도 특수문자를 포함한 문자열을 구축할 수 있습니다.
 
 ```js
 var text = "이 문자열은 이스케이프 된 \"큰 따옴표\"를 포함합니다.";
@@ -250,7 +250,7 @@ var text = "이 문자열은 이스케이프 된 \"큰 따옴표\"를 포함합�
 let text = `이 문자열은 이스케이프 된 "큰 따옴표"를 포함합니다.`;
 ```
 
-**템플릿 리터럴**은 문자열과 값을 연결시키는 문자열 Interpolation도 지원합니다.
+**템플릿 리터럴** 은 문자열과 값을 연결시키는 문자열 Interpolation도 지원합니다.
 
 ```js
 var name = '나비';
@@ -288,7 +288,7 @@ var text = [
 ].join('\n');
 ```
 
-**템플릿 리터럴**은 명시적으로 표시하지 않아도 개행을 보존합니다.
+**템플릿 리터럴** 은 명시적으로 표시하지 않아도 개행을 보존합니다.
 
 ```js
 let text = ( `고양이
@@ -297,7 +297,7 @@ let text = ( `고양이
 );
 ```
 
-뿐만 아니라, **템플릿 리터럴**은 표현식에도 접근할 수 있습니다.
+뿐만 아니라, **템플릿 리터럴** 은 표현식에도 접근할 수 있습니다.
 
 ```js
 let today = new Date();
@@ -347,7 +347,7 @@ console.log(father); // 'anakin'
 
 ## 모듈
 
-ES6 이전엔, 클라이언트 단은 [Browserify](http://browserify.org/), **Node.js**에서는 [require](https://nodejs.org/api/modules.html#modules_module_require_id)같은 라이브러리를 사용했습니다. 이제 ES6에서는 모든 종류(AMD와 CommonJS)의 모듈을 직접적으로 사용할 수 있습니다.
+ES6 이전엔, 클라이언트 단은 [Browserify](http://browserify.org/), **Node.js** 에서는 [require](https://nodejs.org/api/modules.html#modules_module_require_id)같은 라이브러리를 사용했습니다. 이제 ES6에서는 모든 종류(AMD와 CommonJS)의 모듈을 직접적으로 사용할 수 있습니다.
 
 ### CommonJS의 모듈 내보내기(Export)
 
@@ -360,14 +360,14 @@ module.exports = function bar () {};
 
 ### ES6의 모듈 내보내기
 
-ES6에서는, 다양한 방식으로 모듈을 내보낼 수 있습니다. 그 중 **지정 내보내기(named export)**방식은 다음과 같습니다.
+ES6에서는, 다양한 방식으로 모듈을 내보낼 수 있습니다. 그 중 **지정 내보내기(named export)** 방식은 다음과 같습니다.
 
 ```js
 export let name = 'David';
 export let age  = 25;​​
 ```
 
-또한 객체를 이용한 **리스트 내보내기(exporting a list)**방식도 있습니다.
+또한 객체를 이용한 **리스트 내보내기(exporting a list)** 방식도 있습니다.
 
 ```js
 function sumTwo(a, b) {
@@ -393,7 +393,7 @@ export function sumThree(a, b, c) {
 }
 ```
 
-마지막으로, **디폴트 모듈로 내보내기(default binding export)**도 가능합니다.
+마지막으로, **디폴트 모듈로 내보내기(default binding export)** 도 가능합니다.
 
 ```js
 function sumTwo(a, b) {
@@ -416,7 +416,7 @@ export default api;
  */
 ```
 
-> **Best Practice**: `export default`메소드는 항상 모듈 코드의 **마지막**에 위치해야 합니다. 그래야 내보내는 것이 무엇인지 분명해지며, 내보내는 값의 이름을 확인하는 시간을 절약할 수 있습니다. 그 이상으로, CommonJS의 일반적인 관행은 단일 값이나 객체를 내보내는 것입니다. 이런 컨벤션을 따름으로서, 코드의 가독성을 좋게 만들 수 있고 CommonJS와 ES6 모듈을 모두 사용할 수 있게 됩니다.
+> **Best Practice** : `export default`메소드는 항상 모듈 코드의 **마지막** 에 위치해야 합니다. 그래야 내보내는 것이 무엇인지 분명해지며, 내보내는 값의 이름을 확인하는 시간을 절약할 수 있습니다. 그 이상으로, CommonJS의 일반적인 관행은 단일 값이나 객체를 내보내는 것입니다. 이런 컨벤션을 따름으로서, 코드의 가독성을 좋게 만들 수 있고 CommonJS와 ES6 모듈을 모두 사용할 수 있게 됩니다.
 
 
 ### ES6의 모듈 불러오기(import)
@@ -444,7 +444,7 @@ import {
 } from 'math/addition';
 ```
 
-거기에 더해서, **모두 불러오기**(네임스페이스 불러오기)도 가능합니다.
+거기에 더해서, **모두 불러오기** (네임스페이스 불러오기)도 가능합니다.
 
 ```js
 import * as util from 'math/addition';
@@ -490,13 +490,13 @@ const { Component, PropTypes } = React;
 import React, { Component, PropTypes } from 'react';
 ```
 
-> **Note**: 내보내지는 값은 참조되는 것이 아니라 **바인딩**되는 것입니다. 그러므로, 어떤 모듈의 변수 바인딩을 바꾸게 되면 내보낸 모듈 내에서만 바뀌게 됩니다. 이렇게 내보낸 모듈의 값의 인터페이스를 바꾸는 것은 피하세요.
+> **Note** : 내보내지는 값은 참조되는 것이 아니라 **바인딩** 되는 것입니다. 그러므로, 어떤 모듈의 변수 바인딩을 바꾸게 되면 내보낸 모듈 내에서만 바뀌게 됩니다. 이렇게 내보낸 모듈의 값의 인터페이스를 바꾸는 것은 피하세요.
 
 <sup>[(목차로 돌아가기)](#목차)</sup>
 
 ## 파라미터(Parameter)
 
-ES5에서는 **디폴트 값(default values)**이나 **정의되지 않은 인자(indefinite arguments)** 혹은 **네임드 파라미터(named parameters)**를 다루는 함수를 구현하는 방법이 너무 많았습니다. ES6에서는 더욱 간결한 문법을 통해 이것들을 모두 다룰 수 있습니다.
+ES5에서는 **디폴트 값(default values)** 이나 **정의되지 않은 인자(indefinite arguments)** 혹은 **네임드 파라미터(named parameters)** 를 다루는 함수를 구현하는 방법이 너무 많았습니다. ES6에서는 더욱 간결한 문법을 통해 이것들을 모두 다룰 수 있습니다.
 
 ### 디폴트 파라미터(Default Parameter)
 
@@ -534,7 +534,7 @@ function logArguments() {
 }
 ```
 
-**레스트(rest)**연산자를 사용하면, 다음과 같이 가변적인 숫자의 인수를 넘길 수 있습니다.
+**레스트(rest)** 연산자를 사용하면, 다음과 같이 가변적인 숫자의 인수를 넘길 수 있습니다.
 
 ```js
 function logArguments(...args) {
@@ -663,7 +663,7 @@ class Personal extends Person {
 }
 ```
 
-> **Best Practice**: 클래스를 만들기 위한 ES6의 문법은 내부적으로 어떻게 프로토타입으로 구현되는지 모호하지만, 초보자들에게 좋은 기능이고 더 깨끗한 코드를 작성하도록 도와줍니다.
+> **Best Practice** : 클래스를 만들기 위한 ES6의 문법은 내부적으로 어떻게 프로토타입으로 구현되는지 모호하지만, 초보자들에게 좋은 기능이고 더 깨끗한 코드를 작성하도록 도와줍니다.
 
 <sup>[(목차로 돌아가기)](#목차)</sup>
 
@@ -726,7 +726,7 @@ class SomeReadableType {
 <sup>[(목차로 돌아가기)](#목차)</sup>
 
 ## 맵(Map)
-**맵**은 자바스크립트에서 자주 필요한 데이터 구조입니다. ES6 이전엔 객체를 이용해서 **해시** 맵을 생성했습니다.
+**맵** 은 자바스크립트에서 자주 필요한 데이터 구조입니다. ES6 이전엔 객체를 이용해서 **해시** 맵을 생성했습니다.
 
 ```js
 var map = new Object();
@@ -741,7 +741,7 @@ map[key2] = 'value2';
 > TypeError: Property 'hasOwnProperty' is not a function
 ```
 
-실제로 **맵**은 값을 위해 `get`, `set` 그리고 `search` 등의 메소드를 제공합니다.
+실제로 **맵** 은 값을 위해 `get`, `set` 그리고 `search` 등의 메소드를 제공합니다.
 
 ```js
 let map = new Map();
@@ -767,7 +767,7 @@ for (let key of map.keys()) {
 }
 ```
 
-> **Note**: 함수나 객체처럼 기본형 데이터 타입이 아닌 타입을 사용하면 `map.get()`같은 메소드를 사용할 때 비교 연산자가 제대로 동작하지 않습니다. 따라서, 문자열, 불린, 숫자 같은 기본형 데이터 타입을 계속 쓰는 것이 좋습니다.
+> **Note** : 함수나 객체처럼 기본형 데이터 타입이 아닌 타입을 사용하면 `map.get()`같은 메소드를 사용할 때 비교 연산자가 제대로 동작하지 않습니다. 따라서, 문자열, 불린, 숫자 같은 기본형 데이터 타입을 계속 쓰는 것이 좋습니다.
 
 또한 `.entries()`를 사용하면 맵을 순회할 수 있습니다.
 
@@ -843,7 +843,7 @@ value = map.get(el); // undefined
 
 위에서 보여준 대로, 객체가 가비지 콜렉터에 의해 한 번 제거된 다음에는 위크맵이 자동적으로 해당 객체에 의해 식별되는 key-value 쌍을 제거합니다.
 
-> **Note**: 더 나아가, 이 예제의 유용함을 보여주기 위해 jQuery가 참조를 가진 DOM 요소에 대응되는 객체의 캐시를 저장하는 방법을 생각해보세요. 위크맵을 사용하면, jQuery는 문서에서 지워진 특정 DOM 요소에 관련된 모든 메모리를 자동적으로 절약할 수 있습니다. 전반적으로, 위크맵은 DOM 요소를 감싸는 모든 라이브러리에 매우 유용합니다.
+> **Note** : 더 나아가, 이 예제의 유용함을 보여주기 위해 jQuery가 참조를 가진 DOM 요소에 대응되는 객체의 캐시를 저장하는 방법을 생각해보세요. 위크맵을 사용하면, jQuery는 문서에서 지워진 특정 DOM 요소에 관련된 모든 메모리를 자동적으로 절약할 수 있습니다. 전반적으로, 위크맵은 DOM 요소를 감싸는 모든 라이브러리에 매우 유용합니다.
 
 <sup>[(목차로 돌아가기)](#목차)</sup>
 
@@ -885,9 +885,9 @@ new Promise((resolve, reject) =>
         .catch(reason => console.log(reason));
 ```
 
-Promise가 제대로 동작(**fulfill**)했을 때 호출되는 **resolve** 메소드와 Promise가 제대로 동작하지 않(**rejected**)았을 때 호출되는 **reject** 메소드를 이용해 Promise를 다룰 수 있습니다.
+Promise가 제대로 동작( **fulfill** )했을 때 호출되는 **resolve** 메소드와 Promise가 제대로 동작하지 않았을 때( **rejected** ) 호출되는 **reject** 메소드를 이용해 Promise를 다룰 수 있습니다.
 
-> **Promise의 장점**: 중첩된 콜백 코드에서는 에러 핸들링하기가 혼란스럽습니다. Promise를 사용하면 에러를 적절히 위로 깨끗하게 전파할 수 있습니다. 게다가, resolve/reject된 후의 Promise의 값은 불변입니다.
+> **Promise의 장점** : 중첩된 콜백 코드에서는 에러 핸들링하기가 혼란스럽습니다. Promise를 사용하면 에러를 적절히 위로 깨끗하게 전파할 수 있습니다. 게다가, resolve/reject된 후의 Promise의 값은 불변입니다.
 
 아래는 Promise를 사용하는 실질적인 예제입니다.
 
@@ -905,7 +905,7 @@ return new Promise((resolve, reject) => {
 });
 ```
 
-또한 `Promise.all()`을 사용해서 비동기 동작들의 배열을 다루는 Promise를 **병렬화**할 수 있습니다.
+또한 `Promise.all()`을 사용해서 비동기 동작들의 배열을 다루는 Promise를 **병렬화** 할 수 있습니다.
 
 ```js
 let urls = [
