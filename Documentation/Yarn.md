@@ -4,7 +4,7 @@
 
 [Yarn](https://yarnpkg.com/)은 NPM 보다 빠른 다른 패키지 매니저로 오프라인 환경에도 대응하고 의존 모듈을 보다 잘 관리합니다. Yarn은 [2016년 10월에 출시](https://code.facebook.com/posts/1840075619545360)된 이후 패키지 관리자의 새로운 대안으로 JavaScript 커뮤니티에 급속도로 받아 들여지고 있습니다. Yarn을 사용하면 `npm install --save` 대신 `yarn add`를, `npm install --save-dev` 대신 `yarn add --dev` 명령으로 대신할 수 있습니다.
 
--
+
 
 ### 1. Yarn 설치
 
@@ -28,7 +28,7 @@ success Saved lockfile.
 
 ※ [NPM을 이용하지 않고 설치하는 방법](https://yarnpkg.com/en/docs/install)도 있습니다.
 
--
+
 
 ### 2. Yarn을 이용하여 프로젝트 디렉토리 초기화
 
@@ -48,7 +48,7 @@ success Saved package.json
 ✨  Done in 0.06s.
 ```
 
--
+
 
 ### 3. Yarn 스크립트 시작하기
 
@@ -102,7 +102,7 @@ npm-debug.log
 yarn-error.log
 ```
 
--
+
 
 ### 4. Yarn 패키지 설치/관리
 
@@ -132,7 +132,7 @@ console.log('yellow_hexa: ', yellow_hexa); // yellow_hexa: #FFFF00 출력
 $ yarn remove color
 ```
 
--
+
 
 ### 5. CLI 명령어
 
