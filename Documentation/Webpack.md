@@ -4,8 +4,6 @@
 
 모던 웹 개발에 있어서 [Webpack](https://webpack.js.org/)은 매우 중요한 도구 중 하나로 자리 잡았습니다. 주로 자바스크립트를 위한 모듈 번들러이지만, HTML, CSS 뿐만 아니라 이미지 같은 프론트엔드 Assets을 변환시켜 줄 수 있습니다. 애플리케이션 HTTP 요청 갯수를 컨트롤 할 수 있게 만들 수 있으며, 다른 종류의 Assets(Pug, Sass, ES2015 등)를 사용 할 수 있게 도와줍니다.
 
--
-
 ### 1. Webpack v2 설치
 
 `npm` 모듈 `webpack` 전역 설치
@@ -22,9 +20,7 @@ $ npm show webpack@* version # 2.x 버전 확인 시: npm show webpack@2.* versi
 
 # Webpack v2.2.1 설치 예시
 $ npm i -D webpack@2.2.1
-```
-
--
+`
 
 ### 2. Webpack CLI
 
@@ -67,9 +63,7 @@ NPM 스크립트(Scirpt)
 },
 ```
 
--
-
-### 3. Webpack + CSS 로더
+### 3-1. Webpack + CSS 로더
 
 `webpack` CSS 패키징 (의존 모듈 설치)
 
@@ -93,9 +87,9 @@ require('!style!css!../css/style.css');
 > ※ `require()` 구문 안의 문자열이 다소 복잡한 이유는
 > 파일을 로드할 로더(loader)를 설정해줘야 하기 때문.
 
--
 
-### 4. Webpack + Sass
+
+### 3-2. Webpack + Sass
 
 `webpack` Sass 패키징 (의존 모듈 설치)
 
@@ -112,7 +106,7 @@ $ npm i -D node-sass sass-loader
 require('!style!css!sass!../sass/style.sass');
 ```
 
--
+
 
 ### 4. Webpack 환경설정(Config) [@1.x](http://webpack.github.io/docs/configuration.html)/[@2.x](https://webpack.js.org/concepts/)
 
@@ -232,8 +226,6 @@ module.exports = {
 };
 ```
 
--
-
 ### 5. Webpack Dev Server 설치
 
 `8080` 포트로 실행되는 **Express(node.js)서버**. 서버는 내부적으로 Webpack을 호출.<br>
@@ -284,7 +276,6 @@ $ webpack-dev-server --inline --hot
 
 두 개 옵션을 모두 지정할 경우 “Hot Module Reloading”이 발생하고, “Hot Module Reloading”이 안되면 전체 페이지를 로딩을 한다.
 
--
 
 ### 6. 멀티 파일 번들링
 
@@ -329,7 +320,6 @@ module.exports = {
 };
 ```
 
--
 
 ### 7. Webpack + Babel (ECMAScript 2015)
 
@@ -393,8 +383,6 @@ module.exports = {
 
 };
 ```
-
--
 
 ### 8. Webpack + ESLint 프리로더(Pre Loader)
 
@@ -469,7 +457,6 @@ module.exports = {
 };
 ```
 
--
 
 ### 9. Webpack + TypeScript
 
@@ -501,7 +488,6 @@ module.exports = {
 };
 ```
 
--
 
 ### 10. Webpack 빌드
 
@@ -573,7 +559,6 @@ module.exports = {
 };
 ```
 
--
 
 ### 11. 프로젝트 디렉토리 구조
 
@@ -620,7 +605,6 @@ module.exports = {
 <script src="/public/assets/bundle.js"></script>
 ```
 
--
 
 ### 12. CSS 번들파일 별도 분리
 
@@ -666,7 +650,6 @@ module.exports = {
 <link rel="stylesheet" href="/public/assets/style.css">
 ```
 
--
 
 ### 13. Autoprefixer 모듈
 
@@ -699,8 +682,6 @@ module.exports = {
 }
 ```
 
--
-
 ### 14. jQuery 라이브러리 모듈
 
 ```sh
@@ -715,7 +696,6 @@ $ npm i -D jquery
 import $ from 'jquery';
 ```
 
--
 
 ### 15. 페이지 별, 번들 (멀티)
 
@@ -741,8 +721,6 @@ module.exports = {
 
 };
 ```
-
--
 
 ### 16. 이미지/폰트 로더
 

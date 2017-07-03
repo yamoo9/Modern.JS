@@ -159,3 +159,39 @@ Options:
   -q, --quiet                          Don't log anything
   -V, --version                        output the version number
 ```
+
+---
+
+##### babel polyfill 설치
+
+애플리케이션에서 ECMAScript 2015+ 환경을 에뮬레이션할 때 사용합니다. polyfill은 babel-node 사용 시 자동으로 로드됩니다.
+즉, `Promise` 또는 `WeakMap`, `Array.from` 또는 `Object.assign`과 같은 정적 메서드, `Array.prototype.includes`와 같은
+인스턴스 메서드 및 생성자 함수(`regenerator` 플러그인을 사용하는 경우)와 같은 새로운 내장 함수를 사용할 수 있음을 의미합니다.
+polyfill은 이를 수행하기 위해 `String`과 같은 원시 프로토 타입뿐만 아니라 전역 범위에 추가합니다.
+
+```sh
+# babel.core 소스 코드보다 먼저 실행해야 하기에 devDependency가 아닌, dependency로 설치해야 합니다.
+$ npm install --save babel-polyfill
+```
+
+##### Node.js, Webpack에서의 사용법
+
+```sh
+require('babel-polyfill');
+```
+
+```sh
+import 'babel-polyfill';
+```
+
+```sh
+module.exports = { entry: ['babel-polyfill', 'app/js'] };
+```
+
+##### 웹 브라우저 환경에서의 사용법
+
+`babel.js` 코드 앞에 먼저 호출되어야 합니다.
+
+```sh
+<script src="babel-polyfill.js"></script>
+```
