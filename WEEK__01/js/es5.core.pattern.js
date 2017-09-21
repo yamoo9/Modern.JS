@@ -6,10 +6,28 @@
 
 // https://developer.mozilla.org/ko/docs/Web/JavaScript/Data_structures
 
+// JavaScript 데이터 유형(Data Types)
+
 // 1-1. 원시(Primitive) 데이터 유형
+// null
+// undefined
+// number
+// string
+// boolean
 
 // 1-2. 참조(Reference)형 데이터 유형
+// Function
+// Array
+// Object
 
+// JavaScript의 내장 객체(Native Objects)의 경우 리터럴을 사용하라
+// single var pattern
+var num = 9,
+    str = "nine",
+    boo = false,
+    fnc = function(){},
+    arr = [],
+    obj = {};
 
 
 
