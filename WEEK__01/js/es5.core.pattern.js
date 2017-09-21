@@ -21,7 +21,7 @@
 // Object
 
 // JavaScript의 내장 객체(Native Objects)의 경우 리터럴을 사용하라
-// single var pattern
+// single `var` pattern
 var num = 9,
     str = "nine",
     boo = false,
@@ -29,8 +29,45 @@ var num = 9,
     arr = [],
     obj = {};
 
+// 사용자 정의 생성자(class)의 인스턴스 생성 구문은 리터럴 식이 없다.
+function Button(){}
+var my_btn = new Button(); // Button {}
 
 
+// 1-3. 값 복사와 참조
+
+// 값 복사가 이루어지는 JavaScript 데이터 유형은?
+// null
+// undefined
+// number
+// string
+// boolean
+
+var numx = num; // = 할당 연산자
+
+console.log('num:', num);
+console.log('numx:', numx);
+
+// 변형을 가하면?
+num += 1; // 10
+
+console.log('[fix] num:', num);   // 10
+console.log('[fix] numx:', numx); // 9
+
+// 값 참조가 이루어지는 JavaScript 데이터 유형은?
+// Function
+// Array
+// Object
+
+var book_list = arr;                  // []
+console.log('book_list:', book_list); // []
+console.log('arr:', arr);             // []
+
+// 변형을 가하면?
+book_list.push('다시 만난 세계'); // ['다시 만난 세계']
+
+console.log('[fix] book_list:', book_list); // ['다시 만난 세계']
+console.log('[fix] arr:', arr);             // ['다시 만난 세계']
 
 ////////////////////////////////////
 // 2. JavaScript 데이터 유형 올바른 감지
