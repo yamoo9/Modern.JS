@@ -1,0 +1,22 @@
+{
+  "name": "modern-js",
+  "version": "0.0.1",
+  "description": "Modern JavaScript ??",
+  "scripts": {
+    "start": ""
+  },
+  "keywords": [
+    "javascript",
+    "ecmascript2015",
+    "es6"
+  ],
+  "author": "yamoo9",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.0"
+  },
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "underscore": "^1.8.3"
+  }
+}
