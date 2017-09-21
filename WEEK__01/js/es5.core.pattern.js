@@ -93,6 +93,9 @@ console.groupEnd('값 복사와 참조');
 //   }
 // }
 
+console.groupCollapsed('데이터 유형 검증');
+
+
 // 데이터 타입 검증 방법 1. typeof
 // http://bonsaiden.github.io/JavaScript-Garden/ko/#types.typeof
 
@@ -151,21 +154,91 @@ function isType(data, data_type){
   return type(data) === data_type;
 }
 // 문제가 되었던 Array, null, undefined 체크?
-isType(arr, 'array');           // true
-isType(null, 'null');           // true
-isType(undefined, 'undefined'); // true
+console.log(`isType(arr, 'array')`, isType(arr, 'array'));           // true
+console.log(`isType(null, 'null')`, isType(null, 'null'));           // true
+console.log(`isType(undefined, 'undefined')`, isType(undefined, 'undefined')); // true
+
+
+console.groupEnd('데이터 유형 검증');
 
 
 ///////////////////////////
-// 3. JavaScript 구문과 표현식
+// 3. JavaScript 구문(Statement)과 표현식(Expression)
 ///////////////////////////
 
+// 문, 식 차이점
+// 값이 도출되느냐? 아니냐? 차이
+// 식, 함수는 값을 항상 반환
+// if, for, while, switch 문
+// 1 + 10 / n, window.alert || console.log
+
+// var isCodition = if ( condition === true ) {
+//   console.log('condition is True.');
+// }
+
+var condition = !false; // true
+
+var isCodition = condition === true && console.log('condition is True.');
+
+function showMeTheMoney(money) {
+  // if ( !money ) {
+  //   money = 10;
+  // }
+
+  // JavaScript 파라미터 기본 값 설정
+  money = money || 10;
+
+  return money * 8;
+}
+
+showMeTheMoney();
 
 
 //////////////////////////////
 // 4. JavaScript 함수에 관한 이야기
 //////////////////////////////
 
+var steam = '스팀'; // 전역 변수
+console.log('global steam:', steam);
+
+// 조건 문
+// block scope 존재하는지 확인
+// if ( condition ) {
+//   var steam = steam + ' 샷'; // '스팀 샷'
+//   console.log('local steam:', steam);
+// }
+
+// class 역할
+// scope 생성
+function confirmSteam(){
+  if ( condition ) {
+    var steam = steam + ' 샷'; // '스팀 샷'
+    console.log('local steam:', steam);
+  }
+}
+
+confirmSteam();
+
+console.log('global steam:', steam);
+
+// Module Pattern
+// 모듈: 독립적으로 데이터, 메서드, 재사용 공유 코드 덩어리
+// IIFE 패턴
+
+// 함수(영역을 가질 수 있다: 독립된 공간을 소유)
+// function module(){
+//   // 외부와 단절된 공간 형성
+// }
+
+// module(); // 등록된 함수의 이름이 호출
+
+// function(){}()
+// 함수값()
+
+// IIFE
+//  즉시 실행함으로서 독립된 공간을 형성하기 위함
+// 재사용 목적이 아니라, 전역과 구분되는 독립 공간 형성
+//
 
 
 //////////////////////////////
