@@ -1,9 +1,12 @@
 {
   "name": "modern-js",
   "version": "0.0.1",
-  "description": "Modern JavaScript ??",
+  "description": "Modern JavaScript 학습",
   "scripts": {
-    "start": ""
+    "compile": "babel js/es6_class.js -o js/es5_class.js",
+    "watch": "npm run compile -- -w",
+    "compile-dir": "babel es6 -d js",
+    "watch-dir": "npm run compile-dir -- -w"
   },
   "keywords": [
     "javascript",
