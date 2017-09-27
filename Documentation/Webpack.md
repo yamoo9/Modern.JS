@@ -1,6 +1,8 @@
 # Webpack Module Bundler
 
-[![Webpack](../ASSETS/Webpack.png)](https://webpack.js.org/)
+<a href="https://webpack.js.org/" target="_blank" style="display: block; text-align: center;">
+  <img src="../ASSETS/Webpack.svg" alt="" width="200" height="200">
+</a>
 
 모던 웹 개발에 있어서 [Webpack](https://webpack.js.org/)은 매우 중요한 도구 중 하나로 자리 잡았습니다. 주로 자바스크립트를 위한 모듈 번들러이지만, HTML, CSS 뿐만 아니라 이미지 같은 프론트엔드 Assets을 변환시켜 줄 수 있습니다. 애플리케이션 HTTP 요청 갯수를 컨트롤 할 수 있게 만들 수 있으며, 다른 종류의 Assets(Pug, Sass, ES2015 등)를 사용 할 수 있게 도와줍니다.
 

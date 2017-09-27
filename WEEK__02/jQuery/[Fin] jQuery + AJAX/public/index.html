@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>메모 앱 with JSON Server &amp; JavaScript</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.0/css/bulma.css">
+  <style>
+    .app.container {
+      margin: 1rem 2rem;
+    }
+
+    .memo>* {
+      margin-bottom: 10px;
+    }
+
+    .memo .textarea {
+      width: 100%;
+    }
+
+    .memo-item-container .memo-item {
+      background-color: transparent;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="app container is-fluid">
+    <div class="columns">
+      <div class="column is-3">
+        <div class="memo box">
+          <label class="sr-only" for="memo-title">메모 제목</label>
+          <input class="input" type="text" id="memo-title" placeholder="메모 제목">
+          <label class="sr-only" for="memo-content">메모 내용</label>
+          <textarea class="textarea" id="memo-content" cols="30" rows="10" placeholder="메모 내용"></textarea>
+          <div class="field is-group">
+            <button type="button" class="is-save button is-primary is-outlined is-small">
+              <span class="icon is-small">
+                <i class="fa fa-check" aria-hidden="true"></i>
+              </span>
+              <span>메모 저장</span>
+            </button>
+            <button type="button" class="is-cancel button is-outlined is-small">
+              <span class="icon is-small">
+                <i class="fa fa-remove" aria-hidden="true"></i>
+              </span>
+              <span>입력 취소</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="column is-9">
+        <div class="memo-item-container columns is-multiline">
+          <!-- 메모 아이템 추가 -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/jquery-3.2.1.min.js"></script>
+  <script src="./js/jquery.ajax.extend.js"></script>
+  <script src="./js/memo-app.js"></script>
+</body>
+
+</html>
