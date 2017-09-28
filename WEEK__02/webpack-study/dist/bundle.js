@@ -60,122 +60,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
-
-/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
-module.exports = __webpack_amd_options__;
-
-/* WEBPACK VAR INJECTION */}.call(exports, {}))
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-__webpack_require__(2);
-
-var _lodash = __webpack_require__(7);
-
-var _lodash2 = _interopRequireDefault(_lodash);
-
-var _validate = __webpack_require__(10);
-
-var _validate2 = _interopRequireDefault(_validate);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// ES6 :: const, let
-// const document = global.document;
-
-
-// ——————————————————————————————————————
-// 의존성 개발 모듈 로드
-// ——————————————————————————————————————
-
-// /node_modules/ 디렉토리 내부에서 호출 ----------
-
-// CommonJS (Node.js)
-// const _ = require('lodash');
-
-// ES6 Module (Node.js v6+)
-var heading_content = ['Hello', 'Webpack', 'Module', 'Bundlers', ':)'];
-
-// ES6 :: Arrow Function
-
-
-// src/utils/ 디렉토리 내부에서 호출 --------------
-
-// CommonJS (Node.js)
-// const validate = require('./utils/validate');
-
-// ES6 Module (Node.js v6+)
-// ——————————————————————————————————————
-// 스타일 모듈 로드
-// ——————————————————————————————————————
-var component_heading = function component_heading(content) {
-  var el = document.createElement('h1');
-  (0, _validate2.default)(_lodash2.default.isArray(content), '_.join() 함수를 사용하려면 배열이 요구됩니다.');
-  el.textContent = _lodash2.default.join(content, ' ');
-  return el;
-};
-
-// DOMScript
-document.querySelector('.container').appendChild(component_heading(heading_content));
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(3);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(5)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../node_modules/css-loader/index.js!./main.css", function() {
-			var newContent = require("!!../../node_modules/css-loader/index.js!./main.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(4)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, "/* BASE */\nhtml {\n  overflow-y: scroll;\n  font-size: 100%;\n  background: #ffffff;\n}\n\nbody {\n  margin: 0;\n  height: 100vh;\n  font: 87.5%/1.5 \"Spoqa Han Sans\", Sans-Serif;\n  background: inherit;\n}\n\n/* LAYOUT */\n.container {\n  max-width: 1280px;\n  margin-left: auto;\n  margin-right: auto;\n}\n\n.row::after {\n  content: '';\n  display: block;\n  clear: both;\n}\n\n.column {\n  float: left;\n}", ""]);
-
-// exports
-
-
-/***/ }),
-/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -257,7 +146,147 @@ function toComment(sourceMap) {
 }
 
 /***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
+module.exports = __webpack_amd_options__;
+
+/* WEBPACK VAR INJECTION */}.call(exports, {}))
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(3);
+
+var _lodash = __webpack_require__(9);
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+var _validate = __webpack_require__(12);
+
+var _validate2 = _interopRequireDefault(_validate);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// ES6 :: const, let
+// const document = global.document;
+
+
+// ——————————————————————————————————————
+// 의존성 개발 모듈 로드
+// ——————————————————————————————————————
+
+// /node_modules/ 디렉토리 내부에서 호출 ----------
+
+// CommonJS (Node.js)
+// const _ = require('lodash');
+
+// ES6 Module (Node.js v6+)
+var heading_content = ['Hello', 'Webpack', 'Module', 'Bundlers', ':)'];
+
+// ES6 :: Arrow Function
+
+
+// src/utils/ 디렉토리 내부에서 호출 --------------
+
+// CommonJS (Node.js)
+// const validate = require('./utils/validate');
+
+// ES6 Module (Node.js v6+)
+// ——————————————————————————————————————
+// 스타일 모듈 로드
+// ——————————————————————————————————————
+var component_heading = function component_heading(content) {
+  var el = document.createElement('h1');
+  (0, _validate2.default)(_lodash2.default.isArray(content), '_.join() 함수를 사용하려면 배열이 요구됩니다.');
+  el.textContent = _lodash2.default.join(content, ' ');
+  return el;
+};
+
+// DOMScript
+document.querySelector('.container').appendChild(component_heading(heading_content));
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(4);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(7)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../node_modules/css-loader/index.js!./main.css", function() {
+			var newContent = require("!!../../node_modules/css-loader/index.js!./main.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(undefined);
+// imports
+exports.i(__webpack_require__(5), "");
+exports.i(__webpack_require__(6), "");
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/***/ }),
 /* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "/* BASE */\nhtml {\n  overflow-y: scroll;\n  font-size: 100%;\n  background: #ffffff;\n}\n\nbody {\n  margin: 0;\n  height: 100vh;\n  font: 87.5%/1.5 \"Spoqa Han Sans\", Sans-Serif;\n  background: inherit;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "/* LAYOUT */\n.container {\n  max-width: 1280px;\n  margin-left: auto;\n  margin-right: auto;\n}\n\n.row::after {\n  content: '';\n  display: block;\n  clear: both;\n}\n\n.column {\n  float: left;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -303,7 +332,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(6);
+var	fixUrls = __webpack_require__(8);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -616,7 +645,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 6 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -711,7 +740,7 @@ module.exports = function (css) {
 };
 
 /***/ }),
-/* 7 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10149,7 +10178,7 @@ LazyWrapper.prototype.clone=lazyClone;LazyWrapper.prototype.reverse=lazyReverse;
 lodash.prototype.at=wrapperAt;lodash.prototype.chain=wrapperChain;lodash.prototype.commit=wrapperCommit;lodash.prototype.next=wrapperNext;lodash.prototype.plant=wrapperPlant;lodash.prototype.reverse=wrapperReverse;lodash.prototype.toJSON=lodash.prototype.valueOf=lodash.prototype.value=wrapperValue;// Add lazy aliases.
 lodash.prototype.first=lodash.prototype.head;if(symIterator){lodash.prototype[symIterator]=wrapperToIterator;}return lodash;};/*--------------------------------------------------------------------------*/// Export lodash.
 var _=runInContext();// Some AMD build optimizers, like r.js, check for condition patterns like:
-if("function"=='function'&&_typeof(__webpack_require__(0))=='object'&&__webpack_require__(0)){// Expose Lodash on the global object to prevent errors when Lodash is
+if("function"=='function'&&_typeof(__webpack_require__(1))=='object'&&__webpack_require__(1)){// Expose Lodash on the global object to prevent errors when Lodash is
 // loaded by a script tag in the presence of an AMD loader.
 // See http://requirejs.org/docs/errors.html#mismatch for more details.
 // Use `_.noConflict` to remove Lodash from the global object.
@@ -10161,10 +10190,10 @@ else if(freeModule){// Export for Node.js.
 (freeModule.exports=_)._=_;// Export for CommonJS support.
 freeExports._=_;}else{// Export to the global object.
 root._=_;}}).call(undefined);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8), __webpack_require__(9)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10), __webpack_require__(11)(module)))
 
 /***/ }),
-/* 8 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10194,7 +10223,7 @@ try {
 module.exports = g;
 
 /***/ }),
-/* 9 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10224,7 +10253,7 @@ module.exports = function (module) {
 };
 
 /***/ }),
-/* 10 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
