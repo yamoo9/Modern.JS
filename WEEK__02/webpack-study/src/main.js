@@ -3,7 +3,8 @@
 // style-loader < css-loader
 // ——————————————————————————————————————
 // import '!style-loader!css-loader!./css/main.css';
-import './css/main.css';
+// import './css/main.css';
+import './sass/main.sass';
 
 // ——————————————————————————————————————
 // 의존성 개발 모듈 로드

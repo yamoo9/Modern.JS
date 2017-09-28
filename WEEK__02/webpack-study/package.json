@@ -3,12 +3,10 @@
   "version": "0.0.1",
   "description": "Webpack 번들링 실습",
   "scripts": {
-    "webpack": "webpack",
-    "bundle": "webpack src/main.js dist/bundle.js --module-bind 'css=style-loader!css-loader' --module-bind 'js=babel-loader'",
-    "bundle:d": "npm run bundle -- -d",
-    "bundle:w": "npm run bundle -- -w",
-    "bundle:dw": "npm run bundle -- -wd",
-    "build": "npm run bundle -- -p"
+    "start": "webpack-dev-server",
+    "webpack": "webpack --config webpack.config.js",
+    "webpack:w": "npm run webpack -- -w",
+    "build": "npm run webpack -- -p"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -16,8 +14,11 @@
     "babel-preset-env": "^1.6.0",
     "css-loader": "^0.28.7",
     "lodash": "^4.17.4",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
-    "webpack": "^3.6.0"
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.9.1"
   },
   "babel": {
     "presets": [
