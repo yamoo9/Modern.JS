@@ -28,6 +28,9 @@ $container.on('click', e => {
 
 // Button Class 사용
 import Button from './components/Button';
-// import Carousel from './components/Carousel';
 
-const my_btn = new Button( $('.y9-button') );
+const $buttons = $('.y9-button');
+
+$buttons.each( (index, el) => {
+  new Button( $buttons.eq(index) );
+} );
