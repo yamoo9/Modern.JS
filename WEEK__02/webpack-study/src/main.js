@@ -1,6 +1,8 @@
 // ——————————————————————————————————————
 // 스타일 모듈 로드
+// style-loader < css-loader
 // ——————————————————————————————————————
+// import '!style-loader!css-loader!./css/main.css';
 import './css/main.css';
 
 // ——————————————————————————————————————
@@ -21,7 +23,7 @@ import _ from 'lodash';
 // const validate = require('./utils/validate');
 
 // ES6 Module (Node.js v6+)
-import validate from './utils/validate';
+import validate from './js/utils/validate';
 
 
 // ES6 :: const, let
