@@ -1,18 +1,27 @@
 // ——————————————————————————————————————
 // 의존성 개발 모듈 로드
 // ——————————————————————————————————————
+
+// /node_modules/ 디렉토리 내부에서 호출 ----------
+
 // CommonJS (Node.js)
 // const _ = require('lodash');
+
 // ES6 Module (Node.js v6+)
-// /node_modules/ 디렉토리 내부에서 호출
 import _ from 'lodash';
-// src/utils/ 디렉토리 내부에서 호출
+
+// src/utils/ 디렉토리 내부에서 호출 --------------
+
+// CommonJS (Node.js)
 // const validate = require('./utils/validate');
+
+// ES6 Module (Node.js v6+)
 import validate from './utils/validate';
+
 
 // ES6 :: const, let
 // const document = global.document;
-let heading_content = ['Hello', 'Webpack', ':)'];
+let heading_content = ['Hello', 'Webpack', 'Module', 'Bundler', ':)'];
 
 // ES6 :: Arrow Function
 let component_heading = content => {
