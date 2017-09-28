@@ -1,0 +1,25 @@
+block config
+  - var current   = ''
+  //- - var language  = 'ko-KR'
+  - var pageTitle = 'Pug, Sass, ES6 & Webpack ProjectKit.'
+
+doctype html
+html(lang=language)
+
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title= pageTitle
+    link(rel="stylesheet", href=`/css/app.css`)
+    block stylesheets
+
+  body
+
+    include nav
+
+    block main
+
+    script(src="/js/vendor.js")
+    script(src="/js/app.js")
+    block scripts

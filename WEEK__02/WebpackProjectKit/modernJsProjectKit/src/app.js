@@ -1,13 +1,8 @@
 // ——————————————————————————————————————
-// 스타일 모듈 로드
-// style-loader < css-loader
+// 공통 스타일 파일 로드
 // ——————————————————————————————————————
-// import '!style-loader!css-loader!./css/main.css';
-// import './css/main.css';
-import './sass/main.sass';
+import 'sass/app.scss';
 
 // ——————————————————————————————————————
-// 스크립트 모듈 로드
+// 공통 스크립트 작성
 // ——————————————————————————————————————
-import './js/dom';
-import './js/jquery-ex';

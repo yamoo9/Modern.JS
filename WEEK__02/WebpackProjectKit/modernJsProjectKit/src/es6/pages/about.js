@@ -1,13 +1,9 @@
 // ——————————————————————————————————————
 // 스타일 모듈 로드
-// style-loader < css-loader
 // ——————————————————————————————————————
-// import '!style-loader!css-loader!./css/main.css';
-// import './css/main.css';
-import './sass/main.sass';
+// sass 모듈을 불러오고자 할 경우
+import 'sass/pages/about.scss';
 
 // ——————————————————————————————————————
-// 스크립트 모듈 로드
+// about.js 코드
 // ——————————————————————————————————————
-import './js/dom';
-import './js/jquery-ex';

@@ -1,13 +1,9 @@
 // ——————————————————————————————————————
 // 스타일 모듈 로드
-// style-loader < css-loader
+// sass 모듈을 불러오고자 할 때 사용
 // ——————————————————————————————————————
-// import '!style-loader!css-loader!./css/main.css';
-// import './css/main.css';
-import './sass/main.sass';
+import 'sass/pages/index.scss';
 
 // ——————————————————————————————————————
-// 스크립트 모듈 로드
+// index.js 코드
 // ——————————————————————————————————————
-import './js/dom';
-import './js/jquery-ex';

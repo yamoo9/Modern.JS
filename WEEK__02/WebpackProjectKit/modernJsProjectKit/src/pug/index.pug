@@ -1,0 +1,14 @@
+extends partials/layout
+
+append config
+  - var current = 'index'
+  - var pageTitle = 'Home page'
+
+block stylesheets
+  link(rel="stylesheet", href=`/css/${current}.css`)
+
+block main
+  h1 Home
+
+block scripts
+  script(src=`/js/${current}.js`)
