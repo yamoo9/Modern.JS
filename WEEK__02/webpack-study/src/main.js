@@ -1,4 +1,9 @@
 // ——————————————————————————————————————
+// 스타일 모듈 로드
+// ——————————————————————————————————————
+import './css/main.css';
+
+// ——————————————————————————————————————
 // 의존성 개발 모듈 로드
 // ——————————————————————————————————————
 
@@ -21,7 +26,7 @@ import validate from './utils/validate';
 
 // ES6 :: const, let
 // const document = global.document;
-let heading_content = ['Hello', 'Webpack', 'Module', 'Bundler', ':)'];
+let heading_content = ['Hello', 'Webpack', 'Module', 'Bundlers', ':)'];
 
 // ES6 :: Arrow Function
 let component_heading = content => {
@@ -32,4 +37,4 @@ let component_heading = content => {
 };
 
 // DOMScript
-document.querySelector('body').appendChild( component_heading(heading_content) );
+document.querySelector('.container').appendChild( component_heading(heading_content) );
