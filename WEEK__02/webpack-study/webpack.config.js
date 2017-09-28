@@ -2,10 +2,8 @@
 // CommonJS 방식
 // ——————————————————————————————————————
 
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
 // 개발 의존성 모듈 로드
+const webpack = require('webpack');
 const path = require('path');
 
 // 유틸리티 함수
@@ -100,10 +98,8 @@ module.exports = {
   // https://webpack.js.org/configuration/dev-server/
   devServer: {
     contentBase: _path('./dist'), // 콘텐츠 제공 서버 설정
-    // port: 9000,        // 요청을 수신 대기 할 포트 번호 설정
-    // color: true,       // CLI 컬러링 사용 설정
-    // compress: true,    // gzip 압축 사용 설정
-    // https: true,       // https 사용 설정
+    port: 9000,        // 요청을 수신 대기 할 포트 번호 설정
+    compress: true,    // gzip 압축 사용 설정
     inline: true,      // 인라인 모드 사용 설정
     hot: true,         // HMR(핫 모듈 리플레이스먼트) 모드 사용 설정
     open: true,        // 기본 브라우저 자동 열림 설정
@@ -112,9 +108,6 @@ module.exports = {
 
   // 플러그인 설정
   plugins: [
-    new HtmlWebpackPlugin({
-      title: 'Hot Module Replacement'
-    }),
     new webpack.HotModuleReplacementPlugin()
   ],
 
