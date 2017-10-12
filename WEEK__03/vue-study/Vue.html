@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>VueJS 학습</title>
+  <style>
+    ::-moz-placeholder {
+      color: #99a4ac;
+    }
+    :-ms-input-placeholder {
+      color: #99a4ac;
+    }
+    ::-webkit-input-placeholder {
+      color: #99a4ac;
+    }
+    body {
+      margin: 3rem;
+      background: #ffffff;
+      color: #333333;
+    }
+    .user-input {
+      padding: 0.4em;
+      border: 3px solid currentColor;
+      color: #99a4ac;
+    }
+    .message {
+      font-weight: bold;
+      color: #99a4ac;
+    }
+  </style>
+  <!-- 스토어 파일 로드 -->
+  <script src="./store.js"></script>
+  <!-- VueJS 로드 -->
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+  <!-- DOM 구성할 마크업 -->
+  <!-- <div class="demo"> -->
+    <!-- WAI-ARIA -->
+    <!-- <input class="user-input" type="text" aria-label="오늘 할 일" placeholder="마라톤"> -->
+    <!-- 사용자 입력 콘텐츠가 데이터 바인딩 -->
+    <!-- <p class="print">오늘 할 일은 <span class="message">...</span> 입니다.</p> -->
+  <!-- </div> -->
+
+  <!-- HTML Template -->
+  <div id="app">
+    <!-- VueJS Directive: v-on, v-model -->
+    <input
+      type="text"
+      class="upser-input"
+      aria-label="오늘 할 일"
+      placeholder="마라톤"
+      v-model="message">
+    <!-- String Interpolation(보간법), {{js_var}} -->
+    <p class="print">오늘 할 일은 <span class="message">{{ message }}</span> 입니다.</p>
+  </div>
+
+  <script>
+    // 데이터 참조
+    const data = store.state;
+
+    // Vue 설정 객체
+    const config = {
+      // mount할 요소를 선택자로 연결
+      el: '#app',
+      // 데이터를 바인딩
+      data: {
+        message: 'VueJS 데이터'
+      },
+      // 메서드
+      methods: {
+        // ES5
+        up: function(){},
+        // ES6, Function
+        update(){
+          console.log('update content');
+        }
+      }
+    };
+
+
+    // 전역에 Vue 변수로 접근 가능
+    // Vue는 객체를 생성하는 생성자
+    // 반드시 new를 사용해 인스턴스(객체) 생성해야 한다.
+    const demo = new Vue(config); // Vue {}
+
+  </script>
+
+</body>
+</html>
