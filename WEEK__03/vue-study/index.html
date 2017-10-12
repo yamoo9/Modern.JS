@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>VueJS 학습</title>
+  <!-- CDN 로드 -->
+  <!-- 개발 버전 -->
+  <script src="https://unpkg.com/vue"></script>
+  <!-- 배포 버전 -->
+  <!-- <script src="https://unpkg.com/vue@2.4.4/dist/vue.min.js"></script> -->
+  <!-- 스토어 파일 로드 -->
+  <script src="./store.js"></script>
+</head>
+<body>
+
+  <script>
+    {
+      let v = window.Vue;
+      console.log('VueJS를 사용합니까?', !!v); // Vue 출력
+      console.log('버전은?', v.version); // Vue 버전 출력
+    }
+  </script>
+
+</body>
+</html>
