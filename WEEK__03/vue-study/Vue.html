@@ -41,6 +41,7 @@
 </head>
 <body>
 
+  <!-- 정적 HTML 마크업 -->
   <ul class="lists">
     <li class="list-item">
       대한상공회의소
@@ -50,21 +51,29 @@
       정보화진흥원
       <button type="button" class="delete">제거</button>
     </li>
-    <li class="list-item">한국인터넷진흥원 <button type="button" class="delete">제거</button></li>
-    <li class="list-item">한국인터넷전문가협회 <button type="button" class="delete">제거</button></li>
+    <li class="list-item">
+      한국인터넷진흥원
+      <button type="button" class="delete">제거</button>
+    </li>
+    <li class="list-item">
+      한국인터넷전문가협회
+      <button type="button" class="delete">제거</button>
+    </li>
   </ul>
 
   <hr>
 
+  <!-- VueJS 가상 DOM을 사용하는 동적 템플릿 처리 -->
   <div id="demo" v-cloak>
+    <input type="text" v-model="new_item">
+    <button v-on:click="updateItem" type="button">Add</button>
     <ul class="lists">
       <li class="list-item" v-for="(org, index) in orgs">
         {{ org }}
         <button
           type="button"
           class="delete"
-          v-on:click="removeItem(index)"
-        >제거</button>
+          v-on:click="removeItem(index)">Remove</button>
       </li>
     </ul>
   </div>
@@ -73,6 +82,7 @@
   new Vue({
     el: '#demo',
     data: {
+      new_item: '',
       orgs: [
         '대한상공회의소',
         '정보화진흥원',
@@ -83,6 +93,10 @@
     methods: {
       removeItem(remove_id){
         this.orgs.splice(remove_id, 1);
+      },
+      updateItem(){
+        let item = this.new_item;
+        this.orgs.unshift(item);
       }
     }
   })
