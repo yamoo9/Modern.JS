@@ -37,18 +37,11 @@
 </head>
 <body>
 
-  <!-- DOM 구성할 마크업 -->
-  <!-- <div class="demo"> -->
-    <!-- WAI-ARIA -->
-    <!-- <input class="user-input" type="text" aria-label="오늘 할 일" placeholder="마라톤"> -->
-    <!-- 사용자 입력 콘텐츠가 데이터 바인딩 -->
-    <!-- <p class="print">오늘 할 일은 <span class="message">...</span> 입니다.</p> -->
-  <!-- </div> -->
-
   <!-- HTML Template -->
   <div id="app">
     <!-- VueJS Directive: v-on, v-model -->
     <input
+      v-bind:id="'hi' + Math.floor(Math.random() * 101)"
       type="text"
       class="upser-input"
       aria-label="오늘 할 일"
@@ -59,33 +52,50 @@
   </div>
 
   <script>
-    // 데이터 참조
-    const data = store.state;
-
-    // Vue 설정 객체
-    const config = {
-      // mount할 요소를 선택자로 연결
+    // Vue {} 생성
+    // 참조 변수가 없다
+    new Vue({
       el: '#app',
-      // 데이터를 바인딩
       data: {
-        message: 'VueJS 데이터'
-      },
-      // 메서드
-      methods: {
-        // ES5
-        up: function(){},
-        // ES6, Function
-        update(){
-          console.log('update content');
-        }
+        message: store.state.message
       }
+    });
+  </script>
+
+  <script>
+    // Vue {}
+    // new Vue();
+
+    var state = {
+      memory: 2,
+      blank: []
     };
 
+    var vm = new Vue({
+      // state
+      data(){
+        return state;
+      },
+      // view: template
+      template: '<div\
+          v-bind:id="\'hi\' + 10"\
+          v-on:click="increase">{{memory}}</div>\
+      ',
+      // action
+      methods: {
+        increase(){
+          // Vue {} === this ????
+          // this.count++;
+          this.memory = '4TB';
+        }
+      }
+    });
 
-    // 전역에 Vue 변수로 접근 가능
-    // Vue는 객체를 생성하는 생성자
-    // 반드시 new를 사용해 인스턴스(객체) 생성해야 한다.
-    const demo = new Vue(config); // Vue {}
+    // Vue {}
+    // Properties
+    // vm.$el; // 마운트 요소노드 반환
+    // vm.$data // 데이터 객체를 반환(리엑티브 시스템 적용)
+    // vm.$mount('elOrSelector'); // 마운트 요소를 추후 설정
 
   </script>
 
