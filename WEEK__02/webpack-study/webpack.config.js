@@ -98,12 +98,12 @@ module.exports = {
   // https://webpack.js.org/configuration/dev-server/
   devServer: {
     contentBase: _path('./dist'), // 콘텐츠 제공 서버 설정
-    port: 9000,        // 요청을 수신 대기 할 포트 번호 설정
-    compress: true,    // gzip 압축 사용 설정
-    inline: true,      // 인라인 모드 사용 설정
-    hot: true,         // HMR(핫 모듈 리플레이스먼트) 모드 사용 설정
-    open: true,        // 기본 브라우저 자동 열림 설정
-    overlay: true,     // 경고,오류 발생 시 브라우저 전체화면 표시 설정
+    port: 9000,                   // 요청을 수신 대기 할 포트 번호 설정
+    compress: true,               // gzip 압축 사용 설정
+    inline: true,                 // 인라인 모드 사용 설정
+    hot: true,                    // HMR(핫 모듈 리플레이스먼트) 모드 사용 설정
+    open: true,                   // 기본 브라우저 자동 열림 설정
+    overlay: true,                // 경고,오류 발생 시 브라우저 전체화면 표시 설정
   },
 
   // 플러그인 설정

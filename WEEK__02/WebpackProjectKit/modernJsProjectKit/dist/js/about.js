@@ -1,1 +1,0 @@
-webpackJsonp([1],{"./es6/pages/about.js":function(s,a,e){"use strict";e("./sass/pages/about.scss")},"./sass/pages/about.scss":function(s,a){}},["./es6/pages/about.js"]);

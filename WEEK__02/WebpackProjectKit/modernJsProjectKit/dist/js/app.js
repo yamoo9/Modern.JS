@@ -1,1 +1,0 @@
-webpackJsonp([2],{"./app.js":function(s,p,a){"use strict";a("./sass/app.scss")},"./sass/app.scss":function(s,p){}},["./app.js"]);
