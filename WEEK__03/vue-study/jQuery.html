@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuery 학습</title>
+  <style>
+    ::-moz-placeholder {
+      color: #99a4ac;
+    }
+    :-ms-input-placeholder {
+      color: #99a4ac;
+    }
+    ::-webkit-input-placeholder {
+      color: #99a4ac;
+    }
+    body {
+      margin: 3rem;
+      background: #ffffff;
+      color: #333333;
+    }
+    .user-input {
+      padding: 0.4em;
+      border: 3px solid currentColor;
+      color: #99a4ac;
+    }
+    .message {
+      font-weight: bold;
+      color: #99a4ac;
+    }
+  </style>
+  <!-- 스토어 파일 로드 -->
+  <script src="./store.js"></script>
+  <!-- jQuery 로드 -->
+  <script src="https://unpkg.com/jquery"></script>
+</head>
+<body>
+
+  <!-- DOM 구성할 마크업 -->
+  <div class="demo">
+    <!-- WAI-ARIA -->
+    <input class="user-input" type="text" aria-label="오늘 할 일" placeholder="마라톤">
+    <!-- 사용자 입력 콘텐츠가 데이터 바인딩 -->
+    <p class="print">오늘 할 일은 <span class="message">...</span> 입니다.</p>
+  </div>
+
+  <script>
+    // 데이터 참조
+    const data = store.state;
+
+    {
+      // 문서 객체 참조 변수
+      let demo, input, message;
+
+      // 초기화
+      function init(){
+        // 문서 객체에 접근하여 참조
+        demo = $('.demo');
+        input = $('.user-input');
+        message = $('.message');
+        // 데이터 바인딩
+        // input.value = data.message;
+        input.val(data.message);
+        // 업데이트
+        update(data.message);
+        //이벤트 바인딩
+        bind();
+      }
+
+      // 이벤트 핸들링
+      function bind(){
+        // input.addEventListener('keyup', e => {
+        input.on('keyup', e => {
+          // console.log(e.target.value); // input.value
+          // 업데이트
+          update(e.target.value);
+        });
+      }
+
+      function update(user_input){
+        updateView(user_input);
+        updateData(user_input);
+      }
+      function updateView(user_input){
+        // View 업데이트
+        // message.textContent = user_input;
+        message.text(user_input);
+      }
+      function updateData(user_input){
+        // Data 업데이트
+        data.message = user_input;
+      }
+
+      // 실행
+      init();
+    }
+
+  </script>
+
+</body>
+</html>
