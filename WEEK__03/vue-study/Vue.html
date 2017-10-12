@@ -29,6 +29,10 @@
       font-weight: bold;
       color: #99a4ac;
     }
+
+    [v-cloak] {
+      display: none;
+    }
   </style>
   <!-- 스토어 파일 로드 -->
   <script src="./store.js"></script>
@@ -37,66 +41,51 @@
 </head>
 <body>
 
-  <!-- HTML Template -->
-  <div id="app">
-    <!-- VueJS Directive: v-on, v-model -->
-    <input
-      v-bind:id="'hi' + Math.floor(Math.random() * 101)"
-      type="text"
-      class="upser-input"
-      aria-label="오늘 할 일"
-      placeholder="마라톤"
-      v-model="message">
-    <!-- String Interpolation(보간법), {{js_var}} -->
-    <p class="print">오늘 할 일은 <span class="message">{{ message }}</span> 입니다.</p>
+  <ul class="lists">
+    <li class="list-item">
+      대한상공회의소
+      <button type="button" class="delete">제거</button>
+    </li>
+    <li class="list-item">
+      정보화진흥원
+      <button type="button" class="delete">제거</button>
+    </li>
+    <li class="list-item">한국인터넷진흥원 <button type="button" class="delete">제거</button></li>
+    <li class="list-item">한국인터넷전문가협회 <button type="button" class="delete">제거</button></li>
+  </ul>
+
+  <hr>
+
+  <div id="demo" v-cloak>
+    <ul class="lists">
+      <li class="list-item" v-for="(org, index) in orgs">
+        {{ org }}
+        <button
+          type="button"
+          class="delete"
+          v-on:click="removeItem(index)"
+        >제거</button>
+      </li>
+    </ul>
   </div>
 
   <script>
-    // Vue {} 생성
-    // 참조 변수가 없다
-    new Vue({
-      el: '#app',
-      data: {
-        message: store.state.message
+  new Vue({
+    el: '#demo',
+    data: {
+      orgs: [
+        '대한상공회의소',
+        '정보화진흥원',
+        '한국인터넷진흥원',
+        '한국인터넷전문가협회',
+      ]
+    },
+    methods: {
+      removeItem(remove_id){
+        this.orgs.splice(remove_id, 1);
       }
-    });
-  </script>
-
-  <script>
-    // Vue {}
-    // new Vue();
-
-    var state = {
-      memory: 2,
-      blank: []
-    };
-
-    var vm = new Vue({
-      // state
-      data(){
-        return state;
-      },
-      // view: template
-      template: '<div\
-          v-bind:id="\'hi\' + 10"\
-          v-on:click="increase">{{memory}}</div>\
-      ',
-      // action
-      methods: {
-        increase(){
-          // Vue {} === this ????
-          // this.count++;
-          this.memory = '4TB';
-        }
-      }
-    });
-
-    // Vue {}
-    // Properties
-    // vm.$el; // 마운트 요소노드 반환
-    // vm.$data // 데이터 객체를 반환(리엑티브 시스템 적용)
-    // vm.$mount('elOrSelector'); // 마운트 요소를 추후 설정
-
+    }
+  })
   </script>
 
 </body>
