@@ -1,9 +1,0 @@
-{
-  "memo-app": [
-    {
-      "id": 1,
-      "title": "JSON Server를 구동하다.",
-      "content": "JSON Server는 백엔드 개발자 없이 프론트엔드에 집중할 수 있게 해주는 유용한 도구에요."
-    }
-  ]
-}
