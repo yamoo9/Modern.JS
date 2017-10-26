@@ -41,14 +41,16 @@ var obj = {};
 
 // 1-3) 원시 데이터 타입, 참조형 데이터 타입 구분
 
+console.groupCollapsed('값 복사/참조');
+
 // 1-3-1) 값 복사(pass by value)
 // 동일해 보이는 값이나, 복사된 다른 값(데이터)
 // null, undefined, 9, 'hi', false
 
 var n = num;
-console.log('n:', n);     // 9
-console.log('num:', num); // 9
 ++n; // n + 1 = 10
+console.log('num:', num); // 9
+console.log('n:', n);     // 10
 console.log('n === num:', n === num); // false (동일한 값을 참조하지 않음, 복사되었기에)
 
 
@@ -61,12 +63,20 @@ console.log('arr:', arr);
 console.log('list:', list);
 console.log('list === arr:', list === arr); // true (동일한 값을 참조)
 
+console.groupEnd('값 복사/참조');
+
 
 
 // 1-4) 자바스크립트 메모리 관리는 어떻게 하는가?
 // 참고: https://goo.gl/EWWHnZ
 
+// 가비지 컬렉터가 스스로 관리(알고리즘 사용)
+// 사용자는 관여하지 않는다.
+// 다시 말해 사용자의 코딩 습관이 메모리 관리와 관련이 있다.
 
+// for ( var i=0, l=list.length; i<l; i++ ) {
+//   console.log(i);
+// }
 
 
 
@@ -75,10 +85,32 @@ console.log('list === arr:', list === arr); // true (동일한 값을 참조)
 // 2. JavaScript 데이터 유형 올바른 감지
 ////////////////////////////////////
 
+// 정적형 지정 언어: JAVA
+// var memory:[] = new Array();
+// memory = {}; // ERROR
+// 동적형 지정 언어: Ruby, JavaScript
+// var memory = new Array();
+// memory = {}; // ERROR 아님
+
+// 왜? 데이터 타입 검증이 중요한가?
+// 제작자가 의도한 바와 달리 값을 대입하거나, 변경하여
+// 프로그램을 망가트릴 가능성이 있다.
 
 // 2-1) 데이터 타입 검증 방법 typeof
 // 참고: https://goo.gl/6rpQQi
 
+console.groupCollapsed('typeof 과연 쓸모 있나? (설계 오류 검증)');
+
+console.log('typeof num:', typeof num);             // 'number'
+console.log('typeof str:', typeof str);             // 'string'
+console.log('typeof boo:', typeof boo);             // 'boolean'
+console.log('typeof fnc:', typeof fnc);             // 'function'
+console.log('typeof arr:', typeof arr);             // 'object' [?]
+console.log('typeof obj:', typeof obj);             // 'object'
+console.log('typeof null:', typeof null);           // 'object' [?]
+console.log('typeof undefined:', typeof undefined); // 'undefined'
+
+console.groupEnd('typeof 쓸모 있을까?');
 
 // 2-2) 데이터 타입 검증 방법 instanceof
 // 참고: https://goo.gl/3w3EEw
