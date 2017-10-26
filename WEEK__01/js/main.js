@@ -160,23 +160,80 @@ console.groupEnd('instanceof 언제 쓸까?');
 // 2-3) 데이터 타입 검증 방법 .consturctor 속성
 // 참고: https://goo.gl/RqAF6f
 
-console.group('.constructor는 언제쓸까?');
+console.groupCollapsed('.constructor는 언제쓸까?');
 
 // 객체 유형 검증은 완벽(Perfect!!)
-console.log('num.constructor:', num.constructor); // Number
-console.log('str.constructor:', str.constructor); // String
-console.log('boo.constructor:', boo.constructor); // Boolean
-console.log('fnc.constructor:', fnc.constructor); // Function
-console.log('arr.constructor:', arr.constructor); // Array
-console.log('obj.constructor:', obj.constructor); // Object
+console.log('num.constructor === Number:', num.constructor === Number); // Number
+console.log('str.constructor === String:', str.constructor === String); // String
+console.log('boo.constructor === Boolean:', boo.constructor === Boolean); // Boolean
+console.log('fnc.constructor === Function:', fnc.constructor === Function); // Function
+console.log('arr.constructor === Array:', arr.constructor === Array); // Array
+console.log('obj.constructor === Object:', obj.constructor === Object); // Object
 
 // 단! 객체 유형 검증에서만 완벽하고, null/undefined 유형 체크 시에는 오류 발생
-console.log('null.constructor:', null.constructor); // Error
+// 오류 메시지: Uncaught TypeError: Cannot read property 'constructor' of null
+// console.log('null.constructor:', null.constructor);
 
 console.groupEnd('.constructor는 언제쓸까?');
 
 // 2-4) 데이터 타입 검증 방법 직접 만든 유틸리티 함수
 
+console.groupCollapsed('데이터 타입의 올바른 검증을 위한 해결책은?');
+
+// 원리(현상)
+// 재사용 가능하도록 함수로 정의
+
+// JavaScript Objects
+// BOM: Host(Browser) Objects
+// Window
+//    Document
+//    Screen
+//    Navigator
+//    Location
+//    History
+// DOM: Document Object Model
+// Document
+//   Root Element (documentEleemnt {})
+//   firstChild Element (document.head)
+//   lastChild Element (document.body)
+
+
+// 메서드 빌려쓰기 패턴
+// 다른 객체의 능력을 빌려 쓰다.
+// 사람.걷다()
+// 사람.날다()
+// 새.날다() X
+// 새.날다.call(사람) === 사람.날다() O
+// Object.prototype.toString.call(arr)
+
+// 함수 로직(Logic)
+// Object.prototype.toString.call(data).slice(8,-1).toLowerCase();
+
+// 함수 type() 정의
+// 어떤 데이터 유형이든 상관없이 모두 올바른 값을 문자열(소문자)로 반환한다.
+// 전역 함수
+// 가급적 전역을 오염시키지 말아야 한다. (타인의 코드와 충돌 우려)
+// 전역을 오염시키는 행위는 안티 패턴
+function type(data){
+  return Object.prototype.toString.call(data).slice(8,-1).toLowerCase();
+}
+
+// 네임스페이스 패턴 (네임스페이스 객체 종속)
+// e.g) YUI.Events.addEvent
+var y9 = {};
+
+y9.type = type;
+
+console.log('y9.type(num):', y9.type(num));
+console.log('y9.type(str):', y9.type(str));
+console.log('y9.type(boo):', y9.type(boo));
+console.log('y9.type(fnc):', y9.type(fnc));
+console.log('y9.type(arr):', y9.type(arr));
+console.log('y9.type(obj):', y9.type(obj));
+console.log('y9.type(null):',y9.type(null));
+console.log('y9.type(undefined):', y9.type(undefined));
+
+console.groupEnd('데이터 타입의 올바른 검증을 위한 해결책은?');
 
 
 
