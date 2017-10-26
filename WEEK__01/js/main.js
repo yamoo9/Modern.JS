@@ -214,24 +214,24 @@ console.groupCollapsed('데이터 타입의 올바른 검증을 위한 해결책
 // 전역 함수
 // 가급적 전역을 오염시키지 말아야 한다. (타인의 코드와 충돌 우려)
 // 전역을 오염시키는 행위는 안티 패턴
-function type(data){
-  return Object.prototype.toString.call(data).slice(8,-1).toLowerCase();
-}
+// function type(data){
+//   return Object.prototype.toString.call(data).slice(8,-1).toLowerCase();
+// }
 
 // 네임스페이스 패턴 (네임스페이스 객체 종속)
 // e.g) YUI.Events.addEvent
-var y9 = {};
+// var y9 = {};
 
-y9.type = type;
+// y9.type = type;
 
-console.log('y9.type(num):', y9.type(num));
-console.log('y9.type(str):', y9.type(str));
-console.log('y9.type(boo):', y9.type(boo));
-console.log('y9.type(fnc):', y9.type(fnc));
-console.log('y9.type(arr):', y9.type(arr));
-console.log('y9.type(obj):', y9.type(obj));
-console.log('y9.type(null):',y9.type(null));
-console.log('y9.type(undefined):', y9.type(undefined));
+// console.log('y9.type(num):', y9.type(num));
+// console.log('y9.type(str):', y9.type(str));
+// console.log('y9.type(boo):', y9.type(boo));
+// console.log('y9.type(fnc):', y9.type(fnc));
+// console.log('y9.type(arr):', y9.type(arr));
+// console.log('y9.type(obj):', y9.type(obj));
+// console.log('y9.type(null):',y9.type(null));
+// console.log('y9.type(undefined):', y9.type(undefined));
 
 console.groupEnd('데이터 타입의 올바른 검증을 위한 해결책은?');
 
@@ -271,12 +271,75 @@ console.groupEnd('데이터 타입의 올바른 검증을 위한 해결책은?')
 // 자바스크립트는 명시적으로 반환하지 않아도 undefined 가 반환되어
 // 언제나 값으로 수렴됩니다.
 
+// 전역/지역 구분 중요!!!
+// 전역을 오염시켜서는 안되기 때문
+// 모듈 개념(독립된 영역)이 JavaScript에 존재하지 않음
+// 그래서 함수로 흉내를 냅니다.
+
+var y9 = function (){
+
+  function type(data){
+    return Object.prototype.toString.call(data).slice(8,-1).toLowerCase();
+  }
+
+  // 네임스페이스 패턴 (네임스페이스 객체 종속)
+  // e.g) YUI.Events.addEvent
+  var y9 = {};
+
+  y9.type = type;
+
+  // console.log(y9.type([]));
+
+  return y9;
+}();
+
+// IIFE
+// 의존 모듈 주입(DI: Dependency Injection)
+// 모듈 패턴
+(function($){
+
+  // 함수 내부 로직
+  // 객체, 변수 정의, 함수 [지역]
+
+  function type(data){
+    return Object.prototype.toString.call(data).slice(8,-1).toLowerCase();
+  }
+
+  function isNumber(data) {
+    return type(data) === 'number';
+  }
+
+  // 노출(공개) 패턴
+  $.type = type;
+
+})(window.y9 = window.y9 || {});
 
 // 4-1) 영역(Scope)
 
-// 4-1-1) 라이프 사이클(Life Cycle)
+// 4-1-1) 라이프 사이클(Life Cycle) => 메모리 누수 => 클로저
 
-// 4-1-2) 호이스팅(Hosting)
+// 4-1-2) 호이스팅(Hoist: 끌어올리다)
+// var 키워드로 선언된 구문에서 할당(=) 부분을 제외한
+// 선언부만 영역의 상단으로 끌어올려지는 현상
+// function 키워드로 선언된 함수 구문을 몸체 통째로
+// 영역의 최상단으로 끌어올리는 현상
+
+// 배경: 비전문가가 쓸 수 있도록 구성한데서 시작
+
+// function showMeTheMoney(){}
+// var a; // undefined
+// var fn; // undefined
+
+// showMeTheMoney();
+
+// a = 10;
+// fn = function(){};
+
+// console.log(a); // undefined
+// fn(); // X undefined()
+
+
+
 
 // 4-1-3) this 컨텍스트 참조
 
