@@ -1,5 +1,7 @@
 'use strict';
 
-var project = {
-  name: 'ES6 Project'
-};
+var name = 'ES6 Project',
+    member = ['yamoo9', 'hailnim'];
+
+
+var project = { name: name, member: member };

@@ -1,3 +1,3 @@
-const project = {
-  name: 'ES6 Project'
-};
+let [name, member] = ['ES6 Project', ['yamoo9', 'hailnim'] ];
+
+const project = { name, member };

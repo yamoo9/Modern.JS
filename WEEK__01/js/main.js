@@ -1,3 +1,38 @@
+var content = "Modern ES6";
+
+
+var template = [
+  '<div class="container" lang="en">',
+    '<header>',
+      '<h1 class="brand">' + content + '</h1>',
+    '</header>',
+  '</div>'
+].join('');
+
+// document.querySelector('.wrapper').innerHTML = template;
+
+var es6_template = `
+<div class="wrapper">
+  <div class="container" lang="en">
+    <header>
+      <h1 class="brand">${content}</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="${one}" rel="external"></a></li>
+        <li><a href="${two}" rel="external"></a></li>
+        <li><a href="${three}" rel="external"></a></li>
+        <li><a href="${four}" rel="external"></a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+`;
+
+document.querySelector('.wrapper').innerHTML = es6_template;
+
+
+
 /**
  * main.js
  * 1주차 학습 내용을 공부하며 정리합니다.
