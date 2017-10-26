@@ -115,10 +115,65 @@ console.groupEnd('typeof 쓸모 있을까?');
 // 2-2) 데이터 타입 검증 방법 instanceof
 // 참고: https://goo.gl/3w3EEw
 
+console.groupCollapsed('instanceof 언제 쓸까?');
+
+// instanceof 언제 쓰나?
+// OOJS 객체지향자바스크립트 프로그래밍에서 사용
+
+// [[Class]]
+// Constructor Function [[]]
+function Pagenation(el){
+
+  // new를 사용했는지 여부를 검사하여 잘못됨을
+  // 사용자에게 경고하는 오류를 제공하여 디버깅을 용이하게 한다.
+
+  // new 사용을 강제화하는 패턴
+  if ( !(this instanceof Pagenation) ) {
+    throw 'new Pagenation() 으로 실행 구문을 써주세요';
+  }
+
+  // new 사용을 암묵(시)적으로 처리하는 패턴
+  // if ( !(this instanceof Pagenation) ) {
+  //   return new Pagenation(el);
+  // }
+
+  this.el = el;
+}
+
+// {Instance}
+// Object {}
+var body_pagenation = new Pagenation( document.body );
+
+
+// 데이터 유형 검증
+// instanceof
+
+// Array 데이터 유형 검증에 있어
+// typeof는 문제를 야기 시킨다.
+
+console.log( 'arr instanceof Array:', arr instanceof Array );
+
+
+console.groupEnd('instanceof 언제 쓸까?');
+
 
 // 2-3) 데이터 타입 검증 방법 .consturctor 속성
 // 참고: https://goo.gl/RqAF6f
 
+console.group('.constructor는 언제쓸까?');
+
+// 객체 유형 검증은 완벽(Perfect!!)
+console.log('num.constructor:', num.constructor); // Number
+console.log('str.constructor:', str.constructor); // String
+console.log('boo.constructor:', boo.constructor); // Boolean
+console.log('fnc.constructor:', fnc.constructor); // Function
+console.log('arr.constructor:', arr.constructor); // Array
+console.log('obj.constructor:', obj.constructor); // Object
+
+// 단! 객체 유형 검증에서만 완벽하고, null/undefined 유형 체크 시에는 오류 발생
+console.log('null.constructor:', null.constructor); // Error
+
+console.groupEnd('.constructor는 언제쓸까?');
 
 // 2-4) 데이터 타입 검증 방법 직접 만든 유틸리티 함수
 
