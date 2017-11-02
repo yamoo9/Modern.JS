@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "Study jQuery + ES6",
   "scripts": {
-    "start": "npm run babel-dir-watch",
+    "start": "npm run babel-modules-loader-watch",
     "babel-dir": "babel src/es6 -d src/js",
-    "babel-dir-watch": "npm run babel-dir -- -w"
+    "babel-dir-watch": "npm run babel-dir -- -w",
+    "babel-modules-loader": "babel src/es6/main.js -o src/js/main.js",
+    "babel-modules-loader-watch": "npm run babel-modules-loader -- -w"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
