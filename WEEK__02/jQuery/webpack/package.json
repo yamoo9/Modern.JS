@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "Webpack 학습",
   "scripts": {
-    "bundle": "webpack src/main.js dist/main.js"
+    "start": "npm run bundle:watch",
+    "bundle": "webpack src/main.js dist/main.js",
+    "bundle:watch": "webpack src/main.js dist/main.js -w"
   },
   "devDependencies": {
     "jquery": "^3.2.1",

@@ -60,55 +60,35 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-/* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* WEBPACK VAR INJECTION */(function(global) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_jquery__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__kipfa_ui_Accordion__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__kipfa_dom_q__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__kipfa_ui_Accordion__ = __webpack_require__(5);
 
 
 
+
+
+let global = window;
+let document = global.document;
 
 // Accordion 객체 생성 구문
-const demo_acc = new __WEBPACK_IMPORTED_MODULE_2__kipfa_ui_Accordion__["a" /* default */]( __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.demo') );
+const demo_acc = new __WEBPACK_IMPORTED_MODULE_3__kipfa_ui_Accordion__["a" /* default */]( Object(__WEBPACK_IMPORTED_MODULE_2__kipfa_dom_q__["a" /* default */])('.demo'), {} );
 
-const document = global.document;
+global.demo_acc = demo_acc;
+
+// const document = global.document;
 let heading_message = ['Hello', 'Webpack', ':)'];
 
 function jq_component() {
@@ -116,10 +96,9 @@ function jq_component() {
 }
 
 __WEBPACK_IMPORTED_MODULE_1_jquery___default()('body').append(jq_component);
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 2 */
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -17208,7 +17187,34 @@ __WEBPACK_IMPORTED_MODULE_1_jquery___default()('body').append(jq_component);
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(3)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(3)(module)))
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
 
 /***/ }),
 /* 3 */
@@ -27503,21 +27509,91 @@ return jQuery;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_each__ = __webpack_require__(6);
+
+
 class Accordion {
   constructor(element, options){
-    this.el = element;
     this.options = options;
+    this.el = element;
+    this.items = [];
+    this.headers = [];
+    this.panels = [];
     this._init(); // 초기화
   }
   _init(){
-    console.log('initialization Accordion Component');
-    // this.el.classList.add('initialized');
-    this.el.addClass('initialized');
+    this._setup();
+    this._bind();
+  }
+  _setup(){
+    let el = this.el;
+    el.classList.add('accordion');
+
+    let children = this.items = el.children;
+    Object(__WEBPACK_IMPORTED_MODULE_0__utils_each__["a" /* default */])(children, (child, index) => {
+      this.headers.push(child.firstElementChild);
+      this.panels.push(child.lastElementChild);
+      child.classList.add('accordion__item');
+      this._setup_headings();
+      this._setup_panels();
+    });
+  }
+  _setup_headings(){
+    let headers = this.headers;
+    Object(__WEBPACK_IMPORTED_MODULE_0__utils_each__["a" /* default */])(headers, (header, index) => {
+      header.classList.add('accordion__header');
+    });
+  }
+  _setup_panels(){
+    let panels = this.panels;
+    Object(__WEBPACK_IMPORTED_MODULE_0__utils_each__["a" /* default */])(panels, (panel, index) => {
+      panel.classList.add('accordion__panel');
+    });
+  }
+  _bind(){
+    Object(__WEBPACK_IMPORTED_MODULE_0__utils_each__["a" /* default */])(this.headers, (header, index) => {
+      header.querySelector('a').addEventListener('click', e => {
+        e.preventDefault();
+        this.panels[index].classList.add('toggle');
+      });
+    });
   }
 }
 
 // 정의한 클래스(설계)를 내보낸다.
 /* harmony default export */ __webpack_exports__["a"] = (Accordion);
+
+/***/ }),
+/* 6 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = (function(o, cb){
+  return [].forEach.call(o, cb);
+});;
+
+/***/ }),
+/* 7 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__qa__ = __webpack_require__(8);
+
+
+/* harmony default export */ __webpack_exports__["a"] = (function(s){
+  return Object(__WEBPACK_IMPORTED_MODULE_0__qa__["a" /* default */])(s).item(0);
+});;
+
+/***/ }),
+/* 8 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+const global = window;
+
+/* harmony default export */ __webpack_exports__["a"] = (function(s){
+  return global.document.querySelectorAll(s);
+});;
 
 /***/ })
 /******/ ]);
