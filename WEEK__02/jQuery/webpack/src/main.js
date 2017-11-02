@@ -1,29 +1,15 @@
-// ;(function (global, _, $) {
-  // 'use strict';
+import _ from 'lodash';
+import $ from 'jquery';
+import Accordion from './kipfa/ui/Accordion';
 
-  // Lodash
-  // node_modules/lodash
-  import _ from 'lodash';
-  // jQuery
-  // node_modules/jquery
-  import $ from 'jquery';
+// Accordion 객체 생성 구문
+const demo_acc = new Accordion( $('.demo') );
 
-  const document = global.document;
-  let heading_message = ['Hello', 'Webpack', ':)'];
+const document = global.document;
+let heading_message = ['Hello', 'Webpack', ':)'];
 
-  function component() {
-    let el = document.createElement('h1');
-    // Lodash 라이브러리 join() 메서드 사용
-    el.innerHTML = _.join(heading_message, ' ');
-    return el;
-  }
-  // document.body.appendChild(component());
+function jq_component() {
+  return $('<h1>').html( _.join(heading_message, ' ') );
+}
 
-  function jq_component() {
-    // return $('<h1>').html( _.join(heading_message, ' ') );
-    return $('<h1>').html( heading_message.join(' ') );
-  }
-
-  $('body').append(jq_component);
-
-// })(window, window._, window.jQuery);
+$('body').append(jq_component);

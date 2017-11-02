@@ -100,35 +100,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_jquery__);
-// ;(function (global, _, $) {
-  // 'use strict';
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__kipfa_ui_Accordion__ = __webpack_require__(5);
 
-  // Lodash
-  // node_modules/lodash
-  
-  // jQuery
-  // node_modules/jquery
-  
 
-  const document = global.document;
-  let heading_message = ['Hello', 'Webpack', ':)'];
 
-  function component() {
-    let el = document.createElement('h1');
-    // Lodash 라이브러리 join() 메서드 사용
-    el.innerHTML = __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.join(heading_message, ' ');
-    return el;
-  }
-  // document.body.appendChild(component());
 
-  function jq_component() {
-    // return $('<h1>').html( _.join(heading_message, ' ') );
-    return __WEBPACK_IMPORTED_MODULE_1_jquery___default()('<h1>').html( heading_message.join(' ') );
-  }
+// Accordion 객체 생성 구문
+const demo_acc = new __WEBPACK_IMPORTED_MODULE_2__kipfa_ui_Accordion__["a" /* default */]( __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.demo') );
 
-  __WEBPACK_IMPORTED_MODULE_1_jquery___default()('body').append(jq_component);
+const document = global.document;
+let heading_message = ['Hello', 'Webpack', ':)'];
 
-// })(window, window._, window.jQuery);
+function jq_component() {
+  return __WEBPACK_IMPORTED_MODULE_1_jquery___default()('<h1>').html( __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.join(heading_message, ' ') );
+}
+
+__WEBPACK_IMPORTED_MODULE_1_jquery___default()('body').append(jq_component);
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
@@ -27510,6 +27497,27 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
+
+/***/ }),
+/* 5 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+class Accordion {
+  constructor(element, options){
+    this.el = element;
+    this.options = options;
+    this._init(); // 초기화
+  }
+  _init(){
+    console.log('initialization Accordion Component');
+    // this.el.classList.add('initialized');
+    this.el.addClass('initialized');
+  }
+}
+
+// 정의한 클래스(설계)를 내보낸다.
+/* harmony default export */ __webpack_exports__["a"] = (Accordion);
 
 /***/ })
 /******/ ]);

@@ -6,7 +6,8 @@ class Accordion {
   }
   _init(){
     console.log('initialization Accordion Component');
-    this.el.classList.add('initialized');
+    // this.el.classList.add('initialized');
+    this.el.addClass('initialized');
   }
 }
 
