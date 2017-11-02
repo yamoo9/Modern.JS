@@ -16,7 +16,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   // [ES5], OOJS
   // constructor function
 
-  function Accordion() {}
+  function Accordion(element, options) {
+    this.$el = $(element);
+    this.options = $.extend(true, {}, defaults, options);
+    this._init();
+  }
 
   // Accordion 함수 객체의 속성
   // static(class) method | utility method
@@ -43,16 +47,35 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     // console.log(this); // 상위 컨텍스트 객체를 참조
   };
 
-  // [ES6], OOJS
-  // JAVA, C# 객체지향언어의 class, sugar syntax 제공
+  // Private
+  var defaults = {
+    // 활성화 클래스 속성
+    active_class: 'is-active',
+    // 활성화 인덱스
+    active_index: null,
+    // 모든 패널 접음
+    close_all: true,
+    // 라디오 기능 활성화
+    radio: false,
+    // 애니메이션 활성화
+    animate: false,
+    // 애니메이션 지속시간
+    duration: 300,
+    // 애니메이션 이징
+    // jquery.easing 사용 가능
+    // 참고: http://easings.net/ko
+    easing: 'swing'
 
+    // [ES6], OOJS
+    // JAVA, C# 객체지향언어의 class, sugar syntax 제공
+  };
   var AccordionClass = function () {
     function AccordionClass(element, options) {
       _classCallCheck(this, AccordionClass);
 
       this.$el = $(element);
       // JavaScript 믹스인(Mixin) Pattern
-      this.options = $.extend(true, {}, options);
+      this.options = $.extend(true, {}, defaults, options);
       // Accordion 컴포넌트 초기화
       this._init();
     }
