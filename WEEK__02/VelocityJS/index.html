@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuery .animate()의 문제점과 해결책</title>
+  <style>
+  .demo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    margin-top: 20px;
+    background: #3e3e3e;
+    color: #ffffff;
+    box-shadow: 10px 10px 10px rgb(118, 140, 185);
+  }
+  </style>
+</head>
+<body>
+
+  <button type="button" class="toggle-btn__demo">Toggle Demo</button>
+
+  <div class="demo">
+    demo Section
+  </div>
+
+  <script src="https://unpkg.com/jquery"></script>
+  <script src="https://unpkg.com/velocity-animate"></script>
+  <script>
+    (function(global, $){
+      'use strict';
+
+      var $btn = $('.toggle-btn__demo');
+      var $demo = $('.demo');
+
+      $btn.on('click', function(){
+        // $demo 컨트롤
+        // 방법 #1
+        $demo
+          .stop()
+          .velocity({
+            width: "45px",
+            borderRadius: "25px",
+            borderColor: "#8CC152",
+            paddingLeft: "0",
+            paddingRight: "0",
+            backgroundColor: "#8CC152",
+            color: "#fff",
+            boxShadowX: "0",
+            boxShadowY: "0"
+          }, 900, [1000, 20], function(){
+            console.log('finished animation');
+          });
+
+        // 방법 #2
+        // $demo.animate({ height: 'toggle' }, {
+        //   duration: 800,
+        //   easing: 'swing',
+        //   complete: function () {
+        //     console.log('finished animation');
+        //   }
+        // });
+      });
+
+    })(window, window.jQuery);
+  </script>
+</body>
+</html>
