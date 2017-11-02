@@ -34,8 +34,15 @@
 let btn = $('.btn a');
 
 btn.on('click', e => {
+// btn.on('click', function(e) {
   // 기본 동작 차단
   e.preventDefault();
+  // ES5 함수를 사용하면 이벤트를 실행시킨 주체를 가리킨다.
+  // ES6 화살표 함수를 사용하면 상위 컨텍스트를 가리킨다.
+  console.log('this:', this);         // this context
+  console.log('e.target:', e.target); // event target object
+  $(this).addClass('clicked-this');
+  $(e.target).addClass('clicked-e.target');
   console.log('print');
 });
 
@@ -52,3 +59,15 @@ btn.on('keyup', e => {
     // btn.click();
   }
 });
+
+// ES6 vs ES5, this context 차이점 예시
+const y9 = {
+  // ES6
+  getMemory: () => {
+    console.log(this);
+  },
+  // ES5
+  getAge: function () {
+    console.log(this);
+  }
+};
