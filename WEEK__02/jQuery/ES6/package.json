@@ -1,10 +1,10 @@
 {
   "name": "jquery-es6",
   "version": "1.0.0",
-  "description": "Study jQuery ES6",
+  "description": "Study jQuery + ES6",
   "scripts": {
-    "babel-file": "babel js/modern.js -o js/modern.es5.js",
-    "babel-dir": "babel es6 -d js",
+    "start": "npm run babel-dir-watch",
+    "babel-dir": "babel src/es6 -d src/js",
     "babel-dir-watch": "npm run babel-dir -- -w"
   },
   "devDependencies": {
