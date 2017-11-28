@@ -20,10 +20,10 @@ $ yarn -v
 
 yarn install v0.19.1
 info No lockfile found.
-[1/4] 🔍  Resolving packages...
+[1/4] Resolving packages...
 success Nothing to install.
 success Saved lockfile.
-✨  Done in 0.21s.
+Done in 0.21s.
 ```
 
 ※ [NPM을 이용하지 않고 설치하는 방법](https://yarnpkg.com/en/docs/install)도 있습니다.
@@ -45,7 +45,7 @@ yarn init v0.19.1
 warning The yes flag has been set. This will automatically answer yes
 to all questions which may have security implications.
 success Saved package.json
-✨  Done in 0.06s.
+Done in 0.06s.
 ```
 
 
