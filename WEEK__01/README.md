@@ -62,3 +62,70 @@
 ## JavaScript 중/고급 학습은 여기서<i>!</i>
 
 [JavaScript × BSIDESOFT](http://www.bsidesoft.com/?cat=5)
+
+---
+
+### 수업 진행을 위한 준비
+
+#### 버전관리 도구
+
+Git을 설치하고, GitHub 서비스 계정을 생성합니다.
+
+- [Git for Windows](https://git-for-windows.github.io/)
+- [GitHub](https://github.com)
+
+#### 브라우저 & 익스텐션
+
+수업에서 사용할 브라우저와 익스텐션입니다. 설치해주세요.
+
+- 브라우저 [Chrome](https://www.google.co.kr/chrome/browser/desktop/index.html)
+- 익스텐션 [GitZip for github](https://chrome.google.com/webstore/detail/gitzip-for-github/ffabmkklhbepgcgfonabamgnfafbdlkn)
+- 익스텐션 [Octotree](https://chrome.google.com/webstore/detail/octotree/bkhaagjahfmjljalopjnoealnfndnagc)
+
+#### CLI 도구
+
+Windows 기본 명령어 도구는 불편하죠. 보다 편리한 사용을 도와주는 도구를 설치해보세요. (택 1)
+
+- [cmder](http://cmder.net/)([사용법](http://javaworld.co.kr/82))
+- [conemu](http://conemu.github.io/)([사용법](http://programmingsummaries.tistory.com/352))
+
+#### 서버 환경 도구
+
+- [NodeJS](https://nodejs.org)
+- [live-server](https://www.npmjs.com/package/live-server)
+
+<br>
+
+## GitHub 서비스
+
+GitHub 계정 등록 및 저장소를 관리하는 방법을 공부해 봅니다.
+
+1. Git 설치
+1. GitHub 계정 생성 및 저장소 생성
+1. Git Bash 및 CLI 도구 설정 및 명령어 활용
+1. GitHub 프로젝트 웹 호스팅
+
+<br>
+
+### GitHub 원격저장소 클론
+
+생성한 저장소 인터페이스 오른쪽에 있는 __Clone or download 버튼을 클릭__ 한 후, https 주소를 클립보드에 저장합니다.
+
+<img src="https://raw.githubusercontent.com/yamoo9/DDP/master/_/git-clone-copy.jpg" alt="">
+
+명령어 도구를 열어 원격저장소를 복사할 위치로 이동합니다.
+
+```sh
+# 데스크톱으로 이동할 경우
+$ cd ~/Deskop
+
+# 도큐멘트로 이동할 경우
+$ cd ~/Document
+```
+
+
+`git clone` 명령을 사용하면 원격저장소의 데이터를 로컬 컴퓨터로 다운로드 받습니다.
+
+```sh
+$ git clone https://github.com/<계정이름>/<저장소이름>.git
+```
