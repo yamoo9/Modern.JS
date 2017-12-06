@@ -9,7 +9,7 @@
 ### 정규교육과정 소개
 
 - JavaScript 작성 시, 피해야 할 코딩 습관, 좋은 코딩 습관 학습
-- 라이브러리 [jQuery](https://jquery.com/), [ScrollMagic](http://scrollmagic.io/), [GSAP](https://greensock.com/) 등을 통해 실무에 활용 가능한 예제 실습
+- 라이브러리 [jQuery](https://jquery.com/), [VelocityJS](http://velocityjs.org/), [ScrollMagic](http://scrollmagic.io/) 등을 통해 실무에 활용 가능한 예제 실습
 - 프레임워크 [Vue.js](https://vuejs.org/) 입문
 
 ---
@@ -52,14 +52,16 @@
 - Anti Pattern
 - Good Pattern
 - ECMAScript 6
+- Babel / Webpack
 
 #### DAY 2. JavaScript __Library__
 
 - jQuery API
+- VelocityJS API
 - ScrollMagic API
-- GSAP API
 
 #### DAY 3. JavaScript __Framework__
 
 - Vue.js API
+- vue-router
 - Vuex
