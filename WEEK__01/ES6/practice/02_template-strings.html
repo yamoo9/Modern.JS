@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>템플릿 스트링 활용 실무 예제, ES6</title>
+  <link rel="stylesheet" href="https://unpkg.com/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/bulma/css/bulma.css">
+  <style>
+    .demo {
+      margin: 3rem;
+    }
+    .a11y-hidden {
+      overflow: hidden;
+      position: absolute;
+      clip:     rect(0,0,0,0);
+      width:    1px;
+      height:   1px;
+      margin:   -1px;
+      border:   0;
+      padding:  0;
+    }
+    .a11y-hidden.focusable:focus {
+      overflow: visible;
+      position: static;
+      clip:     auto;
+      width:    auto;
+      height:   auto;
+      margin:   0;
+    }
+    caption.a11y-hidden {
+      position: static;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="demo"></div>
+
+  <script>
+    (function(global){
+      'use strict';
+
+      // ——————————————————————————————————————
+      // 데이터
+      // ——————————————————————————————————————
+      var delivery_table_info = {
+        table_class : 'table is-striped is-hoverable is-fullwidth delivery',
+        caption     : '배송 슬롯(투입구) 시간별 Open/Closed 상황',
+        days        : ['월', '화', '수', '목', '금'],
+        contents    : [
+          { time: '09:00 - 10:00', content: ['Closed', 'Open', 'Open', 'Closed', 'Closed'] },
+          { time: '10:00 - 11:00', content: ['Open', 'Open', 'Open', 'Open', 'Closed']     },
+          { time: '11:00 - 12:00', content: ['Closed', 'Open', 'Open', 'Open', 'Open']     },
+          { time: '13:00 - 14:00', content: ['Open', 'Open', 'Open', 'Open', 'Open']       },
+        ]
+      };
+
+      // ——————————————————————————————————————
+      // DOM 스크립팅
+      // ——————————————————————————————————————
+      const demo = document.querySelector('.demo');
+
+      // 렌더 테이블 함수
+      // HTML 템플릿 + 데이터 바인딩
+      function renderTable(container, data) {
+        let table_template = '\
+          <table class="' + data.table_class + '">\
+            <caption class="a11y-hidden">' + data.caption + '</caption>\
+            <thead>\
+              <tr>\
+                <td>&nbsp;</td>\
+        ';
+
+        const days = data.days;
+        for ( let i=0, l=days.length; i<l; i++ ) {
+          table_template += '\
+                <th scope="col">'+ days[i] + '</th>\
+          ';
+        }
+
+        table_template += '\
+              </tr>\
+            </thead>\
+            <tbody>\
+        ';
+
+        const contents = data.contents;
+        for ( let i=0, l=contents.length; i<l; i++ ) {
+          const context = contents[i];
+          table_template += '\
+              <tr>\
+                <th scope="row">' + context.time + '</th>\
+          ';
+          const content = context.content;
+          for ( let i=0, l=content.length; i<l; i++ ) {
+            table_template += '\
+                <td>' + content[i] + '</td>\
+            ';
+          }
+          table_template += '\
+              </tr>\
+          ';
+        }
+
+        table_template += '\
+            </tbody>\
+          </table>\
+        ';
+
+        container.innerHTML = table_template;
+      }
+
+      // 함수 실행
+      renderTable(demo, delivery_table_info);
+
+    })(window);
+  </script>
+
+  <!-- 테이블 템플릿 -->
+  <script type="text/template">
+    <table class="y9-table delivery">
+      <caption class="a11y-hidden">배송 슬롯(투입구) 시간별 Open/Closed 상황</caption>
+      <thead>
+        <tr>
+          <td>&nbsp;</td>
+          <th scope="col">월</th>
+          <th scope="col">화</th>
+          <th scope="col">수</th>
+          <th scope="col">목</th>
+          <th scope="col">금</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">09:00 - 11:00</th>
+          <td>Closed</td>
+          <td>Open</td>
+          <td>Open</td>
+          <td>Closed</td>
+          <td>Closed</td>
+        </tr>
+      </tbody>
+    </table>
+  </script>
+
+</body>
+</html>

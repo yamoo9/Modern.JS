@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>화살표 함수 활용 실무 예제, ES6</title>
+  <link rel="stylesheet" href="https://unpkg.com/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/bulma/css/bulma.css">
+  <style>
+    .demo {
+      margin: 3rem;
+    }
+    .card-content {
+      padding: 0.5rem;
+    }
+    .columns {
+      margin: 0;
+    }
+    .a11y-hidden {
+      overflow: hidden;
+      position: absolute;
+      clip:     rect(0,0,0,0);
+      width:    1px;
+      height:   1px;
+      margin:   -1px;
+      border:   0;
+      padding:  0;
+    }
+    .a11y-hidden.focusable:focus {
+      overflow: visible;
+      position: static;
+      clip:     auto;
+      width:    auto;
+      height:   auto;
+      margin:   0;
+    }
+    caption.a11y-hidden {
+      position: static;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="demo">
+    <div class="content">
+      <button type="button" class="button add-button">Add Members</button>
+    </div>
+    <section class="card-container columns is-multiline"></section>
+  </div>
+
+
+  <script>
+    // ——————————————————————————————————————
+    // 유틸리티 라이브러리
+    // ——————————————————————————————————————
+    (function(global) {
+
+      let toString = Object.prototype.toString;
+      let slice    = Array.prototype.slice;
+
+      const yamoo9 = {
+        $: function(selector, context) {
+          return (context||document).querySelector(selector);
+        },
+        $$: function(selector, context) {
+          return (context||document).querySelectorAll(selector);
+        },
+        type: function(o) {
+          return toString.call(o).toLowerCase().slice(8,-1);
+        },
+        makeArray: function(o){
+          return slice.call(o);
+        },
+      };
+
+      global.y9 = yamoo9;
+
+    })(window);
+
+
+    // ——————————————————————————————————————
+    // 데이터 관리
+    // ——————————————————————————————————————
+    (function(global, y9) {
+
+      const communityManager = {
+        _members: [],
+        init: function(members, cb){
+          var _this = this;
+          this.fetch(members)
+            .then(function(data) {
+              _this._members = data;
+            })
+            .then(function() {
+              if (y9.type(cb) === 'function') {
+                cb();
+              }
+            });
+        },
+        getMembers: function() {
+          return this._members;
+        },
+        addMembers: function(newbee, cb) {
+          var _this = this;
+          this.fetch(newbee)
+            .then(function(data) {
+              _this._members = _this._members.concat(data);
+            })
+            .then(function(){
+              if (y9.type(cb) === 'function') {
+                cb();
+              }
+            });
+        },
+        fetch: function(id){
+          return fetch(`https://api.myjson.com/bins/${id}`)
+            .then(function(response) {
+              return response.json();
+            })
+            .then(function(data){
+              return data;
+            });
+        }
+      };
+
+      y9.communityManager = communityManager;
+
+    })(window, (window.y9 = window.y9 || {}));
+
+
+    // ——————————————————————————————————————
+    // DOM 스크립팅
+    // ——————————————————————————————————————
+    ((global, y9) => {
+
+      // 멤버 데이터
+      let members = ['8zt2r', '1f9l0z', '12cowz'];
+      let count   = 0;
+
+      // 커뮤니티 매니저 데이터 초기화
+      y9.communityManager.init(members[count++], init);
+
+      // DOM 객체 참조 변수
+      let cardContainer = y9.$('.card-container'),
+          addButton     = y9.$('.add-button');
+
+
+      // 초기화 함수
+      function init() {
+        render();
+        bind();
+      }
+
+      function bind() {
+        addButton.addEventListener('click', function(e) {
+          e.target.classList.add('is-loading');
+          update();
+        });
+      }
+
+      function update() {
+        y9.communityManager.addMembers(members[count++], render.bind(undefined, 'update'));
+      }
+
+      function render(state) {
+
+        let template = '';
+
+        y9.communityManager.getMembers().forEach(function(member) {
+          template += `
+            <div class="card column is-6-tablet is-4-desktop">
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-left">
+                    <figure class="image is-80x80">
+                      <img src="${member.picture}" alt="${member.name}">
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <p class="title is-4">${member.name} | ${member.gender}</p>
+                    <p class="subtitle is-6">@${member.email}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+
+        cardContainer.innerHTML = template;
+
+        if (state === 'update') {
+          updateAddButtonState();
+        }
+      }
+
+      function updateAddButtonState() {
+        addButton.classList.remove('is-loading');
+        // 더 이상 불러올 데이터가 없을 경우
+        if ( y9.type(members[count]) === 'undefined' ) {
+          addButton.setAttribute('disabled', 'disabled');
+        }
+      }
+
+    })(window, window.y9);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>let const 키워드 활용 실무 예제, ES6</title>
+  <link rel="stylesheet" href="https://unpkg.com/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/bulma/css/bulma.css">
+  <style>
+    .demo {
+      margin: 3rem;
+    }
+    .demo li {
+      padding-top: 0.3em;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+
+  <ul class="demo box" lang="en"></ul>
+
+  <script>
+    (function(global){
+      'use strict';
+
+      // ——————————————————————————————————————
+      // 데이터
+      // ——————————————————————————————————————
+      var es6_data = [
+        { content: 'ECMAScript2015 (ES6)',     link: 'https://www.ecma-international.org/ecma-262/6.0/' },
+        { content: 'BabelJS',                  link: 'https://babeljs.io/' },
+        { content: 'Webpack - Module Bundler', link: 'https://webpack.github.io/' },
+      ];
+
+      // ——————————————————————————————————————
+      // DOM 스크립팅
+      // ——————————————————————————————————————
+      var demo = document.querySelector('.demo');
+
+      // 렌더 함수
+      function renderList(list, data) {
+        var html = '';
+        data.forEach(function(item, index){
+          var content = item.content;
+          var link    = item.link;
+          html += '<li><span class="icon is-small"><i class="fa fa-link" aria-hidden="true"></i></span> <a href="' + link + '">' + content + '</a></li>';
+        });
+        list.innerHTML = html;
+        bindEventListItem(list, data);
+      }
+
+      // 이벤트 바인딩 함수
+      function bindEventListItem(list, data) {
+        var links = list.querySelectorAll('a');
+        for ( var i=0, l=links.length; i<l; i++ ) {
+          // 반복문 내부에 함수를 사용할 경우 문제 발생
+          links[i].addEventListener('click', function(e) {
+            e.preventDefault();
+            var target = e.target;
+            var href   = target.getAttribute('href');
+            if ( href === target.textContent ) {
+              target.textContent = data[i].content;
+            } else {
+              target.textContent = data[i].link;
+            }
+          });
+        }
+      }
+
+      // 함수 실행
+      renderList(demo, es6_data);
+
+    })(window);
+  </script>
+
+</body>
+</html>
