@@ -9,7 +9,43 @@
 // 1. var 키워드 사용에서 주의할 점 [ES5]
 // https://goo.gl/UE9hYh
 
+// 선언, 초기화, (스코프 형성)
+var phone1   = 'iPhoneX';
+let phone2   = 'Gallaxy Note 8';
+const phones = [phone1, phone2];
+
+// 선언
+var declation; // undefined
+console.log(declation); // undefined
+// 초기화
+declation = '선언 변수';
+// 스코프 형성
+// 전역(Global Scope)
+
+function getDate() {
+  var date = new Date();
+  function formatDate() {
+    return date.toISOString().slice(0,10);
+  }
+  return formatDate();
+}
+
+getDate(); // Date {}
+// console.log(date); // Reference Error: date is not defined
+
 // 1-1. 함수 스코프 (Function-level Scope)
+
+// ES6 + let, const 키워드를 사용하면 블록 내부에 지역이 형성된다.
+/*
+  var 키워드는 블록을 지역으로 만들지 않는다.
+  let, const는 그렇지 않다.
+
+  var와 달리, let,const 키워드를 사용한 이름은 영역 내에서 유일해야 한다.
+
+  let과 달리 const는 선언/초기화가 동시에 이루어져야 한다.
+*/
+
+
 // 1-2. 호이스팅 (Hoisting) 현상
 // 1-3. 클로저 (Closure)
 // 1-3. IIFE (Immediately Invoked Function Expressions: “Iffy”라고 발음) 패턴
