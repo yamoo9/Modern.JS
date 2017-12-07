@@ -3,20 +3,33 @@ var links = document.querySelectorAll('.demo a');
 
 var data = 'one two three four'.split(' ');
 
-function linkClick(i){
-  console.log('i:', i);
-  console.log('data[i]:', data[i]);
-  function innerLinkClick(e) {
-    e.preventDefault();
-    console.log('clicked: i:', i);
-    console.log('clicked: data[i]:', data[i]);
+// var 사용 시 주의할 점
+// 자바스크립트 클로저를 사용해 문제 해결
+(function(){
+  'use strict';
+
+  function linkClick(i){
+    console.log('i:', i);
+    console.log('data[i]:', data[i]);
+    function innerLinkClick(e) {
+      e.preventDefault();
+      console.log('clicked: i:', i);
+      console.log('clicked: data[i]:', data[i]);
+    }
+
+    return innerLinkClick;
+  };
+
+  for (var i=0, l=links.length; i<l; ++i) {
+    var link = links.item(i);
+    // JavaSCript Closure
+    link.onclick = linkClick(i);
   }
 
-  return innerLinkClick;
-};
+) // ();
 
-// linkClick();
 
+// let을 사용할 경우 쉽게 문제 해결됨.
 for (let i=0, l=links.length; i<l; ++i) {
   let link = links.item(i);
   link.onclick = function (e) {
