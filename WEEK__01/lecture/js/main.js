@@ -26,7 +26,7 @@ var data = 'one two three four'.split(' ');
     link.onclick = linkClick(i);
   }
 
-) // ();
+}) // ();
 
 
 // let을 사용할 경우 쉽게 문제 해결됨.
