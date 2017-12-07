@@ -73,6 +73,7 @@ Git을 설치하고, GitHub 서비스 계정을 생성합니다.
 
 - [Git for Windows](https://git-for-windows.github.io/)
 - [GitHub](https://github.com)
+- [누구나 쉽게 이해할 수 있는 Git 입문](https://backlog.com/git-tutorial/kr/)
 
 #### 브라우저 & 익스텐션
 
