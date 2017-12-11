@@ -8,15 +8,17 @@ var data = 'one two three four'.split(' ');
 (function(){
   'use strict';
 
+  // 외부 함수
   function linkClick(i){
     console.log('i:', i);
     console.log('data[i]:', data[i]);
+    // 내부 함수
     function innerLinkClick(e) {
       e.preventDefault();
       console.log('clicked: i:', i);
       console.log('clicked: data[i]:', data[i]);
     }
-
+    // 내부 함수 반환
     return innerLinkClick;
   };
 
@@ -25,6 +27,8 @@ var data = 'one two three four'.split(' ');
     // JavaSCript Closure
     link.onclick = linkClick(i);
   }
+
+  // console.log(i); // 4
 
 }) // ();
 
@@ -40,5 +44,3 @@ for (let i=0, l=links.length; i<l; ++i) {
   // JavaSCript Closure
   // link.onclick = linkClick(i);
 }
-
-// console.log(i); // 4
