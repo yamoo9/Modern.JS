@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery .animate()의 문제점과 해결책</title>
+    <style>
+      body {
+        width: 900px;
+        margin-top: 100px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
+      .demo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        height: 100px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background: #3e3e3e;
+        color: #ffffff;
+      }
+
+    </style>
+  </head>
+
+  <body>
+
+    <button type="button" class="toggle-btn__demo">Toggle Demo</button>
+    <div class="demo">
+      <p>
+        demo Section
+      </p>
+    </div>
+
+    <button type="button" class="toggle-btn__demo">Toggle Demo</button>
+    <div class="demo">
+      <p>
+        demo Section
+      </p>
+    </div>
+
+    <button type="button" class="toggle-btn__demo">Toggle Demo</button>
+    <div class="demo">
+      <p>
+        demo Section
+      </p>
+    </div>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ratione tempore sint atque maiores dicta soluta hic
+      vitae doloribus, voluptatum odio, mollitia quidem magni provident accusantium explicabo possimus, quia nam.</p>
+
+    <script src="https://unpkg.com/jquery"></script>
+    <script src="https://unpkg.com/velocity-animate"></script>
+    <script src="https://unpkg.com/velocity-ui-pack"></script>
+    <script>
+      (function (global, $) {
+        'use strict';
+
+
+        var $btn = $('.toggle-btn__demo');
+        var $demo = $('.demo');
+
+        // console.log($btn.length);
+
+        // for ( var k=$btn.length, btn; (btn=$btn[--k]); ) {
+        //   console.log(k, btn); // 2, 1, 0
+        // }
+
+        // 유틸리티 메서드
+        $.each($btn, function (index, btn) {
+          var $button = $btn.eq(index);
+          var $button_next = $button.next();
+
+          $button.velocity({
+            translateY: 10
+          }, {
+            loop: true,
+            begin: function(el) {
+              console.log('begin', el);
+            },
+            progress: function (elements, complete, remaining, start, tweenValue) {
+              console.log('현재 진행율:', (complete * 100) + '%');
+              console.log('남은 시간(밀리초):', remaining + 'ms');
+              console.log('현재 트윈 값:', tweenValue)
+            },
+            complete: function (el) {
+              console.log('complete', el);
+              // $.Velocity(el, {}, {});
+            },
+          });
+
+          $button.on('click', function () {
+            var is_visible = $button_next.is(':visible');
+            var props = null;
+            var options = null;
+            // if ( is_visible ) {
+            props = {
+              height: 0,
+              opacity: 0
+            };
+            options = {
+              // loop: true
+            };
+            // }
+            $button_next
+              .velocity(props, options)
+            // .velocity('reverse');
+            // .velocity('stop');
+            // .velocity('finish');
+          });
+        });
+
+        // 인스턴스 메서드
+        // $().each(callback)
+
+        // $btn.each(function(index, item){
+        //   // console.log(item, index);
+        //   $(item).on('click', function(e){
+        //     // console.log(this);
+        //     // $(this).next().slideToggle();
+        //     $.Velocity(this.nextElementSibling, {
+        //       height: 0,
+        //       opacity: 0
+        //     });
+        //   });
+        // });
+
+        // $btn.on('click', function(e){
+
+        //   $demo.velocity({
+        //     height: 0,
+        //     opacity: 0
+        //   }, {
+        //     duration: 1000,
+        //     easing: 'easeOutExpo'
+        //   });
+
+        //   // console.log(this, e.target);
+        //   // $(this).fadeOut();
+        //   // Velocity 유틸리티 함수를 사용하라
+        //   // $.Velocity(this, {
+        //   //   height: 0,
+        //   //   width: 0,
+        //   // }, {
+        //   //   duration: 430,
+        //   //   easing: 'easeInSign',
+        //   //   display: 'none'
+        //   // });
+
+        //   // #1, 애니메이션 종료되면 display: none
+        //   // $demo.velocity('fadeOut', 450);
+
+        //   // #2 애니메이션 종료되면 visibility: hidden
+        //   // $demo.velocity({
+        //   //   height: 0,
+        //   //   opacity: 0
+        //   // }, {
+        //   //   duration: 1000,
+        //   //   easing: 'easeOutExpo'
+        //   // });
+
+        // });
+
+      })(window, window.jQuery);
+
+    </script>
+  </body>
+
+</html>
