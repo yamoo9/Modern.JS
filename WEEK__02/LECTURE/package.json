@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "bulma": "^0.6.1",
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0"
+  }
+}
