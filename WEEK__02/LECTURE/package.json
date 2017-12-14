@@ -1,9 +1,13 @@
 {
+  "scripts": {
+    "babel": "babel src/es6/main.js -o dist/js/main.js"
+  },
   "dependencies": {
     "bulma": "^0.6.1",
     "jquery": "^3.2.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0"
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
   }
 }
