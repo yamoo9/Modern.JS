@@ -26,7 +26,7 @@
                 // typeof cb === 'function' && cb();
                 cb();
 
-                // Method Chaning
+                // Method Chaining
                 return this;
             };
         }

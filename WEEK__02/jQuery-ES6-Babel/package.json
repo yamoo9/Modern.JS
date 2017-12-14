@@ -1,6 +1,8 @@
 {
   "scripts": {
-    "babel": "babel src/es6/main.js -o dist/js/main.js"
+    "babel": "babel src/es6/main.js -o dist/js/main.js",
+    "bundle": "babel src/es6/ -o dist/js/bundle.js",
+    "watch": "yarn bundle -- -w"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",

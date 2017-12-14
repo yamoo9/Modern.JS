@@ -1,0 +1,8 @@
+{
+    "scripts": {
+        "bundle": "rollup src/main.js -f iife > dist/bundle.js"
+    },
+    "devDependencies": {
+        "rollup": "^0.52.1"
+    }
+}
