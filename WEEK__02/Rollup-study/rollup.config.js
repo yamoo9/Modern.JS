@@ -1,6 +1,11 @@
+// import rollup plugins
+import babel  from 'rollup-plugin-babel';
+import eslint from 'rollup-plugin-eslint';
+
+
 // export ES module
 // rollup src/main.js -f umd > dist/bundle.js
-// enrty => input          --- src/main.js
+// entry => input          --- src/main.js
 // dest  => output.file    --- dist/bundle.js
 // format => output.format --- umd
 export default {
@@ -13,5 +18,11 @@ export default {
         // 모듈 포멧
         // iife | cjs | amd | umd | iife
         format: 'iife'
-    }
+    },
+    // 플러그인
+    plugins: [
+        babel({
+            exclude: 'node_modules/**'
+        })
+    ]
 };

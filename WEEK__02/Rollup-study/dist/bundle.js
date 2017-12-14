@@ -2,11 +2,15 @@
 'use strict';
 
 // 비공개
-let trio;
+var trio = void 0;
 
-trio = x => Math.pow(x, 3);
+trio = function trio(x) {
+    return Math.pow(x, 3);
+};
 
-function on(el, type, handler = ()=>{}) {
+function on(el, type) {
+    var handler = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : function () {};
+
     el.addEventListener(type, handler);
 }
 
@@ -19,10 +23,10 @@ function off(el, type, handler) {
 // 다른 모듈을 읽어오는 역할
 
 // 모듈 로드
-console.log( trio(9) ); // 9 * 9 * 9
+console.log(trio(9)); // 9 * 9 * 9
 
-const body = document.querySelector('body');
-const touchBodyAction = (evt) => {
+var body = document.querySelector('body');
+var touchBodyAction = function touchBodyAction(evt) {
     console.log(evt.target);
     off(e.target, 'click', touchBodyAction);
 };
