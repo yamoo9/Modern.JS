@@ -59,6 +59,10 @@ jQuery(document).ready($ => {
         // 함수의 상위 영역을 참조하는 객체이다.
         // let $this = $(this);
         let $this = $(e.target);
+        $this.radioClass(active_class, function(){
+            window.setTimeout(() => $this.removeClass(active_class), 2000);
+        });
+
         $this.siblings(`.${active_class}`).removeClass(active_class);
         $this.addClass(() => {
             // AJAX 특정 시간이 지나면, 상태를 윈상 복귀
@@ -103,3 +107,12 @@ function checkRequirejQuery() {
 ((global = window, $ = checkRequirejQuery()) => {
     $('body').addClass('using-jQuery');
 })();
+
+// 나머지 매개변수
+function sum(...args) {
+    console.log(Array.isArray(args));      // true
+    console.log(Array.isArray(arguments)); // false
+    // ES5 까지 사용되던 arguments는 유사배열 객체로
+    // 배열화, 배열의 slice() 메서드를 사용한 공정이 필요
+    // 이 모든 과정이 불필요한 ....
+}
