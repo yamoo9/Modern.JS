@@ -6,5 +6,5 @@ trio = x => Math.pow(x, 3);
 
 // 공개
 export {
-    square, trio
+	square, trio
 };

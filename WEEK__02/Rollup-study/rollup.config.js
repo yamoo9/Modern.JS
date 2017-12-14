@@ -19,8 +19,17 @@ export default {
         // iife | cjs | amd | umd | iife
         format: 'iife'
     },
+    external: [
+        'jquery'
+    ],
+    globals: {
+        jquery: '$'
+    },
     // 플러그인
     plugins: [
+        eslint({
+            include: './src/**/*.js'
+        }),
         babel({
             exclude: 'node_modules/**'
         })

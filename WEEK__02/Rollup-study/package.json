@@ -1,6 +1,7 @@
 {
     "scripts": {
-        "bundle": "rollup -c"
+        "bundle": "rollup -c",
+        "watch": "rollup -cw"
     },
     "devDependencies": {
         "babel-core": "^6.26.0",
@@ -8,5 +9,9 @@
         "rollup": "^0.52.1",
         "rollup-plugin-babel": "^3.0.2",
         "rollup-plugin-eslint": "^4.0.0"
+    },
+    "dependencies": {
+        "jquery": "^3.2.1",
+        "velocity-animate": "^1.5.0"
     }
 }
