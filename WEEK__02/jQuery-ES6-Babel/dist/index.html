@@ -1,38 +1,37 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>jQuery ES6 프로젝트</title>
-    <link
-        rel="stylesheet"
-        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link
-        rel="stylesheet"
-        href="../node_modules/bulma/css/bulma.css">
-    <style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuery ES6 프로젝트</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../node_modules/bulma/css/bulma.css">
+  <style>
     body {
-        margin: 3rem;
+      margin: 3rem;
     }
-    </style>
+  </style>
 </head>
 <body>
 
-    <div class="toggle-radio-container">
-        <!-- button[type=button]*4{button $$} -->
-        <button class="button is-outlined" type="button">button 01</button>
-        <button class="button is-outlined" type="button">button 02</button>
-        <button class="button is-outlined" type="button">button 03</button>
-        <button class="button is-outlined" type="button">button 04</button>
-    </div>
+  <div class="toggle-radio-container">
+    <button class="button is-outlined" type="button">button 01</button>
+    <button class="button is-outlined" type="button">button 02</button>
+    <button class="button is-outlined" type="button">button 03</button>
+    <button class="button is-outlined" type="button">button 04</button>
+  </div>
 
-<script src="../node_modules/jquery/dist/jquery.min.js"></script>
-<!-- 참고: http://babeljs.io/docs/usage/polyfill -->
-<script src="../node_modules/babel-polyfill/dist/polyfill.min.js"></script>
-<!-- jQuery 플러그인 모듈 -->
-<!-- <script src="../src/es6/plugins/jquery.radioClass.js"></script> -->
-<!-- <script src="./js/main.js"></script> -->
-<script src="./js/bundle.js"></script>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <!-- 참고: http://babeljs.io/docs/usage/polyfill -->
+  <script src="../node_modules/babel-polyfill/dist/polyfill.min.js"></script>
+
+  <!-- jQuery 플러그인 모듈 -->
+  <!-- <script src="../src/es6/plugins/jquery.radioClass.js"></script> -->
+  <!-- <script src="./js/main.js"></script> -->
+
+  <!-- 번들링 -->
+  <script src="./js/bundle.js"></script>
+
 </body>
 </html>

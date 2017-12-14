@@ -1,4 +1,7 @@
 {
+  "name": "jquery-es6-babel",
+  "version": "0.0.1",
+  "description": "jQuery + ES6(Babel) 스터디",
   "scripts": {
     "babel": "babel src/es6/main.js -o dist/js/main.js",
     "bundle": "babel src/es6/ -o dist/js/bundle.js",

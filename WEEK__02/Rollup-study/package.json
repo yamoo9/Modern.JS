@@ -1,17 +1,24 @@
 {
-    "scripts": {
-        "bundle": "rollup -c",
-        "watch": "rollup -cw"
-    },
-    "devDependencies": {
-        "babel-core": "^6.26.0",
-        "babel-preset-es2015-rollup": "^3.0.0",
-        "rollup": "^0.52.1",
-        "rollup-plugin-babel": "^3.0.2",
-        "rollup-plugin-eslint": "^4.0.0"
-    },
-    "dependencies": {
-        "jquery": "^3.2.1",
-        "velocity-animate": "^1.5.0"
-    }
+  "name": "rollup-study",
+  "version": "0.0.1",
+  "description": "Rollup 모듈 번들링 학습",
+  "private": true,
+  "engines": {
+    "node": "^6.12.0"
+  },
+  "scripts": {
+    "bundle": "rollup -c",
+    "watch": "rollup -cw"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "rollup": "^0.52.1",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-eslint": "^4.0.0"
+  },
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "velocity-animate": "^1.5.0"
+  }
 }
