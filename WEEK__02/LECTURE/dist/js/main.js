@@ -34,9 +34,9 @@ jQuery(document).ready(function ($) {
     // object => map
 
     var data = [34, 56, 78, 34, 90];
-    console.log(data);
+    // console.log(data);
     var data_set = new Set(data); // unique
-    console.log(data_set);
+    // console.log(data_set);
 
     var active_class = 'is-loading';
     // ※ 화살표 함수 내부의 this는 무엇을 가리키나?

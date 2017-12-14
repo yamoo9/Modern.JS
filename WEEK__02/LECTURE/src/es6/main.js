@@ -1,3 +1,6 @@
+// --------------------------------------------------------
+// 모듈 개발 방식
+
 // 개발(배포) 의존 모듈 로드
 // CommonJS
 // require('babel-polyfill');
@@ -7,37 +10,46 @@
 // ES
 // import "babel-polyfill";
 
-// ES6
+
+// --------------------------------------------------------
+// 인스턴스 메서드 VS 유틸리티 메서드 
+
+// jQuery 객체(리스트) => 배열
+// jQuery 유틸리티 메서드 $.makeArray()
+
+// 객체를 생성해야지만 사용 가능한 메서드
+// 객체(인스턴스)가 사용할 수 있는 ....
+// 인스턴스 메서드
+// $().each()
+
+// 객체를 생성하지 않고도 사용 가능한 메서드
+// 객체가 아닌 경우에 사용합니다.
+// 일반 함수, 네임스페이스 객체에 종속된 속성
+// 클래스(스태틱) 메서드
+// $.each()
+
+
+// --------------------------------------------------------
+// babel-polyfill을 사용하는 이유
+
+// ES6 새롭게 추가된 객체
+// iteratable object
+// string, array, arguments, set, map, weakset, weakmap
+// array => set
+// object => map
+
+const data = [34, 56, 78, 34, 90];
+// console.log(data);
+const data_set = new Set(data); // unique
+// console.log(data_set);
+
+
+// --------------------------------------------------------
+// jQuery + ES6 프로그래밍
+
 jQuery(document).ready($ => {
 
     let buttons = $('button', '.toggle-radio-container');
-
-    // jQuery 객체(리스트) => 배열
-    // jQuery 유틸리티 메서드 $.makeArray()
-
-    // 객체를 생성해야지만 사용 가능한 메서드
-    // 객체(인스턴스)가 사용할 수 있는 ....
-    // 인스턴스 메서드
-    // $().each()
-
-    // 객체를 생성하지 않고도 사용 가능한 메서드
-    // 객체가 아닌 경우에 사용합니다.
-    // 일반 함수, 네임스페이스 객체에 종속된 속성
-    // 클래스(스태틱) 메서드
-    // $.each()
-
-
-    // ES6 새롭게 추가된 객체
-    // iteratable object
-    // string, array, arguments, set, map, weakset, weakmap
-    // array => set
-    // object => map
-
-    const data = [34, 56, 78, 34, 90];
-    console.log(data);
-    const data_set = new Set(data); // unique
-    console.log(data_set);
-
     let active_class = 'is-loading';
     // ※ 화살표 함수 내부의 this는 무엇을 가리키나?
     let toggleRadioButton = e => {
@@ -64,6 +76,10 @@ jQuery(document).ready($ => {
 
 });
 
+
+// --------------------------------------------------------
+// ES5 VS ES6 기본 매개변수 설정
+
 // IIFE
 // ES5
 (function(global, $){
@@ -81,6 +97,7 @@ function checkRequirejQuery() {
     }
 }
 
+// IIFE
 // ES6
 // defualt parameter
 ((global = window, $ = checkRequirejQuery()) => {
