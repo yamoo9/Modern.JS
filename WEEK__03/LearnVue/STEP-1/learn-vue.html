@@ -17,27 +17,42 @@
 
   <!-- HTML 템플릿(Template) -->
   <!-- 사용자 입력, 입력된 내용을 화면에 출력 -->
+  <h3>Vanilla / jQuery HTML Template</h3>
   <div class="demo">
     <label for="user-input">사용 도구</label>
     <input type="text" id="user-input" placeholder="Vue.js">
     <p class="print">오늘 사용할 도구는 <span class="data-binding">...</span> 입니다.</p>
   </div>
 
+  <hr>
+
+  <h3>Vue.js HTML Template</h3>
   <!-- Vue가 사용하는 HTML 템플릿 -->
   <div class="demo-vue">
     <label for="user-input-vue">사용 도구</label>
+    <!-- <input ng-model="msg" type="text" id="user-input-vue" placeholder="Vue.js"> -->
     <input v-model="msg" type="text" id="user-input-vue" placeholder="Vue.js">
     <p class="print">오늘 사용할 도구는 {{ msg }} 입니다.</p>
+    <h4>자주 사용되는 JavaScript 프레임워크</h4>
+    <ul class="our-frameworks">
+      <!-- 데이터 반복 순환 처리 렌더링 -->
+      <li
+        class="framework-type"
+        v-for="fw in frameworks">{{ fw }}</li>
+    </ul>
   </div>
 
   <!-- jQuery CDN -->
   <!-- <script src="https://unpkg.com/jquery"></script> -->
+
   <!-- Vue Library - CDN -->
   <!-- <script src="https://unpkg.com/vue"></script> -->
   <!-- Vue Library - Local Data: node_modules -->
   <script src="./node_modules/vue/dist/vue.js"></script>
+
   <!-- DATA -->
   <script src="./data/message.js"></script>
+
   <!-- Vanilla Script -->
   <script>
     (function(global, message){
@@ -79,6 +94,7 @@
 
     }) // (window, message);
   </script>
+
   <!-- jQuery -->
   <script>
     (function($ = window.jQuery, MESSAGE = message){
@@ -99,29 +115,39 @@
 
     }) //();
   </script>
+
   <!-- Vue.js -->
   <script>
     // ES6+
     ((Vue = window.Vue) => {
+
+      message.frameworks = [
+        'Vue',
+        'React',
+        'Angular',
+        'Elms',
+        'Polymer',
+      ];
 
       new Vue({
         el: '.demo-vue',
         data: message
       });
 
+    /*
+      const config = {
+        // 마운트 할 요소 설정 => 선택자
+        el: '.demo-vue',
+        // 상태(State, Model)
+        data: {
+          msg: 'Hello Vue :-)'
+        }
+      };
 
-      // const config = {
-      //   // 마운트 할 요소 설정 => 선택자
-      //   el: '.demo-vue',
-      //   // 상태(State, Model)
-      //   data: {
-      //     msg: 'Hello Vue :-)'
-      //   }
-      // };
-
-      // // Vue 객체는 생성했으나,
-      // // 실제 HTML 요소에 마운팅 -> 작동
-      // window.vm = new Vue(config);
+      // Vue 객체는 생성했으나,
+      // 실제 HTML 요소에 마운팅 -> 작동
+      window.vm = new Vue(config);
+    */
 
     })();
   </script>

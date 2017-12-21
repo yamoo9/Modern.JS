@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>뷰 인스턴스를 학습하자</title>
+</head>
+<body>
+
+  <div class="counter-app"></div>
+  <hr>
+  <div class="demo">
+    {{ count }}
+  </div>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+    // 뷰 인스턴스
+    // - 상태(state)
+    // - 뷰(view) + <template + data>
+    // - 액션(action)
+
+    // 외부로 분리된 데이터 객체
+    let counter = {
+      count: 10
+    };
+
+    // VM
+    window.vm1 = new Vue({
+      el: '.counter-app',
+      // M
+      // STATE (DATA)
+      // counter 객체 참조
+      data: counter,
+      // V
+      // VIEW = (STATE + TEMPLATE)
+      template: `
+        <div class="counter-app">
+          <div class="couter">{{ count }}</div>
+          <div class="counter-controls">
+            <button
+              aria-label="카운트 증가"
+              type="button"
+              v-on:click="increaseCounter"
+              class="increase-counter">+</button>
+            <button
+              aria-label="카운트 감소"
+              type="button"
+              v-on:click="decreaseCounter"
+              class="decrease-counter">-</button>
+          </div>
+        </div>
+      `,
+      // ACTION
+      methods: {
+        increaseCounter(){
+          // this.count++;
+          this.count = this.count + 1;
+        },
+        decreaseCounter(){
+          let currentValue = this.count - 1;
+          // 3항식을 사용한 조건식 결과 처리
+          this.count = currentValue < 0 ? 0 : currentValue;
+        }
+      }
+    });
+
+    window.vm2 = new Vue({
+      el: '.demo',
+      // 객체 복사
+      data: Object.assign({}, counter),
+    });
+  </script>
+  <script>
+  ((Vue = window.Vue) => {
+
+    // Vue 객체 생성
+    // 옵션 전달
+    // new Vue({
+      // 마운트
+      // el: '.app',
+      // 데이터
+      // data: {
+        // 관리할 데이터 속성을 추가
+      // },
+      // 템플릿
+      // template: ``,
+      // 라이프사이클훅
+      // 계산된 속성
+      // 메서드
+    // });
+
+  })();
+  </script>
+</body>
+</html>
