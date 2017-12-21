@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>뷰를 배워봅시다.</title>
+  <style>
+    body {
+      margin: 3rem;
+      font: 87.5%/1.5 "Spoqa Han Sans", Verdana;
+      color: rgb(87, 78, 78);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HTML 템플릿(Template) -->
+  <!-- 사용자 입력, 입력된 내용을 화면에 출력 -->
+  <div class="demo">
+    <label for="user-input">사용 도구</label>
+    <input type="text" id="user-input" placeholder="Vue.js">
+    <p class="print">오늘 사용할 도구는 <span class="data-binding">...</span> 입니다.</p>
+  </div>
+
+  <!-- Vue가 사용하는 HTML 템플릿 -->
+  <div class="demo-vue">
+    <label for="user-input-vue">사용 도구</label>
+    <input v-model="msg" type="text" id="user-input-vue" placeholder="Vue.js">
+    <p class="print">오늘 사용할 도구는 {{ msg }} 입니다.</p>
+  </div>
+
+  <!-- jQuery CDN -->
+  <!-- <script src="https://unpkg.com/jquery"></script> -->
+  <!-- Vue Library - CDN -->
+  <!-- <script src="https://unpkg.com/vue"></script> -->
+  <!-- Vue Library - Local Data: node_modules -->
+  <script src="./node_modules/vue/dist/vue.js"></script>
+  <!-- DATA -->
+  <script src="./data/message.js"></script>
+  <!-- Vanilla Script -->
+  <script>
+    (function(global, message){
+      'use strict';
+
+      // 데이터 접근, 조작
+      // message.msg = 'this is native javascript';
+      // console.log(message);
+
+      // DOM에 접근, 조작
+      let input, bind;
+      let detectUserInput = e => {
+        // console.log(e.target.value);
+        let value = e.target.value;
+        // 데이터 변경
+        updateData(value);
+        // 화면 업데이트
+        updateRender(value);
+      };
+      let updateData = (value) => {
+        console.log('updateData');
+        message.msg = value
+      };
+      let updateRender = (value) => {
+        console.log('updateRender');
+        bind.textContent = value
+      };
+
+      input = document.querySelector('#user-input');
+      bind  = document.querySelector('.data-binding');
+
+      // 초기 화면 렌더링
+      input.value = message.msg;
+      bind.textContent = message.msg;
+      // 이벤트 바인딩 <-> 이벤트 핸들러
+      input.addEventListener('keyup', detectUserInput);
+
+      // 사용자 입력 후, 화면 렌더링 업데이트
+
+    }) // (window, message);
+  </script>
+  <!-- jQuery -->
+  <script>
+    (function($ = window.jQuery, MESSAGE = message){
+
+      let $input = $('#user-input'),
+          $bind  = $('.data-binding');
+      let update = data => {
+        MESSAGE.msg = data;
+        $bind.text(data);
+      };
+
+      update(MESSAGE.msg);
+
+      $input.on('keyup', e => {
+        let data = $(e.target).val();
+        update(data);
+      });
+
+    }) //();
+  </script>
+  <!-- Vue.js -->
+  <script>
+    // ES6+
+    ((Vue = window.Vue) => {
+
+      new Vue({
+        el: '.demo-vue',
+        data: message
+      });
+
+
+      // const config = {
+      //   // 마운트 할 요소 설정 => 선택자
+      //   el: '.demo-vue',
+      //   // 상태(State, Model)
+      //   data: {
+      //     msg: 'Hello Vue :-)'
+      //   }
+      // };
+
+      // // Vue 객체는 생성했으나,
+      // // 실제 HTML 요소에 마운팅 -> 작동
+      // window.vm = new Vue(config);
+
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "name": "learn-vue",
+  "version": "0.0.1",
+  "description": "Learn Vue.js",
+  "author": "yamoo9",
+  "private": true,
+  "dependencies": {
+    "vue": "^2.5.13"
+  }
+}
