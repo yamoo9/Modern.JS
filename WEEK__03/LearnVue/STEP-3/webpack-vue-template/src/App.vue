@@ -6,11 +6,11 @@
 
 <script>
 
-  import bgVideo from './components/BgVideo.vue';
+  import BgVideo from './components/BgVideo.vue';
 
   export default {
     name: 'app',
-    components: { bgVideo },
+    components: { BgVideo },
     data () {
       return {
         msg: '공부하기 쉬워요~ Vue~~'
