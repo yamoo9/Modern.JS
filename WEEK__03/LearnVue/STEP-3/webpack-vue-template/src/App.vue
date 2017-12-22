@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <bgVideo :message="msg"></bgVideo>
+    <bgVideo url="x0r_7koevhw" :message="msg"></bgVideo>
   </div>
 </template>
 
@@ -17,6 +17,7 @@
       }
     }
   }
+
 </script>
 
 <style>

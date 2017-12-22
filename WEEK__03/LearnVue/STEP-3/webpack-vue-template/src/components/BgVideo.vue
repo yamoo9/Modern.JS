@@ -1,23 +1,29 @@
 <template>
   <div class="bg-video">
     <p>{{message}}</p>
-    <iframe width="560" height="315" :src="ytdSource" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+    <iframe
+      width="560"
+      height="315"
+      :src="ytdSource"
+      gesture="media"
+      allow="encrypted-media"
+      allowfullscreen></iframe>
   </div>
 </template>
 
 <script>
 export default {
   name: 'BgVideo',
-  props: [],
   props: {
+    url: {
+      type: String,
+    },
     message: {
-      type: String
+      type: String,
     }
   },
   data() {
-    return  {
-      url: 'x0r_7koevhw'
-    }
+    return  {}
   },
   computed: {
     ytdSource() {
@@ -26,4 +32,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+iframe {
+  border: 0;
+}
+</style>
 
